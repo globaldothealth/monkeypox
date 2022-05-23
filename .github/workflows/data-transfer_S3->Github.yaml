@@ -1,0 +1,35 @@
+# This transfers files from S3 to Github.
+# TODO: incorporate into the script in this repo
+# blocked by https://github.com/github/rest-api-description/issues/1147
+
+on:
+  schedule:
+    - cron: '10 1 * * *'
+    - cron: '10 19 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Download files from S3
+      uses: keithweaver/aws-s3-github-action@v1.0.0
+      with:
+        command: sync
+        source: ${{ secrets.S3_BUCKET }}
+        destination: ./archives/
+        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws_region: eu-central-1
+        flags: --delete
+    - name: Upload files to GitHub
+      run: |
+        mv latest.json ./
+        mv latest.csv ./
+        git add latest.*
+        git add archives
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git diff-index --quiet HEAD || git commit -m "Updating data files"
+        git push origin main:main
