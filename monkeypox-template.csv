@@ -5,3 +5,4 @@ ID,Status,Location,City,Country,Age,Gender,Date_onset,Date_confirmation,Symptoms
 4,confirmed,Lisbon,Lisbon,Portugal,40-45,,,2022-05-17,"skin lesions, ulcerative lesions",N,,,,,,,,N,,,,,,,,,,2022-05-18,2022-05-18
 5,suspected,Toronto,Toronto,Canada,40-50,male,,,fever,,,Y,,,,,,,,,,,,,,,,2022-05-18,2022-05-18
 6,confirmed,Madrid,Madrid,Spain,,male,,2022-05-13,,,,Y,,,,,,,,,,,,RT-PCR,,,,2022-05-18,2022-05-20
+7,confirmed,Ortenaukreis,,Germany,,,,2022-05-22,skin lesions,Y,,y,,,,,,Spanien,,,,,,,,,https://sozialministerium.baden-wuerttemberg.de/de/service/presse/pressemitteilung/pid/erster-fall-von-affenpocken-in-baden-wuerttemberg/
