@@ -6,6 +6,7 @@ on:
     paths:
     - '.github/workflows/data-script-deploy.yml'
     - 'src/**'
+    - 'Dockerfile'
   workflow_dispatch:
 
 jobs:
@@ -25,7 +26,6 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Build, tag, and push image to Amazon ECR (latest)
-      working-directory: /
       env:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         REPO: monkeypox
