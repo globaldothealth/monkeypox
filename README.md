@@ -17,6 +17,9 @@ If requesting a fix please include steps to reproduce undesirable behaviors.
 
 If you would like to contribute, assign an issue to yourself and/or reach out to a contributor and we will happily help you help us.
 
+If you want to send data to us, you can use our template at [monkeypox-template.csv](monkeypox-template.csv) which makes
+it easier for us to add to our list. Alternatively, you can open an issue with an attached CSV / XLSX file in this repository.
+
 ## License and attribution
 
 This repository and data exports are published under the CC BY 4.0 license.

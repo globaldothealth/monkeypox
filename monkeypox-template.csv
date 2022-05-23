@@ -1,0 +1,7 @@
+ID,Status,Location,City,Country,Age,Gender,Date_onset,Date_confirmation,Symptoms,Hospitalised (Y/N/NA),Date_hospitalisation,Isolated (Y/N/NA),Date_isolation,Outcome,Contact_comment,Contact_ID,Contact_location,Travel_history (Y/N/NA),Travel_history_entry,Travel_history_start,Travel_history_location,Travel_history_country,Genomics_Metadata,Confirmation_method,Notes,Source,Source_II,Date_entry,Date_last_modified
+1,confirmed,London,London,England,,,2022-05-01,2022-05-09,rash,Y,2022-05-10,Y,2022-05-09,,Index case,2,Household,Y,2022-04-30,late April,,Nigeria,West African Clade,RT-PCR,,http://foo.gov.zz/monkeypox-cases-confirmed,https://www.who.int/emergencies/disease-outbreak-news/,2022-05-18,2022-05-18
+2,confirmed,London,London,England,,male,2022-05-01,2022-05-03,ulcerative lesions,Y,2022-05-11,Y,2022-05-03,,,,,N,,,,,West African Clade,RT-PCR,,,,2022-05-18,2022-05-18
+3,confirmed,Lisbon,Lisbon,Portugal,15-20,male,,2022-05-17,"skin lesions, ulcerative lesions",N,,,,,,,,N,,,,,,,Suspected sexual transmission,,,2022-05-18,2022-05-18
+4,confirmed,Lisbon,Lisbon,Portugal,40-45,,,2022-05-17,"skin lesions, ulcerative lesions",N,,,,,,,,N,,,,,,,,,,2022-05-18,2022-05-18
+5,suspected,Toronto,Toronto,Canada,40-50,male,,,fever,,,Y,,,,,,,,,,,,,,,,2022-05-18,2022-05-18
+6,confirmed,Madrid,Madrid,Spain,,male,,2022-05-13,,,,Y,,,,,,,,,,,,RT-PCR,,,,2022-05-18,2022-05-20
