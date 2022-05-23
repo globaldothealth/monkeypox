@@ -1,96 +1,146 @@
-file: monkeypox_list.csv
-dictionary_last_modified: 2022-05-19
+dictionary_last_modified: 2022-05-23
 fields:
-  ID:
+  - name: ID
     type: integer
     description: Unique ID of the case
     required: true
-  Status:
+
+  - name: Status
     type: confirmed | suspected
     description: Whether the case is confirmed or suspected
     required: true
-  Location:
+
+  - name: Location
     type: string
     description: Country subdivision where case was reported
-  Country:
+    examples: [Islington, Croydon]
+
+  - name: City
+    type: string
+    description: City where case was reported
+    examples: [London, Madrid, Sydney, Boston]
+
+  - name: Country
     type: string
     description: Country where case was reported
     required: true
-  Age:
+    examples: [England, United States, Spain, Australia]
+
+  - name: Age
     type: integer
     description: Age of the individual
-  Gender:
+
+  - name: Gender
     type: male | female | other
     description: Gender of the individual
-  Date_onset:
+
+  - name: Date_onset
     type: iso8601date
     description: Date of onset of symptoms
-  Date_confirmation:
+
+  - name: Date_confirmation
     type: iso8601date
     description: Date when case was confirmed
-  Symptoms:
+
+  - name: Symptoms
     type: string
     description: Comma separated list of symptoms
-  "Hospitalised (Y/N/NA)":
+    examples:
+      - rash
+      - vesicular rash
+      - skin lesions
+      - ulcerative lesions
+      - oral and genital ulcers
+      - fever
+
+  - name: Hospitalised (Y/N/NA)
     type: Y | N | NA
     description: Whether individual was hospitalised (Y=Yes, N=No, NA=Not applicable)
-  Date_hospitalisation:
+
+  - name: Date_hospitalisation
     type: iso8601date
     description: Date individual was hospitalised
-  "Isolated (Y/N/NA)":
+
+  - name: Isolated (Y/N/NA)
     type: Y | N | NA
     description: Whether individual was isolated (Y=Yes, N=No, NA=Not applicable)
-  Date_isolation:
+
+  - name: Date_isolation
     type: iso8601date
     description: Date individual entered isolation
-  Outcome:
+
+  - name: Outcome
     type: recovered | death
     description: Optional field that specifies outcome of the disease
-  Contact_comment:
+
+  - name: Contact_comment
     type: string
     description: Free text describing how individual came into contact
-  Contact_ID:
+    examples:
+      - Under investigation
+      - Index case
+      - Flight
+
+  - name: Contact_ID
     type: integer
     description: If specified, is the case ID from which this patient contracted the virus
-  Contact_location:
+
+  - name: Contact_location
     type: string
     description: Location where contact happened that led to transmission
-  "Travel history (Y/N/NA)":
+    examples: [Household]
+
+  - name: Travel history (Y/N/NA)
     type: Y | N | NA
     description: Whether individual has travel history (Y=Yes, N=No, NA=Not applicable)
-  Travel_history_entry:
+
+  - name: Travel_history_entry
     type: iso8601date
     description: Date when individual entered the country
-  Travel_history_start:
+
+  - name: Travel_history_start
     type: string
     description: Free text describing when travel started
-  Travel_history_location:
+
+  - name: Travel_history_location
     type: string
     description: Location where individual had travelled
-  Travel_history_country:
+
+  - name: Travel_history_country
     type: string
     description: Country where individual had travelled
-  Genomics_Metadata:
+
+  - name: Genomics_Metadata
     type: string
     description: Which clade the viral strain belongs to
-  Confirmation_method:
+    examples:
+      - West African Clade
+      - North African Clade
+
+  - name: Confirmation_method
     type: string
     description: Test used to confirm diagnosis
-  Notes:
+    examples: ["RT-PCR"]
+
+  - name: Notes
     type: string
     description: Case notes, miscellaneous
-  Source:
+
+  - name: Source
     type: url
     description: URL of news story or government source where this case was confirmed
     required: true
-  Source_II:
+
+  - name: Source_II
     type: url
     description: URL of news story or government source where this case was confirmed (archived or secondary source)
-  Date_entry:
+
+  - name: Date_entry
     type: iso8601date
     description: Date case was entered into line list
     required: true
-  Date_last_modified:
+
+  - name: Date_last_modified
     type: iso8601date
     description: Last date when case was modified in line list
     required: true
