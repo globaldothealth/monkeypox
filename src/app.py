@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date, datetime
 import json
 import logging
 from os import environ
@@ -10,7 +10,8 @@ import pdfkit
 import pygsheets
 
 
-S3_BUCKET = environ.get("S3_BUCKET")
+DATA_BUCKET = environ.get("DATA_BUCKET")
+AGGREGATES_BUCKET = environ.get("AGGREGATES_BUCKET")
 DOCUMENT_ID = environ.get("DOCUMENT_ID")
 
 S3 = boto3.resource("s3")
@@ -72,12 +73,12 @@ def store_data(json_data, csv_data):
 	logging.info("Uploading data to S3")
 	now = datetime.today()
 	try:
-		S3.Object(S3_BUCKET, f"{DATA_FOLDER}/{now}.csv").put(Body=csv_data)
-		S3.Object(S3_BUCKET, f"latest.csv").put(Body=csv_data)
-		S3.Object(S3_BUCKET, f"{DATA_FOLDER}/{now}.json").put(Body=json_data)
-		S3.Object(S3_BUCKET, f"latest.json").put(Body=json_data)
+		S3.Object(DATA_BUCKET, f"{DATA_FOLDER}/{now}.csv").put(Body=csv_data)
+		S3.Object(DATA_BUCKET, "latest.csv").put(Body=csv_data)
+		S3.Object(DATA_BUCKET, f"{DATA_FOLDER}/{now}.json").put(Body=json_data)
+		S3.Object(DATA_BUCKET, "latest.json").put(Body=json_data)
 	except Exception as exc:
-		logging.exception(f"An exception occurred while trying to upload files")
+		logging.exception(f"An exception occurred while trying to upload data files")
 		raise
 
 
@@ -102,7 +103,7 @@ def source_urls_to_pdfs(source_urls):
 def bucket_contains(file_name):
 	global BUCKET_CONTENTS
 	if not BUCKET_CONTENTS:
-		objects = S3.Bucket(S3_BUCKET).objects.all()
+		objects = S3.Bucket(DATA_BUCKET).objects.all()
 		BUCKET_CONTENTS = [o.key.split("/")[1] for o in objects if o.key.startswith(f"{SOURCES_FOLDER}/")]
 	return file_name in BUCKET_CONTENTS
 
@@ -111,10 +112,45 @@ def store_pdfs(pdfs):
 	logging.info("Uploading sources to S3")
 	for pdf in pdfs:
 		try:
-			S3.Object(S3_BUCKET, f"{SOURCES_FOLDER}/{pdf}").upload_file(pdf)
+			S3.Object(DATA_BUCKET, f"{SOURCES_FOLDER}/{pdf}").upload_file(pdf)
 		except Exception:
 			logging.exception(f"An exception occurred while trying to upload {pdf}")
 			raise
+
+
+def aggregate_data(data):
+	logging.info("Getting total counts of cases")
+	today = date.today().strftime("%Y-%m-%d")
+	total_count = {"total": 0}
+	aggregates = {}
+	for case in data:
+		country = case.get("Country")
+		if not country:
+			raise ValueError(f"No country found for case: {case}")
+		status = case.get("Status")
+		if not status:
+			raise ValueError(f"No status found for case: {case}")
+		if not status in ["suspected", "confirmed", "excluded"]:
+			raise ValueError(f"Status not 'suspected', 'confirmed', or 'excluded' in case: {case}")
+		if status == "excluded":
+			continue
+		if not aggregates.get(country):
+			aggregates[country] = {"suspected": 0, "confirmed": 0}
+		else:
+			aggregates[country][status] += 1
+		total_count["total"] += 1
+	country_aggregates = {today: [{k: v} for k, v in aggregates.items()]}
+	return json.dumps(total_count), json.dumps(country_aggregates)
+
+
+def store_aggregates(total_count, country_aggregates):
+	logging.info("Uploading case counts to S3")
+	try:
+		S3.Object(AGGREGATES_BUCKET, "total/latest.json").put(Body=total_count)
+		S3.Object(AGGREGATES_BUCKET, "country/latest.json").put(Body=country_aggregates)
+	except Exception as exc:
+		logging.exception("An exception occurred while trying to upload latest aggregates and totals files")
+		raise
 
 
 if __name__ == "__main__":
@@ -127,4 +163,6 @@ if __name__ == "__main__":
 	source_urls = get_source_urls(data)
 	pdfs = source_urls_to_pdfs(source_urls)
 	store_pdfs(pdfs)
+	total_count, country_aggregates = aggregate_data(data)
+	store_aggregates(total_count, country_aggregates)
 	logging.info("Script completed")
