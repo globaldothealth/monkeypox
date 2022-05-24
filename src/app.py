@@ -71,13 +71,14 @@ def format_data(data):
 def store_data(json_data, csv_data):
 	logging.info("Uploading data to S3")
 	now = datetime.today()
-	for fmt in ["csv", "json"]:
-		try:
-			S3.Object(S3_BUCKET, f"{DATA_FOLDER}/{now}.{fmt}").put(Body=csv_data)
-			S3.Object(S3_BUCKET, f"latest.{fmt}").put(Body=csv_data)
-		except Exception as exc:
-			logging.exception(f"An exception occurred while trying to upload {fmt} files")
-			raise
+	try:
+		S3.Object(S3_BUCKET, f"{DATA_FOLDER}/{now}.csv").put(Body=csv_data)
+		S3.Object(S3_BUCKET, f"latest.csv").put(Body=csv_data)
+		S3.Object(S3_BUCKET, f"{DATA_FOLDER}/{now}.json").put(Body=json_data)
+		S3.Object(S3_BUCKET, f"latest.json").put(Body=json_data)
+	except Exception as exc:
+		logging.exception(f"An exception occurred while trying to upload files")
+		raise
 
 
 def source_urls_to_pdfs(source_urls):
