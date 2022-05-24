@@ -19,15 +19,13 @@ jobs:
       with:
         command: sync
         source: s3://${{ secrets.S3_BUCKET }}
-        destination: ./archives/
+        destination: ./
         aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws_region: eu-central-1
         flags: --delete
     - name: Upload files to GitHub
       run: |
-        mv archives/latest.json ./
-        mv archives/latest.csv ./
         git add latest.*
         git add archives
         git config --local user.email "action@github.com"
