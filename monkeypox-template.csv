@@ -5,3 +5,4 @@ ID,Status,Location,City,Country,Age,Gender,Date_onset,Date_confirmation,Symptoms
 4,confirmed,Lisbon,Lisbon,Portugal,40-45,,,2022-05-17,"skin lesions, ulcerative lesions",N,,,,,,,,N,,,,,,,,,,2022-05-18,2022-05-18
 5,suspected,Toronto,Toronto,Canada,40-50,male,,,fever,,,Y,,,,,,,,,,,,,,,,2022-05-18,2022-05-18
 6,confirmed,Madrid,Madrid,Spain,,male,,2022-05-13,,,,Y,,,,,,,,,,,,RT-PCR,,,,2022-05-18,2022-05-20
+304,confirmed,Rome,Rome,Italy,,,,2022-05-24,,N,,,,,,,,,,,,,,,,https://www.ansa.it/sito/notizie/cronaca/2022/05/24/vaiolo-delle-scimmie-sei-i-casi-uno-anche-in-lombardia.-possibile-legame-con-le-canarie-_352dd514-4a14-47a0-b163-4279b656bcc8.html,,2022-05-24,2022-05-24
