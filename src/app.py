@@ -4,6 +4,7 @@ import logging
 from os import environ
 import sys
 from urllib.parse import urlparse
+from pathlib import Path
 
 import boto3
 import pdfkit
@@ -18,6 +19,7 @@ S3 = boto3.resource("s3")
 
 DATA_FOLDER = "archives"
 SOURCES_FOLDER = "sources"
+CASE_DEFINITIONS_FOLDER = "case-definitions"
 
 BUCKET_CONTENTS = []
 
@@ -93,13 +95,21 @@ def store_data(json_data, csv_data):
 		raise
 
 
-def source_urls_to_pdfs(source_urls):
-	logging.info("Converting source websites into PDFs")
+def urls_to_pdfs(source_urls, folder, names=None):
+	logging.info("Converting websites into PDFs")
 	pdfs = []
-	for source_url in source_urls:
-		parsed_url = urlparse(source_url)
-		name = f"{parsed_url.path.replace('/', '_')[1:]}.pdf"
-		if bucket_contains(name):
+	if not names:
+		names = [f"{urlparse(source_url).path.replace('/', '_')[1:]}.pdf" for source_url in source_urls]
+	else:
+		try:
+			assert len(names) == len(source_urls)
+		except AssertionError:
+			logging.error("urls_to_pdfs: Source urls and names should be of the same length")
+			raise
+
+	names = [((n + ".pdf") if not n.endswith(".pdf") else n) for n in names]  # ensure .pdf suffix
+	for source_url, name in zip(source_urls, names):
+		if bucket_contains(name, folder):
 			logging.info(f"Found {name} in bucket, skipping it")
 			continue
 		logging.info(f"Saving content from {source_url} to {name}")
@@ -111,19 +121,19 @@ def source_urls_to_pdfs(source_urls):
 	return pdfs
 
 
-def bucket_contains(file_name):
+def bucket_contains(file_name, folder):
 	global BUCKET_CONTENTS
 	if not BUCKET_CONTENTS:
 		objects = S3.Bucket(DATA_BUCKET).objects.all()
-		BUCKET_CONTENTS = [o.key.split("/")[1] for o in objects if o.key.startswith(f"{SOURCES_FOLDER}/")]
+		BUCKET_CONTENTS = [o.key.split("/")[1] for o in objects if o.key.startswith(f"{folder}/")]
 	return file_name in BUCKET_CONTENTS
 
 
-def store_pdfs(pdfs):
+def store_pdfs(pdfs, folder):
 	logging.info("Uploading sources to S3")
 	for pdf in pdfs:
 		try:
-			S3.Object(DATA_BUCKET, f"{SOURCES_FOLDER}/{pdf}").upload_file(pdf)
+			S3.Object(DATA_BUCKET, f"{folder}/{pdf}").upload_file(pdf)
 		except Exception:
 			logging.exception(f"An exception occurred while trying to upload {pdf}")
 			raise
@@ -164,6 +174,18 @@ def store_aggregates(total_count, country_aggregates):
 		raise
 
 
+def store_case_definitions(case_definition_urls: Path):
+	"""Retrieve and store case definitions"""
+	with case_definition_urls.open() as fp:
+		case_definitions = json.load(fp)
+		pdfs = urls_to_pdfs(
+                source_urls=case_definitions.values(),
+                folder=CASE_DEFINITIONS_FOLDER,
+                names=case_definitions.keys()
+        )
+		store_pdfs(pdfs, folder=CASE_DEFINITIONS_FOLDER)
+
+
 if __name__ == "__main__":
 	setup_logger()
 	logging.info("Starting script")
@@ -172,8 +194,9 @@ if __name__ == "__main__":
 	json_data, csv_data = format_data(data)
 	store_data(json_data, csv_data)
 	source_urls = get_source_urls(data)
-	pdfs = source_urls_to_pdfs(source_urls)
-	store_pdfs(pdfs)
+	pdfs = urls_to_pdfs(source_urls, folder=SOURCES_FOLDER)
+	store_pdfs(pdfs, folder=SOURCES_FOLDER)
 	total_count, country_aggregates = aggregate_data(data)
 	store_aggregates(total_count, country_aggregates)
+	store_case_definitions(Path(__file__).parent / 'case-definitions.json')
 	logging.info("Script completed")
