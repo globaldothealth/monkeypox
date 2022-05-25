@@ -35,7 +35,7 @@ jobs:
         sudo mv -v bucket/archives/* ./archives/
         git add ./latest.*
         git add ./archives
-        sudo mv -v bucket/case-definitions .
+        sudo mv -v bucket/case-definitions/* ./case-definitions/
         git add ./case-definitions
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
