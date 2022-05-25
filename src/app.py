@@ -62,6 +62,7 @@ def clean_data(data):
 	for case in data:
 		case["Country_ISO3"] = lookup_iso3(case.get("Country"))
 		case.pop("Curator_initials")
+		case.pop("Notes")
 	return data
 
 

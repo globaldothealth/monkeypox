@@ -131,10 +131,6 @@ fields:
     description: Test used to confirm diagnosis
     examples: ["RT-PCR"]
 
-  - name: Notes
-    type: string
-    description: Case notes, miscellaneous
-
   - name: Source
     type: url
     description: URL of news story or government source where this case was confirmed
