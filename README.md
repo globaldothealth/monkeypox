@@ -21,6 +21,11 @@ If you want to send data to us, you can use our template at [monkeypox-template.
 it easier for us to add to our list. Alternatively, you can open an issue with an attached CSV / XLSX file in this repository,
 or email info@global.health
 
+## Visualizations
+
+* [Our World in Data](https://ourworldindata.org/monkeypox): cumulative and daily confirmed and suspected case counts and map
+* [Healthmap](https://monkeypox.healthmap.org): Map visualization of cases by country
+
 ## License and attribution
 
 This repository and data exports are published under the CC BY 4.0 license.
