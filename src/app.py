@@ -16,6 +16,12 @@ import requests
 DATA_BUCKET = environ.get("DATA_BUCKET")
 AGGREGATES_BUCKET = environ.get("AGGREGATES_BUCKET")
 DOCUMENT_ID = environ.get("DOCUMENT_ID")
+ISO3_QUIRKS = {
+    "england": "GBR",
+    "scotland": "GBR",
+    "northern ireland": "GBR",
+    "wales": "GBR",
+}
 
 S3 = boto3.resource("s3")
 
@@ -29,6 +35,8 @@ BUCKET_CONTENTS = []
 def lookup_iso3(country: str) -> str:
     if country is None:
         return ""
+    if country.lower() in ISO3_QUIRKS:
+        return ISO3_QUIRKS.get(country.lower())
     try:
         matches = pycountry.countries.search_fuzzy(country)
         if not matches:
