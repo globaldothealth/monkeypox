@@ -211,5 +211,5 @@ if __name__ == "__main__":
 	store_pdfs(pdfs, folder=SOURCES_FOLDER)
 	total_count, country_aggregates = aggregate_data(data)
 	store_aggregates(total_count, country_aggregates)
-	store_case_definitions(Path(__file__).parent / 'case-definitions.json')
+	store_case_definitions(Path('case-definitions.json'))
 	logging.info("Script completed")
