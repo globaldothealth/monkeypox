@@ -16,12 +16,6 @@ import requests
 DATA_BUCKET = environ.get("DATA_BUCKET")
 AGGREGATES_BUCKET = environ.get("AGGREGATES_BUCKET")
 DOCUMENT_ID = environ.get("DOCUMENT_ID")
-ISO3_QUIRKS = {
-    "england": "GBR",
-    "scotland": "GBR",
-    "northern ireland": "GBR",
-    "wales": "GBR",
-}
 
 S3 = boto3.resource("s3")
 
@@ -30,6 +24,15 @@ SOURCES_FOLDER = "sources"
 CASE_DEFINITIONS_FOLDER = "case-definitions"
 
 BUCKET_CONTENTS = []
+
+ISO3_QUIRKS = {
+    "england": "GBR",
+    "scotland": "GBR",
+    "northern ireland": "GBR",
+    "wales": "GBR",
+}
+
+VALID_STATUSES = ["suspected", "confirmed", "excluded", "discarded"]
 
 
 def lookup_iso3(country: str) -> str:
@@ -176,9 +179,9 @@ def aggregate_data(data):
         status = case.get("Status")
         if not status:
             raise ValueError(f"No status found for case: {case}")
-        if not status in ["suspected", "confirmed", "excluded"]:
-            raise ValueError(f"Status not 'suspected', 'confirmed', or 'excluded' in case: {case}")
-        if status == "excluded":
+        if not status in VALID_STATUSES:
+            logging.warning(f"Case status {status} not in {VALID_STATUSES}")
+        if status in ["excluded", "discarded"]:
             continue
         if not aggregates.get(country):
             aggregates[country] = {"suspected": 0, "confirmed": 0}
