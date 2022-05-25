@@ -1,4 +1,4 @@
-dictionary_last_modified: 2022-05-23
+dictionary_last_modified: 2022-05-25
 fields:
   - name: ID
     type: integer
@@ -6,8 +6,11 @@ fields:
     required: true
 
   - name: Status
-    type: confirmed | suspected
-    description: Whether the case is confirmed or suspected
+    type: confirmed | suspected | excluded
+    description: >
+      Status of a case. Cases which are excluded were previously
+      suspected but have now been confirmed negative, and should
+      be excluded from case counts.
     required: true
 
   - name: Location
