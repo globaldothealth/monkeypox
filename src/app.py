@@ -8,7 +8,7 @@ from urllib.parse import urlparse
 import boto3
 import pdfkit
 import pygsheets
-
+import pycountry
 
 S3_BUCKET = environ.get("S3_BUCKET")
 DOCUMENT_ID = environ.get("DOCUMENT_ID")
@@ -19,6 +19,16 @@ DATA_FOLDER = "archives"
 SOURCES_FOLDER = "sources"
 
 BUCKET_CONTENTS = []
+
+
+def lookup_iso3(country: str) -> str:
+    if country is None:
+        return ''
+    matches = pycountry.countries.search_fuzzy(country)
+    if not matches:
+        logging.warning(f"No match found for country: {country}")
+        return ''
+    return matches[0].alpha_3
 
 
 def setup_logger():
@@ -49,6 +59,7 @@ def get_source_urls(data):
 def clean_data(data):
 	logging.info("Cleaning data")
 	for case in data:
+		case["Country_ISO3"] = lookup_iso3(case.get("Country"))
 		case.pop("Curator_initials")
 	return data
 

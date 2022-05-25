@@ -29,6 +29,12 @@ fields:
     required: true
     examples: [England, United States, Spain, Australia]
 
+  - name: Country_ISO3
+    type: string
+    description: ISO 3166-1 alpha-3, three letter country codes
+    required: true
+    examples: [ITA, GBR, ESP, BOL]
+
   - name: Age
     type: integer
     description: Age of the individual
