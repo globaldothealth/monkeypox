@@ -10,6 +10,8 @@ import boto3
 import pdfkit
 import pygsheets
 import pycountry
+import requests
+
 
 DATA_BUCKET = environ.get("DATA_BUCKET")
 AGGREGATES_BUCKET = environ.get("AGGREGATES_BUCKET")
@@ -113,11 +115,21 @@ def urls_to_pdfs(source_urls, folder, names=None):
 			logging.info(f"Found {name} in bucket, skipping it")
 			continue
 		logging.info(f"Saving content from {source_url} to {name}")
-		try:
-			pdfkit.from_url(source_url, name, options={"page-size": "Letter"})
-			pdfs.append(name)
-		except Exception:
-			logging.exception(f"An exception occurred while trying to convert {source_url} to {name}")
+		if ".pdf" not in source_url:
+			try:
+				pdfkit.from_url(source_url, name, options={"page-size": "Letter"})
+				pdfs.append(name)
+			except Exception:
+				logging.exception(f"An exception occurred while trying to convert {source_url} to {name}")
+		else:
+			try:
+				r = requests.get(source_url)
+				with open(name, 'wb') as fp:
+					fp.write(r.content)
+				pdfs.append(name)
+			except Exception:
+				logging.exception(f"An exception occurred while trying to download {source_url} to {name}")
+
 	return pdfs
 
 
