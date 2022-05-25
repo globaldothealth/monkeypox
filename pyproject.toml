@@ -9,6 +9,7 @@ python = "^3.9"
 boto3 = "^1.23.5"
 pygsheets = "^2.0.5"
 pdfkit = "^1.0.0"
+pycountry = "^22.3.5"
 
 [tool.poetry.dev-dependencies]
 

@@ -228,6 +228,14 @@ python-versions = "*"
 pyasn1 = ">=0.4.6,<0.5.0"
 
 [[package]]
+name = "pycountry"
+version = "22.3.5"
+description = "ISO country, subdivision, language, currency and script definitions and their translations"
+category = "main"
+optional = false
+python-versions = ">=3.6, <4"
+
+[[package]]
 name = "pygsheets"
 version = "2.0.5"
 description = "Google Spreadsheets Python API v4"
@@ -354,7 +362,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "376a6e844a771359616fbd1566d6bf0368c8fc8214c55a440a6d210b164ac725"
+content-hash = "c7cdfebd85e96fb8694e5ff7ba12826a095c9ec7f7c19ce32432cdb2940f6c54"
 
 [metadata.files]
 boto3 = [
@@ -477,6 +485,9 @@ pyasn1-modules = [
     {file = "pyasn1_modules-0.2.8-py3.5.egg", hash = "sha256:426edb7a5e8879f1ec54a1864f16b882c2837bfd06eee62f2c982315ee2473ed"},
     {file = "pyasn1_modules-0.2.8-py3.6.egg", hash = "sha256:cbac4bc38d117f2a49aeedec4407d23e8866ea4ac27ff2cf7fb3e5b570df19e0"},
     {file = "pyasn1_modules-0.2.8-py3.7.egg", hash = "sha256:c29a5e5cc7a3f05926aff34e097e84f8589cd790ce0ed41b67aed6857b26aafd"},
+]
+pycountry = [
+    {file = "pycountry-22.3.5.tar.gz", hash = "sha256:b2163a246c585894d808f18783e19137cb70a0c18fb36748dc01fc6f109c1646"},
 ]
 pygsheets = [
     {file = "pygsheets-2.0.5-py2.py3-none-any.whl", hash = "sha256:85a4c871ac1d53013e042c13552b07f908b991c3d8c8770b3a68eb3452c8c218"},
