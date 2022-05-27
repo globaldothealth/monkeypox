@@ -215,5 +215,16 @@ def store_case_definitions(case_definition_urls: Path):
 
 
 if __name__ == "__main__":
+    setup_logger()
+    logging.info("Starting script")
+    data = get_data()
+    data = clean_data(data)
+    json_data, csv_data = format_data(data)
+    store_data(json_data, csv_data)
+    source_urls = get_source_urls(data)
+    pdfs = urls_to_pdfs(source_urls, folder=SOURCES_FOLDER)
+    store_pdfs(pdfs, folder=SOURCES_FOLDER)
+    total_count, country_aggregates = aggregate_data(data)
+    store_aggregates(total_count, country_aggregates)
     store_case_definitions(Path('case-definitions.json'))
     logging.info("Script completed")

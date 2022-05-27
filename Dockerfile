@@ -1,5 +1,5 @@
 # `python-base` sets up all our shared environment variables
-FROM python:3.9-slim as python-base
+FROM python:3.10-slim as python-base
 
 ENV PYTHONUNBUFFERED=1 \
     # prevents python creating .pyc files
@@ -31,8 +31,7 @@ FROM python-base as builder-base
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
         curl \
-        build-essential \
-        wkhtmltopdf
+        build-essential
 
 # install poetry - respects $POETRY_VERSION & $POETRY_HOME
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python
@@ -50,7 +49,8 @@ RUN poetry install --no-dev
 FROM python-base as development
 
 RUN apt-get update && apt-get upgrade -y curl \
-      awscli
+      awscli \
+      wkhtmltopdf
 
 WORKDIR $PYSETUP_PATH
 
