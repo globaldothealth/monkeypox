@@ -12,5 +12,8 @@
   "ITA": "https://www.trovanorme.salute.gov.it/norme/renderNormsanPdf?anno=2022&codLeg=87420&parte=1%20&serie=null#page=11",
   "CAN": "http://www.bccdc.ca/health-professionals/clinical-resources/monkeypox",
   "NLD": "https://lci.rivm.nl/richtlijnen/pokken",
-  "CA-ON": "https://www.coto.org/docs/default-source/default-document-library/cmoh-77-6-order-monkeypox.pdf?Status=Temp&sfvrsn=5615b1cc_2"
+  "CA-ON": "https://www.coto.org/docs/default-source/default-document-library/cmoh-77-6-order-monkeypox.pdf?Status=Temp&sfvrsn=5615b1cc_2",
+  "GB-NIR": "https://www.hpsc.ie/a-z/zoonotic/monkeypox/guidance/Monkeypox%20Clinicians%20Public%20Health.pdf",
+  "MEX": "https://www.gob.mx/cms/uploads/attachment/file/728064/AE_Viruela_Simica_240522.pdf",
+  "URY": "https://www.crmpr.org.br/uploadAddress/Comunicacao-de-Risco-06-Monkeypox-22-05-22-FINAL[5321].pdf"
 }
