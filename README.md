@@ -10,6 +10,23 @@ The data dictionary is located in the root directory of this project. It contain
 
 The archives folder contains dated JSON and CSV files. They are currently uploaded manually; regularly and automatically updated data sets live in an (currently private) S3 bucket.
 
+## Getting the data
+
+**Direct download (CSV)**: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.csv  
+**Direct download (JSON)**: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.json
+
+**Python** (requires `pandas`):
+```python
+import pandas as pd
+df = pd.read_csv("https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.csv")
+```
+
+**R** (requires `httr`):
+```r
+library(httr)
+df <- read.csv(text=content(GET("https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.csv")))
+```
+
 ## Contributing
 
 If you would like to request changes, open an issue on this repository and we will happily consider your request. 
