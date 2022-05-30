@@ -90,13 +90,9 @@ def format_data(data):
     json_data = json.dumps(data)
     csv_data = ""
     column_names = data[0].keys()
-    for name in column_names:
-        csv_data += f"{name},"
-    csv_data += "\n"
+    csv_data += ",".join(column_names) + "\n"
     for row in data:
-        for val in row.values():
-            csv_data += f"{str(val).replace(',', ';')},"
-        csv_data += "\n"
+        csv_data += ",".join(str(val).replace(',', ';') for val in row.values()) + "\n"
     return json_data, csv_data
 
 
