@@ -1,4 +1,4 @@
-dictionary_last_modified: 2022-05-25
+dictionary_last_modified: 2022-06-01
 fields:
   - name: ID
     type: integer
@@ -6,9 +6,9 @@ fields:
     required: true
 
   - name: Status
-    type: confirmed | suspected | excluded
+    type: confirmed | suspected | discarded
     description: >
-      Status of a case. Cases which are excluded were previously
+      Status of a case. Cases which are discarded were previously
       suspected but have now been confirmed negative, and should
       be excluded from case counts.
     required: true
@@ -36,8 +36,9 @@ fields:
     examples: [ITA, GBR, ESP, BOL]
 
   - name: Age
-    type: integer
-    description: Age of the individual
+    type: integer-range
+    description: Age of the individual, specified as a range,
+      either open-ended (<n, >n) or as a range delimited by a hyphen (m-n)
 
   - name: Gender
     type: male | female | other
@@ -99,12 +100,12 @@ fields:
     description: Location where contact happened that led to transmission
     examples: [Household]
 
-  - name: Travel history (Y/N/NA)
+  - name: Travel_history (Y/N/NA)
     type: Y | N | NA
     description: Whether individual has travel history (Y=Yes, N=No, NA=Not applicable)
 
   - name: Travel_history_entry
-    type: iso8601date
+    type: string
     description: Date when individual entered the country
 
   - name: Travel_history_start
@@ -137,6 +138,10 @@ fields:
     required: true
 
   - name: Source_II
+    type: url
+    description: URL of news story or government source where this case was confirmed (archived or secondary source)
+
+  - name: Source_III
     type: url
     description: URL of news story or government source where this case was confirmed (archived or secondary source)
 
