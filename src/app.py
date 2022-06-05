@@ -6,6 +6,7 @@ import io
 import sys
 import csv
 from urllib.parse import urlparse
+from collections import defaultdict
 from pathlib import Path
 
 import boto3
@@ -165,11 +166,11 @@ def store_pdfs(pdfs, folder):
             raise
 
 
-def aggregate_data(data):
+def aggregate_data(data, today=None):
     logging.info("Getting total counts of cases")
-    today = date.today().strftime("%Y-%m-%d")
+    today = today or date.today().strftime("%Y-%m-%d")
     total_count = {"total": 0}
-    aggregates = {}
+    aggregates = defaultdict(lambda: defaultdict(int))  # nested defaultdict
     for case in data:
         country = case.get("Country")
         if not country:
@@ -181,13 +182,10 @@ def aggregate_data(data):
             logging.warning(f"Case status {status} not in {VALID_STATUSES}")
         if status in ["excluded", "discarded"]:
             continue
-        if not aggregates.get(country):
-            aggregates[country] = {"suspected": 0, "confirmed": 0}
-        else:
-            aggregates[country][status] += 1
+        aggregates[country][status] += 1
         total_count["total"] += 1
-    country_aggregates = {today: [{k: v} for k, v in aggregates.items()]}
-    return json.dumps(total_count), json.dumps(country_aggregates)
+    country_aggregates = {today: [{k: {"confirmed": v["confirmed"], "suspected": v["suspected"]}} for k, v in aggregates.items()]}
+    return total_count, country_aggregates
 
 
 def store_aggregates(total_count, country_aggregates):
@@ -223,6 +221,6 @@ if __name__ == "__main__":
     pdfs = urls_to_pdfs(source_urls, folder=SOURCES_FOLDER)
     store_pdfs(pdfs, folder=SOURCES_FOLDER)
     total_count, country_aggregates = aggregate_data(data)
-    store_aggregates(total_count, country_aggregates)
+    store_aggregates(json.dumps(total_count), json.dumps(country_aggregates))
     store_case_definitions(Path('case-definitions.json'))
     logging.info("Script completed")
