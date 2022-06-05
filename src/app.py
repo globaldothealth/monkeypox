@@ -169,7 +169,7 @@ def store_pdfs(pdfs, folder):
 def aggregate_data(data, today=None):
     logging.info("Getting total counts of cases")
     today = today or date.today().strftime("%Y-%m-%d")
-    total_count = {"total": 0}
+    total_count = {"total": 0, "confirmed": 0}
     aggregates = defaultdict(lambda: defaultdict(int))  # nested defaultdict
     for case in data:
         country = case.get("Country")
@@ -184,6 +184,8 @@ def aggregate_data(data, today=None):
             continue
         aggregates[country][status] += 1
         total_count["total"] += 1
+        if status == "confirmed":
+            total_count["confirmed"] += 1
     country_aggregates = {today: [{k: {"confirmed": v["confirmed"], "suspected": v["suspected"]}} for k, v in aggregates.items()]}
     return total_count, country_aggregates
 
