@@ -70,10 +70,10 @@ def get_data():
 
 def get_source_urls(data):
     logging.info("Getting source urls from data")
-    source_urls = set(())
+    source_urls = set()
     for case in data:
-        source_urls.add(case.get("Source"))
-        source_urls.add(case.get("Source_II"))
+        source_urls.add(case.get("Source", ""))
+        source_urls.add(case.get("Source_II", ""))
     source_urls.remove("")
     return source_urls
 
