@@ -2,7 +2,9 @@ from datetime import date, datetime
 import json
 import logging
 from os import environ
+import io
 import sys
+import csv
 from urllib.parse import urlparse
 from pathlib import Path
 
@@ -88,12 +90,12 @@ def clean_data(data):
 def format_data(data):
     logging.info("Formatting data")
     json_data = json.dumps(data)
-    csv_data = ""
-    column_names = data[0].keys()
-    csv_data += ",".join(column_names) + "\n"
+    csv_data = io.StringIO()
+    csv_writer = csv.writer(csv_data)
+    csv_writer.writerow(data[0].keys())  # column names
     for row in data:
-        csv_data += ",".join(str(val).replace(',', ';') for val in row.values()) + "\n"
-    return json_data, csv_data
+        csv_writer.writerow(row.values())
+    return json_data, csv_data.getvalue()
 
 
 def store_data(json_data, csv_data):
