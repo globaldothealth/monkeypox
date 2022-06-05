@@ -1,0 +1,38 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/tests.yml'
+      - 'src/*.py'
+      - 'pyproject.toml'
+      - 'poetry.lock'
+  pull_request:
+    paths:
+      - '.github/workflows/tests.yml'
+      - 'src/*.py'
+      - 'pyproject.toml'
+      - 'poetry.lock'
+ 
+
+jobs:
+  tests:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-version: '3.10'
+      - name: Install poetry
+        run: curl -sSL https://install.python-poetry.org | python3 -
+      - name: Install dependencies
+        run: poetry install
+      - name: Lint with flake8
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          poetry run flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          poetry run flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      - name: Run tests
+        run: poetry run pytest -vv
