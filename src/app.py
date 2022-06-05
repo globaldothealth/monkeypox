@@ -180,9 +180,10 @@ def aggregate_data(data):
         if status in ["excluded", "discarded"]:
             continue
         if not aggregates.get(country):
-            aggregates[country] = {"suspected": 0, "confirmed": 0}
+            aggregates[country] = {"suspected": 0, "confirmed": 0, "confirmed_and_suspected": 0}
         else:
             aggregates[country][status] += 1
+            aggregates[country]["confirmed_and_suspected"] += 1
         total_count["total"] += 1
     country_aggregates = {today: [{k: v} for k, v in aggregates.items()]}
     return json.dumps(total_count), json.dumps(country_aggregates)
