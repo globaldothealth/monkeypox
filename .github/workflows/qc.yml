@@ -19,4 +19,4 @@ jobs:
       - name: Run quality check script
         env:
           WEBHOOK_URL: ${{ secrets.QC_WEBHOOK_URL }}
-        run: poetry run python src/qc.py
+        run: poetry run python src/qc.py https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.csv
