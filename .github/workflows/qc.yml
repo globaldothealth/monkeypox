@@ -1,0 +1,22 @@
+name: quality-checks
+
+on:
+  schedule:
+    - cron: "7 7 * * *"
+
+jobs:
+  qc:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-version: '3.10'
+      - name: Install poetry
+        run: curl -sSL https://install.python-poetry.org | python3 -
+      - name: Install dependencies
+        run: poetry install
+      - name: Run quality check script
+        env:
+          WEBHOOK_URL: ${{ secrets.QC_WEBHOOK_URL }}
+        run: poetry run python src/qc.py https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.csv
