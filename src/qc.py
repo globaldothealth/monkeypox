@@ -129,7 +129,7 @@ def pretty_lint_results(results, header=""):
             header
             + "\n"
             + "\n".join(
-                f"* *{row['id']}* (line {row['line']}): "
+                f"- *{row['id']}* (line {row['line']}): "
                 + ", ".join(f"{e['field']}={e['value']}" for e in row["errors"])
                 for row in results
             )
@@ -137,7 +137,7 @@ def pretty_lint_results(results, header=""):
 
 
 def send_slack_message(webhook_url: str, message: str) -> None:
-    if (response := requests.post(webhook_url, json={"text": message})).status != 200:
+    if (response := requests.post(webhook_url, json={"text": message})).status_code != 200:
         logging.error(
             f"Slack notification failed with {response.status_code}: {response.text}"
         )
@@ -148,5 +148,5 @@ if __name__ == "__main__":
     results = pretty_lint_results(lint(sys.argv[1]), header=f"QC for {sys.argv[1]}:")
     if results:
         print(results)
-    if results and (webhook_url := os.getenv("LINT_WEBHOOK_URL")):
+    if results and (webhook_url := os.getenv("WEBHOOK_URL")):
         send_slack_message(webhook_url, results)
