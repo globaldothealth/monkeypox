@@ -1,5 +1,5 @@
 """
-Lint monkeypox data at https://github.com/globaldothealth/monkeypox
+Quality check monkeypox data at https://github.com/globaldothealth/monkeypox
 
 Raises errors and warnings to a Slack channel which should have
 a defined webhook at LINT_WEBHOOK_URL
@@ -145,7 +145,7 @@ def send_slack_message(webhook_url: str, message: str) -> None:
 
 
 if __name__ == "__main__":
-    results = pretty_lint_results(lint(sys.argv[1]), header=f"Linting {sys.argv[1]}:")
+    results = pretty_lint_results(lint(sys.argv[1]), header=f"QC for {sys.argv[1]}:")
     if results:
         print(results)
     if results and (webhook_url := os.getenv("LINT_WEBHOOK_URL")):
