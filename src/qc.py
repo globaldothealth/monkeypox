@@ -141,12 +141,12 @@ def send_slack_message(webhook_url: str, message: str) -> None:
         logging.error(
             f"Slack notification failed with {response.status_code}: {response.text}"
         )
-        sys.exit(1)
 
 
 if __name__ == "__main__":
     results = pretty_lint_results(lint(sys.argv[1]), header=f"QC for {sys.argv[1]}:")
-    if results:
-        print(results)
     if results and (webhook_url := os.getenv("WEBHOOK_URL")):
         send_slack_message(webhook_url, results)
+    if results:
+        print(results)
+        sys.exit(1)
