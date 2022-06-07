@@ -1,5 +1,8 @@
 # Monkeypox data
 
+[![tests](https://github.com/globaldothealth/monkeypox/actions/workflows/tests.yml/badge.svg)](https://github.com/globaldothealth/monkeypox/actions/workflows/tests.yml) [![quality-checks](https://github.com/globaldothealth/monkeypox/actions/workflows/qc.yml/badge.svg)](https://github.com/globaldothealth/monkeypox/actions/workflows/qc.yml)
+
+[![Monkeypox data GSheets -> S3 script deploy](https://github.com/globaldothealth/monkeypox/actions/workflows/data-script-deploy.yaml/badge.svg)](https://github.com/globaldothealth/monkeypox/actions/workflows/data-script-deploy.yaml) [![Monkeypox data S3 -> Github](https://github.com/globaldothealth/monkeypox/actions/workflows/data-transfer_S3-%3EGithub.yaml/badge.svg)](https://github.com/globaldothealth/monkeypox/actions/workflows/data-transfer_S3-%3EGithub.yaml)
 ## Contents
 
 This repository contains dated records of curated Monkeypox cases from the 2022 outbreak (April - ), a data dictionary, and a script used to pull contents from a spreadsheet into JSON and CSV files.
