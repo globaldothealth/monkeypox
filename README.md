@@ -43,6 +43,7 @@ or email info@global.health
 
 ## Visualizations
 
+* [Global.health](https://map.monkeypox.global.health/country): Map visualization of cases by country
 * [Our World in Data](https://ourworldindata.org/monkeypox): cumulative and daily confirmed and suspected case counts and map
 * [Healthmap](https://monkeypox.healthmap.org): Map visualization of cases by country
 
