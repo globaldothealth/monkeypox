@@ -53,15 +53,6 @@ This repository and data exports are published under the CC BY 4.0 license.
 
 Please cite as: "Global.health Monkeypox (accessed on YYYY-MM-DD)" 
 
-& 
+&
 
-@ARTICLE{Kraemer_undated-oj,
-  title   = "Tracking the 2022 monkeypox outbreak with epidemiological data in
-             real-time",
-  author  = "{Kraemer} and {Tegally} and {Pigott} and {Dasgupta} and {Sheldon}
-             and {Wilkinson} and {Schultheiss} and {Han} and {Oglia} and
-             {Marks} and {Kanner} and {O'Brien} and {Dandamudi} and {Rader} and
-             {Sewalk} and {Bento} and {Scarpino} and {Oliveira} and {Bogoch}
-             and {Katz} and {Brownstein}",
-  journal = "Lancet Infectious Diseases"
-}
+Kraemer, Tegally, Pigott, Dasgupta, Sheldon, Wilkinson, Schultheiss, et al. Tracking the 2022 Monkeypox Outbreak with Epidemiological Data in Real-Time. The Lancet Infectious Diseases. https://doi.org/10.1016/S1473-3099(22)00359-0.
