@@ -51,4 +51,17 @@ or email info@global.health
 
 This repository and data exports are published under the CC BY 4.0 license.
 
-Please cite as: "Global.health Monkeypox (accessed on YYYY-MM-DD)".
+Please cite as: "Global.health Monkeypox (accessed on YYYY-MM-DD)" 
+
+& 
+
+@ARTICLE{Kraemer_undated-oj,
+  title   = "Tracking the 2022 monkeypox outbreak with epidemiological data in
+             real-time",
+  author  = "{Kraemer} and {Tegally} and {Pigott} and {Dasgupta} and {Sheldon}
+             and {Wilkinson} and {Schultheiss} and {Han} and {Oglia} and
+             {Marks} and {Kanner} and {O'Brien} and {Dandamudi} and {Rader} and
+             {Sewalk} and {Bento} and {Scarpino} and {Oliveira} and {Bogoch}
+             and {Katz} and {Brownstein}",
+  journal = "Lancet Infectious Diseases"
+}
