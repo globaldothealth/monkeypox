@@ -24,10 +24,9 @@ import pandas as pd
 df = pd.read_csv("https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.csv")
 ```
 
-**R** (requires `httr`):
+**R** :
 ```r
-library(httr)
-df <- read.csv(text=content(GET("https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.csv")))
+df <- read.csv("https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.csv")
 ```
 
 ## Contributing
