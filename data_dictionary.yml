@@ -1,4 +1,4 @@
-dictionary_last_modified: 2022-06-01
+dictionary_last_modified: 2022-06-10
 fields:
   - name: ID
     type: integer
@@ -142,6 +142,10 @@ fields:
     description: URL of news story or government source where this case was confirmed (archived or secondary source)
 
   - name: Source_III
+    type: url
+    description: URL of news story or government source where this case was confirmed (archived or secondary source)
+
+  - name: Source_IV
     type: url
     description: URL of news story or government source where this case was confirmed (archived or secondary source)
 
