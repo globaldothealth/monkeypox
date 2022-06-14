@@ -7,12 +7,14 @@ a defined webhook at LINT_WEBHOOK_URL
 Can also be run from the command line to show a list of errors and warnings
 """
 
+import io
 import os
 import sys
 import math
 import yaml
 import datetime
 import logging
+from typing import Any, Optional
 
 import requests
 import pandas as pd
@@ -24,7 +26,7 @@ with open("data_dictionary.yml") as fp:
     required = {f["name"]: f.get("required", False) for f in data_dictionary["fields"]}
 
 
-def valid_date(s):
+def valid_date(s: str) -> bool:
     try:
         if s == "":
             return True
@@ -34,7 +36,7 @@ def valid_date(s):
         return False
 
 
-def valid_int(s):
+def valid_int(s: str) -> bool:
     try:
         if s == "":
             return True
@@ -44,11 +46,11 @@ def valid_int(s):
         return False
 
 
-def valid_enum(s, values):
+def valid_enum(s: str, values: list[str]) -> bool:
     return str(s).strip().lower() in [v.lower() for v in values]
 
 
-def valid_url(s):
+def valid_url(s: str) -> bool:
     # this is not enough for a full validation, but will do for now
     try:
         return s.startswith("http://") or s.startswith("https://")
@@ -56,7 +58,7 @@ def valid_url(s):
         return False
 
 
-def valid_integer_range(value):
+def valid_integer_range(value: str | float | int) -> bool:
     if isinstance(value, float) or isinstance(value, int):
         return False  # not a range
     if "<" in value:
@@ -69,7 +71,7 @@ def valid_integer_range(value):
     )
 
 
-def is_empty(value):
+def is_empty(value: Any) -> bool:
     if isinstance(value, str) and value == "":
         return True
     if (isinstance(value, int) or isinstance(value, float)) and math.isnan(value):
@@ -77,7 +79,9 @@ def is_empty(value):
     return False
 
 
-def validate_field(value, field_name, field_type, required=False):
+def validate_field(
+    value: Any, field_name: str, field_type: str, required: bool = False
+) -> bool:
     if not required and is_empty(value):
         return True
     if "|" in field_type:
@@ -96,7 +100,7 @@ def validate_field(value, field_name, field_type, required=False):
         return True
 
 
-def validate_row(row):
+def validate_row(row: dict[str, Any]) -> Optional[list[dict[str, str]]]:
     if row["Status"] == "confirmed" and is_empty(row["Date_confirmation"]):
         return [
             {
@@ -105,12 +109,13 @@ def validate_row(row):
                 "message": "Status=confirmed requires Date_confirmation",
             }
         ]
+    return None
 
 
-def lint(file_or_url):
+def lint(df: pd.DataFrame) -> list[dict[str, Any]]:
     linting_result = []
     line = 0
-    for row in pd.read_csv(file_or_url).to_dict("records"):
+    for row in df.to_dict("records"):
         line += 1
         invalid_fields = [
             (field_name, value)
@@ -135,6 +140,14 @@ def lint(file_or_url):
             )
 
     return linting_result
+
+
+def lint_url_or_file(url_or_file: str) -> list[dict[str, Any]]:
+    return lint(pd.read_csv(url_or_file))
+
+
+def lint_string(string: str) -> list[dict[str, Any]]:
+    return lint(pd.read_csv(io.StringIO(string)))
 
 
 def pretty_lint_results(results, header=""):
@@ -163,7 +176,7 @@ def send_slack_message(webhook_url: str, message: str) -> None:
 
 
 if __name__ == "__main__":
-    results = pretty_lint_results(lint(sys.argv[1]), header=f"QC for {sys.argv[1]}:")
+    results = pretty_lint_results(lint_url_or_file(sys.argv[1]), header=f"QC for {sys.argv[1]}:")
     if results and (webhook_url := os.getenv("WEBHOOK_URL")):
         send_slack_message(webhook_url, results)
     if results:
