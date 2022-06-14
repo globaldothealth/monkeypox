@@ -1,3 +1,4 @@
+from collections.abc import Iterable
 from datetime import date, datetime
 import json
 import logging
@@ -8,6 +9,7 @@ import csv
 from urllib.parse import urlparse
 from collections import defaultdict
 from pathlib import Path
+from typing import Any, Optional
 
 import boto3
 import pdfkit
@@ -16,6 +18,7 @@ import pycountry
 import requests
 
 
+Data = list[dict[str, Any]]
 DATA_BUCKET = environ.get("DATA_BUCKET")
 AGGREGATES_BUCKET = environ.get("AGGREGATES_BUCKET")
 DOCUMENT_ID = environ.get("DOCUMENT_ID")
@@ -26,7 +29,7 @@ DATA_FOLDER = "archives"
 SOURCES_FOLDER = "sources"
 CASE_DEFINITIONS_FOLDER = "case-definitions"
 
-BUCKET_CONTENTS = []
+BUCKET_CONTENTS: list[str] = []
 
 ISO3_QUIRKS = {
     "england": "GBR",
@@ -38,11 +41,11 @@ ISO3_QUIRKS = {
 VALID_STATUSES = ["suspected", "confirmed", "excluded", "discarded"]
 
 
-def lookup_iso3(country: str) -> str:
+def lookup_iso3(country: Optional[str]) -> str:
     if country is None:
         return ""
     if country.lower() in ISO3_QUIRKS:
-        return ISO3_QUIRKS.get(country.lower())
+        return ISO3_QUIRKS[country.lower()]
     try:
         matches = pycountry.countries.search_fuzzy(country)
         if not matches:
@@ -61,7 +64,7 @@ def setup_logger():
     rootLogger.setLevel(logging.DEBUG)
 
 
-def get_data():
+def get_data() -> Data:
     logging.info("Getting data from Google Sheets")
     client = pygsheets.authorize(service_account_env_var="GOOGLE_CREDENTIALS")
     spreadsheet = client.open_by_key(DOCUMENT_ID)
@@ -69,7 +72,7 @@ def get_data():
     return spreadsheet[0].get_all_records()
 
 
-def get_source_urls(data):
+def get_source_urls(data: Data) -> set[str]:
     logging.info("Getting source urls from data")
     source_urls = set()
     for case in data:
@@ -79,7 +82,7 @@ def get_source_urls(data):
     return source_urls
 
 
-def clean_data(data):
+def clean_data(data: Data) -> Data:
     logging.info("Cleaning data")
     for case in data:
         case["Country_ISO3"] = lookup_iso3(case.get("Country"))
@@ -88,7 +91,7 @@ def clean_data(data):
     return data
 
 
-def format_data(data):
+def format_data(data: Data) -> tuple[str, str]:
     logging.info("Formatting data")
     json_data = json.dumps(data)
     csv_data = io.StringIO()
@@ -99,7 +102,7 @@ def format_data(data):
     return json_data, csv_data.getvalue()
 
 
-def store_data(json_data, csv_data):
+def store_data(json_data: str, csv_data: str):
     logging.info("Uploading data to S3")
     now = datetime.today()
     try:
@@ -112,7 +115,7 @@ def store_data(json_data, csv_data):
         raise
 
 
-def urls_to_pdfs(source_urls, folder, names=None):
+def urls_to_pdfs(source_urls: list[str] | set[str], folder: str, names: list[str]=None) -> list[str]:
     logging.info("Converting websites into PDFs")
     pdfs = []
     if not names:
@@ -148,7 +151,7 @@ def urls_to_pdfs(source_urls, folder, names=None):
     return pdfs
 
 
-def bucket_contains(file_name, folder):
+def bucket_contains(file_name: str, folder: str) -> bool:
     global BUCKET_CONTENTS
     if not BUCKET_CONTENTS:
         objects = S3.Bucket(DATA_BUCKET).objects.all()
@@ -156,7 +159,7 @@ def bucket_contains(file_name, folder):
     return file_name in BUCKET_CONTENTS
 
 
-def store_pdfs(pdfs, folder):
+def store_pdfs(pdfs: list[str], folder: str):
     logging.info("Uploading sources to S3")
     for pdf in pdfs:
         try:
@@ -166,11 +169,11 @@ def store_pdfs(pdfs, folder):
             raise
 
 
-def aggregate_data(data, today=None):
+def aggregate_data(data: Data, today: str=None) -> tuple[dict[str, int], dict[str, list[dict[str, Any]]]]:
     logging.info("Getting total counts of cases")
     today = today or date.today().strftime("%Y-%m-%d")
     total_count = {"total": 0, "confirmed": 0}
-    aggregates = defaultdict(lambda: defaultdict(int))  # nested defaultdict
+    aggregates: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))  # nested defaultdict
     for case in data:
         country = case.get("Country")
         if not country:
@@ -190,7 +193,7 @@ def aggregate_data(data, today=None):
     return total_count, country_aggregates
 
 
-def store_aggregates(total_count, country_aggregates):
+def store_aggregates(total_count: str, country_aggregates: str):
     logging.info("Uploading case counts to S3")
     try:
         S3.Object(AGGREGATES_BUCKET, "total/latest.json").put(Body=total_count)
