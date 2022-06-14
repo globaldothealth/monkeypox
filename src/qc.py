@@ -96,6 +96,17 @@ def validate_field(value, field_name, field_type, required=False):
         return True
 
 
+def validate_row(row):
+    if row["Status"] == "confirmed" and is_empty(row["Date_confirmation"]):
+        return [
+            {
+                "field": "Date_confirmation",
+                "value": "",
+                "message": "Status=confirmed requires Date_confirmation",
+            }
+        ]
+
+
 def lint(file_or_url):
     linting_result = []
     line = 0
@@ -108,6 +119,9 @@ def lint(file_or_url):
                 value, field_name, types[field_name], required[field_name]
             )
         ]
+        if row_errors := validate_row(row):
+            linting_result.append({"id": row["ID"], "line": line, "errors": row_errors})
+
         if invalid_fields:
             linting_result.append(
                 {
@@ -130,14 +144,19 @@ def pretty_lint_results(results, header=""):
             + "\n"
             + "\n".join(
                 f"- *{row['id']}* (line {row['line']}): "
-                + ", ".join(f"{e['field']}={e['value']}" for e in row["errors"])
+                + ", ".join(
+                    f"{e['field']}={e['value']} {e.get('message', '')}"
+                    for e in row["errors"]
+                )
                 for row in results
             )
         )
 
 
 def send_slack_message(webhook_url: str, message: str) -> None:
-    if (response := requests.post(webhook_url, json={"text": message})).status_code != 200:
+    if (
+        response := requests.post(webhook_url, json={"text": message})
+    ).status_code != 200:
         logging.error(
             f"Slack notification failed with {response.status_code}: {response.text}"
         )
