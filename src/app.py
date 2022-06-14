@@ -17,6 +17,8 @@ import pygsheets
 import pycountry
 import requests
 
+import qc
+
 
 Data = list[dict[str, Any]]
 DATA_BUCKET = environ.get("DATA_BUCKET")
@@ -221,6 +223,10 @@ if __name__ == "__main__":
     data = get_data()
     data = clean_data(data)
     json_data, csv_data = format_data(data)
+    if qc_results := qc.lint_string(csv_data):
+        logging.error("Quality check failed")
+        logging.error(qc.pretty_lint_results(qc_results))
+        sys.exit(1)
     store_data(json_data, csv_data)
     source_urls = get_source_urls(data)
     pdfs = urls_to_pdfs(source_urls, folder=SOURCES_FOLDER)
