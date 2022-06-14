@@ -5,7 +5,7 @@ description = ""
 authors = ["Global.health team <info@global.health>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 boto3 = "^1.23.5"
 pygsheets = "^2.0.5"
 pdfkit = "^1.0.0"
