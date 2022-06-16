@@ -63,7 +63,7 @@ ENV PATH="${PATH}:/root/.poetry/bin"
 WORKDIR /app
 
 COPY ./src/ ./
-COPY case-definitions.json poetry.lock pyproject.toml ./
+COPY data_dictionary.yml case-definitions.json poetry.lock pyproject.toml ./
 
 # quicker install as runtime deps are already installed
 RUN poetry install --no-dev
