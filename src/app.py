@@ -2,7 +2,7 @@ from collections.abc import Iterable
 from datetime import date, datetime
 import json
 import logging
-from os import environ
+import os
 import io
 import sys
 import csv
@@ -21,9 +21,9 @@ import qc
 
 
 Data = list[dict[str, Any]]
-DATA_BUCKET = environ.get("DATA_BUCKET")
-AGGREGATES_BUCKET = environ.get("AGGREGATES_BUCKET")
-DOCUMENT_ID = environ.get("DOCUMENT_ID")
+DATA_BUCKET = os.environ.get("DATA_BUCKET")
+AGGREGATES_BUCKET = os.environ.get("AGGREGATES_BUCKET")
+DOCUMENT_ID = os.environ.get("DOCUMENT_ID")
 
 S3 = boto3.resource("s3")
 
@@ -225,7 +225,9 @@ if __name__ == "__main__":
     json_data, csv_data = format_data(data)
     if qc_results := qc.lint_string(csv_data):
         logging.error("Quality check failed")
-        logging.error(qc.pretty_lint_results(qc_results))
+        logging.error(pretty_results := qc.pretty_lint_results(qc_results))
+        if (webhook_url := os.getenv("WEBHOOK_URL")):
+            qc.send_slack_message(webhook_url, pretty_results)
         sys.exit(1)
     store_data(json_data, csv_data)
     source_urls = get_source_urls(data)
