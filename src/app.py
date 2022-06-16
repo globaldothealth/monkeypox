@@ -63,7 +63,7 @@ def setup_logger():
     h = logging.StreamHandler(sys.stdout)
     rootLogger = logging.getLogger()
     rootLogger.addHandler(h)
-    rootLogger.setLevel(logging.DEBUG)
+    rootLogger.setLevel(logging.INFO)
 
 
 def get_data() -> Data:
