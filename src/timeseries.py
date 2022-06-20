@@ -4,11 +4,18 @@ Create timeseries from latest data
 Based on code by @tannervarrelman
 
 """
+import io
 import pandas as pd
 
 
-def to_json(df: pd.DataFrame) -> list[dict[str, int | str]]:
+def to_json(df: pd.DataFrame) -> str:
     return df.to_json(orient="records", date_format="iso", indent=2)
+
+
+def to_csv(df: pd.DataFrame) -> str:
+    buf = io.StringIO()
+    df.to_csv(buf, index=False)
+    return buf.getvalue()
 
 
 def by_confirmed(df: pd.DataFrame) -> pd.DataFrame:

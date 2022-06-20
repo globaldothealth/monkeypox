@@ -32,8 +32,11 @@ jobs:
       run: |
         sudo mv bucket/latest.json .
         sudo mv bucket/latest.csv .
+        sudo mv bucket/timeseries-confirmed.csv .
+        sudo mv bucket/timeseries-country-confirmed.csv .
         sudo mv -v bucket/archives/* ./archives/
         git add ./latest.*
+        git add ./timeseries-*
         git add ./archives
         sudo mv -v bucket/case-definitions/* ./case-definitions/
         git add ./case-definitions
