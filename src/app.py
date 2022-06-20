@@ -16,8 +16,10 @@ import pdfkit
 import pygsheets
 import pycountry
 import requests
+import pandas as pd
 
 import qc
+import timeseries
 
 
 Data = list[dict[str, Any]]
@@ -104,7 +106,8 @@ def format_data(data: Data) -> tuple[str, str]:
     return json_data, csv_data.getvalue()
 
 
-def store_data(json_data: str, csv_data: str):
+def store_data(json_data: str, csv_data: str,
+               timeseries_confirmed: str, timeseries_country_confirmed: str):
     logging.info("Uploading data to S3")
     now = datetime.today()
     try:
@@ -112,6 +115,8 @@ def store_data(json_data: str, csv_data: str):
         S3.Object(DATA_BUCKET, "latest.csv").put(Body=csv_data)
         S3.Object(DATA_BUCKET, f"{DATA_FOLDER}/{now}.json").put(Body=json_data)
         S3.Object(DATA_BUCKET, "latest.json").put(Body=json_data)
+        S3.Object(DATA_BUCKET, "timeseries-confirmed.csv").put(Body=timeseries_confirmed)
+        S3.Object(DATA_BUCKET, "timeseries-country-confirmed.csv").put(Body=timeseries_country_confirmed)
     except Exception as exc:
         logging.exception(f"An exception occurred while trying to upload data files")
         raise
@@ -205,6 +210,16 @@ def store_aggregates(total_count: str, country_aggregates: str):
         raise
 
 
+def store_timeseries(by_confirmed: pd.DataFrame, by_country_confirmed: pd.DataFrame):
+    logging.info("Uploading timeseries to aggregates")
+    try:
+        S3.Object(AGGREGATES_BUCKET, "timeseries/confirmed.json").put(Body=timeseries.to_json(by_confirmed))
+        S3.Object(AGGREGATES_BUCKET, "timeseries/country_confirmed.json").put(Body=timeseries.to_json(by_country_confirmed))
+    except Exception as exc:
+        logging.exception("An exception occurred while trying to upload timeseries to aggregates")
+        raise
+
+
 def store_case_definitions(case_definition_urls: Path):
     """Retrieve and store case definitions"""
     with case_definition_urls.open() as fp:
@@ -223,17 +238,35 @@ if __name__ == "__main__":
     data = get_data()
     data = clean_data(data)
     json_data, csv_data = format_data(data)
+
+    # Run quality checks
     if qc_results := qc.lint_string(csv_data):
         logging.error("Quality check failed")
         logging.error(pretty_results := qc.pretty_lint_results(qc_results))
         if (webhook_url := os.getenv("WEBHOOK_URL")):
             qc.send_slack_message(webhook_url, pretty_results)
         sys.exit(1)
-    store_data(json_data, csv_data)
+
+    # Calculate timeseries
+    logging.info("Calculating timeseries")
+    df = pd.read_csv(io.StringIO(csv_data))
+    timeseries_confirmed = timeseries.by_confirmed(df)
+    timeseries_country_confirmed = timeseries.by_country_confirmed(df)
+
+    # Store data
+    store_data(json_data, csv_data,
+               timeseries.to_csv(timeseries_confirmed),
+               timeseries.to_csv(timeseries_country_confirmed))
+
+    # Fetch source URLs
     source_urls = get_source_urls(data)
     pdfs = urls_to_pdfs(source_urls, folder=SOURCES_FOLDER)
     store_pdfs(pdfs, folder=SOURCES_FOLDER)
+
+    # Store aggregate data, including timeseries
     total_count, country_aggregates = aggregate_data(data)
     store_aggregates(json.dumps(total_count), json.dumps(country_aggregates))
+
+    # Store case definitions
     store_case_definitions(Path('case-definitions.json'))
     logging.info("Script completed")
