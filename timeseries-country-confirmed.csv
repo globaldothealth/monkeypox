@@ -144,6 +144,9 @@ Date,Cases,Cumulative_cases,Country
 2022-06-16,9,167,Canada
 2022-06-17,10,177,Canada
 2022-06-17,1,1,Chile
+2022-06-18,0,1,Chile
+2022-06-19,0,1,Chile
+2022-06-20,1,2,Chile
 2022-05-24,1,1,Czech Republic
 2022-05-25,0,1,Czech Republic
 2022-05-26,4,5,Czech Republic
@@ -179,6 +182,10 @@ Date,Cases,Cumulative_cases,Country
 2022-06-14,0,4,Denmark
 2022-06-15,0,4,Denmark
 2022-06-16,4,8,Denmark
+2022-06-17,0,8,Denmark
+2022-06-18,0,8,Denmark
+2022-06-19,0,8,Denmark
+2022-06-20,2,10,Denmark
 2022-05-06,1,1,England
 2022-05-07,0,1,England
 2022-05-08,0,1,England
