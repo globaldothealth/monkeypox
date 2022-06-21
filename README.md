@@ -15,6 +15,8 @@ The data dictionary is located in the root directory of this project. It contain
 
 The archives folder contains dated JSON and CSV files. They are currently uploaded manually; regularly and automatically updated data sets live in an (currently private) S3 bucket.
 
+There is also a daily briefing report generated from this data at https://www.monkeypox.global.health
+
 ## Getting the data
 
 **Line list (CSV)**: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.csv  
