@@ -17,8 +17,11 @@ The archives folder contains dated JSON and CSV files. They are currently upload
 
 ## Getting the data
 
-**Direct download (CSV)**: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.csv  
-**Direct download (JSON)**: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.json
+**Line list (CSV)**: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.csv  
+**Line list (JSON)**: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.json
+
+**Timeseries**: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/timeseries-confirmed.csv  
+**Timeseries by country**: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/timeseries-country-confirmed.csv
 
 **Python** (requires `pandas`):
 ```python
