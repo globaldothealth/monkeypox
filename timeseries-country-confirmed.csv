@@ -113,6 +113,8 @@ Date,Cases,Cumulative_cases,Country
 2022-06-15,0,5,Brazil
 2022-06-16,1,6,Brazil
 2022-06-17,1,7,Brazil
+2022-06-18,0,7,Brazil
+2022-06-19,1,8,Brazil
 2022-05-19,2,2,Canada
 2022-05-20,3,5,Canada
 2022-05-21,0,5,Canada
@@ -143,6 +145,10 @@ Date,Cases,Cumulative_cases,Country
 2022-06-15,0,158,Canada
 2022-06-16,9,167,Canada
 2022-06-17,10,177,Canada
+2022-06-18,0,177,Canada
+2022-06-19,0,177,Canada
+2022-06-20,0,177,Canada
+2022-06-21,33,210,Canada
 2022-06-17,1,1,Chile
 2022-06-18,0,1,Chile
 2022-06-19,0,1,Chile
@@ -276,6 +282,11 @@ Date,Cases,Cumulative_cases,Country
 2022-06-14,34,125,France
 2022-06-15,0,125,France
 2022-06-16,58,183,France
+2022-06-17,0,183,France
+2022-06-18,0,183,France
+2022-06-19,0,183,France
+2022-06-20,0,183,France
+2022-06-21,94,277,France
 2022-06-15,1,1,Georgia
 2022-05-19,1,1,Germany
 2022-05-20,1,2,Germany
@@ -572,6 +583,12 @@ Date,Cases,Cumulative_cases,Country
 2022-06-13,1,1,Romania
 2022-06-14,0,1,Romania
 2022-06-15,2,3,Romania
+2022-06-16,1,4,Romania
+2022-06-17,0,4,Romania
+2022-06-18,0,4,Romania
+2022-06-19,0,4,Romania
+2022-06-20,0,4,Romania
+2022-06-21,1,5,Romania
 2022-05-23,1,1,Scotland
 2022-05-24,0,1,Scotland
 2022-05-25,0,1,Scotland
@@ -654,6 +671,10 @@ Date,Cases,Cumulative_cases,Country
 2022-06-14,38,313,Spain
 2022-06-15,0,313,Spain
 2022-06-16,184,497,Spain
+2022-06-17,0,497,Spain
+2022-06-18,0,497,Spain
+2022-06-19,0,497,Spain
+2022-06-20,23,520,Spain
 2022-05-19,1,1,Sweden
 2022-05-20,0,1,Sweden
 2022-05-21,0,1,Sweden
