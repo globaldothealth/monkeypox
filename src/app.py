@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any, Optional
 
 import boto3
+import yaml
 import pdfkit
 import pygsheets
 import pycountry
@@ -26,6 +27,12 @@ Data = list[dict[str, Any]]
 DATA_BUCKET = os.environ.get("DATA_BUCKET")
 AGGREGATES_BUCKET = os.environ.get("AGGREGATES_BUCKET")
 DOCUMENT_ID = os.environ.get("DOCUMENT_ID")
+FIELDS: list[str] = []
+
+with open("data_dictionary.yml") as fp:
+    data_dictionary = yaml.safe_load(fp)
+    FIELDS = [f["name"] for f in data_dictionary["fields"]]
+
 
 S3 = boto3.resource("s3")
 
@@ -90,8 +97,9 @@ def clean_data(data: Data) -> Data:
     logging.info("Cleaning data")
     for case in data:
         case["Country_ISO3"] = lookup_iso3(case.get("Country"))
-        case.pop("Curator_initials")
-        case.pop("Notes")
+        # remove keys which are not in data dictionary
+        for key in set(case.keys()) - set(FIELDS):
+            case.pop(key)
     return data
 
 
