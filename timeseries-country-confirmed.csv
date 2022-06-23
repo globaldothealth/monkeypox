@@ -423,6 +423,7 @@ Date,Cases,Cumulative_cases,Country
 2022-06-19,0,5,Israel
 2022-06-20,0,5,Israel
 2022-06-21,6,11,Israel
+2022-06-22,2,13,Israel
 2022-05-19,1,1,Italy
 2022-05-20,2,3,Italy
 2022-05-21,0,3,Italy
@@ -826,6 +827,7 @@ Date,Cases,Cumulative_cases,Country
 2022-06-19,0,113,United States
 2022-06-20,0,113,United States
 2022-06-21,29,142,United States
+2022-06-22,14,156,United States
 2022-06-12,1,1,Venezuela
 2022-05-26,1,1,Wales
 2022-05-27,0,1,Wales
