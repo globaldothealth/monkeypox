@@ -6,19 +6,19 @@ import app
 
 CLEANED_OUTPUT = [
     {
-        "Date_confirmed": "2021-05-12",
+        "Date_confirmation": "2021-05-12",
         "Country": "England",
         "Country_ISO3": "GBR",
         "Status": "confirmed",
     },
     {
-        "Date_confirmed": "2022-05-05",
+        "Date_confirmation": "2022-05-05",
         "Country": "USA",
         "Country_ISO3": "USA",
         "Status": "suspected",
     },
     {
-        "Date_confirmed": "2022-01-01",
+        "Date_confirmation": "2022-01-01",
         "Country": "Spain",
         "Country_ISO3": "ESP",
         "Status": "discarded",
@@ -56,21 +56,21 @@ def test_get_source_urls():
 def test_clean_data():
     input_data = [
         {
-            "Date_confirmed": "2021-05-12",
+            "Date_confirmation": "2021-05-12",
             "Curator_initials": "ZZ",
             "Notes": "example note",
             "Country": "England",
             "Status": "confirmed",
         },
         {
-            "Date_confirmed": "2022-05-05",
+            "Date_confirmation": "2022-05-05",
             "Curator_initials": "ZZ",
             "Notes": "another example note",
             "Country": "USA",
             "Status": "suspected",
         },
         {
-            "Date_confirmed": "2022-01-01",
+            "Date_confirmation": "2022-01-01",
             "Curator_initials": "ZZ",
             "Notes": "yet another example note",
             "Country": "Spain",
@@ -83,7 +83,7 @@ def test_clean_data():
 
 def test_format_data():
     expected_JSON = json.dumps(CLEANED_OUTPUT)
-    expected_CSV = """Date_confirmed,Country,Country_ISO3,Status
+    expected_CSV = """Date_confirmation,Country,Country_ISO3,Status
 2021-05-12,England,GBR,confirmed
 2022-05-05,USA,USA,suspected
 2022-01-01,Spain,ESP,discarded
