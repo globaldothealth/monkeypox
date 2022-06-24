@@ -775,6 +775,14 @@ Date,Cases,Cumulative_cases,Country
 2022-06-13,0,6,Sweden
 2022-06-14,0,6,Sweden
 2022-06-15,4,10,Sweden
+2022-06-16,0,10,Sweden
+2022-06-17,0,10,Sweden
+2022-06-18,0,10,Sweden
+2022-06-19,0,10,Sweden
+2022-06-20,0,10,Sweden
+2022-06-21,0,10,Sweden
+2022-06-22,0,10,Sweden
+2022-06-23,3,13,Sweden
 2022-05-21,1,1,Switzerland
 2022-05-22,0,1,Switzerland
 2022-05-23,0,1,Switzerland
@@ -808,6 +816,7 @@ Date,Cases,Cumulative_cases,Country
 2022-06-20,9,40,Switzerland
 2022-06-21,1,41,Switzerland
 2022-06-22,5,46,Switzerland
+2022-06-23,6,52,Switzerland
 2022-05-24,1,1,United Arab Emirates
 2022-05-25,0,1,United Arab Emirates
 2022-05-26,0,1,United Arab Emirates
@@ -859,6 +868,7 @@ Date,Cases,Cumulative_cases,Country
 2022-06-20,0,113,United States
 2022-06-21,29,142,United States
 2022-06-22,14,156,United States
+2022-06-23,17,173,United States
 2022-06-12,1,1,Venezuela
 2022-05-26,1,1,Wales
 2022-05-27,0,1,Wales
