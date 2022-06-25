@@ -21,6 +21,7 @@ import pandas as pd
 
 import qc
 import timeseries
+import ecdc
 
 
 Data = list[dict[str, Any]]
@@ -240,6 +241,11 @@ def store_case_definitions(case_definition_urls: Path):
         store_pdfs(pdfs, folder=CASE_DEFINITIONS_FOLDER)
 
 
+def store_ecdc():
+    logging.info("Fetching and storing ECDC data")
+    S3.Object(DATA_BUCKET, "ecdc/ecdc-by-date-of-onset-country.csv").put(Body=ecdc.run())
+
+
 if __name__ == "__main__":
     setup_logger()
     logging.info("Starting script")
@@ -278,4 +284,5 @@ if __name__ == "__main__":
 
     # Store case definitions
     store_case_definitions(Path('case-definitions.json'))
+    store_ecdc()
     logging.info("Script completed")

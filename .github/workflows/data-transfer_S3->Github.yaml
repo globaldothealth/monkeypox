@@ -35,9 +35,12 @@ jobs:
         sudo mv bucket/timeseries-confirmed.csv .
         sudo mv bucket/timeseries-country-confirmed.csv .
         sudo mv -v bucket/archives/* ./archives/
+        mkdir -p ecdc
+        sudo mv -v bucket/ecdc/* ./ecdc/
         git add ./latest.*
         git add ./timeseries-*
         git add ./archives
+        git add ./ecdc
         sudo mv -v bucket/case-definitions/* ./case-definitions/
         git add ./case-definitions
         git config --local user.email "action@github.com"

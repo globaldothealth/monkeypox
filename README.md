@@ -54,10 +54,14 @@ or email data to info@global.health. Remove any Personally Identifiable Informat
 
 ## License and attribution
 
-This repository and data exports are published under the CC BY 4.0 license.
+This repository and data exports (except files in the *ecdc* folder) are published under the CC BY 4.0 license.
 
 Please cite as: "Global.health Monkeypox (accessed on YYYY-MM-DD)" 
 
 &
 
 Kraemer, Tegally, Pigott, Dasgupta, Sheldon, Wilkinson, Schultheiss, et al. Tracking the 2022 Monkeypox Outbreak with Epidemiological Data in Real-Time. The Lancet Infectious Diseases. https://doi.org/10.1016/S1473-3099(22)00359-0.
+
+For files in the *ecdc* folder, please cite (reproduction is authorized, provided the source is acknowledged):
+
+European Centre for Disease Prevention and Control/WHO Regional Office for Europe. Monkeypox, Joint Epidemiological overview, {day} {month}, 2022
