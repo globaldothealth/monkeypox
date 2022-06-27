@@ -1,0 +1,284 @@
+date,country,count
+2022-05-10,Belgium,1
+2022-05-11,Belgium,1
+2022-05-15,Belgium,1
+2022-05-16,Belgium,1
+2022-05-17,Belgium,1
+2022-05-18,Belgium,3
+2022-05-19,Belgium,7
+2022-05-20,Belgium,2
+2022-05-21,Belgium,2
+2022-05-22,Belgium,1
+2022-05-23,Belgium,1
+2022-05-24,Belgium,5
+2022-05-25,Belgium,2
+2022-05-26,Belgium,1
+2022-05-29,Belgium,3
+2022-05-30,Belgium,5
+2022-05-31,Belgium,4
+2022-06-01,Belgium,1
+2022-06-02,Belgium,2
+2022-06-04,Belgium,3
+2022-06-05,Belgium,3
+2022-06-06,Belgium,1
+2022-06-07,Belgium,4
+2022-06-08,Belgium,5
+2022-06-09,Belgium,2
+2022-06-10,Belgium,3
+2022-06-11,Belgium,4
+2022-06-12,Belgium,1
+2022-06-13,Belgium,3
+2022-06-15,Belgium,1
+2022-06-16,Belgium,1
+2022-04-22,Czechia,1
+2022-05-09,Czechia,1
+2022-05-10,Czechia,1
+2022-05-18,Czechia,1
+2022-05-22,Czechia,1
+2022-05-25,Czechia,1
+2022-05-16,Denmark,1
+2022-05-19,Denmark,1
+2022-05-30,Denmark,1
+2022-06-02,Denmark,1
+2022-06-10,Denmark,1
+2022-06-11,Denmark,2
+2022-06-12,Denmark,1
+2022-05-07,France,1
+2022-05-08,France,1
+2022-05-09,France,2
+2022-05-11,France,1
+2022-05-12,France,1
+2022-05-13,France,1
+2022-05-14,France,1
+2022-05-16,France,4
+2022-05-17,France,3
+2022-05-18,France,6
+2022-05-19,France,2
+2022-05-20,France,4
+2022-05-21,France,3
+2022-05-22,France,11
+2022-05-23,France,6
+2022-05-24,France,6
+2022-05-25,France,6
+2022-05-26,France,6
+2022-05-27,France,5
+2022-05-28,France,5
+2022-05-29,France,14
+2022-05-30,France,7
+2022-05-31,France,10
+2022-06-01,France,14
+2022-06-02,France,11
+2022-06-03,France,14
+2022-06-04,France,9
+2022-06-05,France,16
+2022-06-06,France,11
+2022-06-07,France,12
+2022-06-08,France,12
+2022-06-09,France,14
+2022-06-10,France,4
+2022-06-11,France,5
+2022-06-12,France,7
+2022-06-13,France,8
+2022-06-14,France,3
+2022-06-15,France,1
+2022-05-29,Georgia,1
+2022-06-02,Greece,1
+2022-06-07,Greece,1
+2022-06-08,Greece,1
+2022-05-26,Hungary,1
+2022-05-27,Hungary,1
+2022-05-29,Hungary,1
+2022-06-05,Hungary,1
+2022-06-07,Hungary,2
+2022-06-08,Hungary,1
+2022-06-13,Iceland,2
+2022-06-15,Iceland,1
+2022-05-16,Ireland,1
+2022-05-20,Ireland,1
+2022-05-21,Ireland,1
+2022-05-24,Ireland,1
+2022-05-25,Ireland,1
+2022-05-27,Ireland,3
+2022-05-29,Ireland,1
+2022-05-30,Ireland,1
+2022-06-06,Ireland,2
+2022-06-08,Ireland,3
+2022-06-11,Ireland,1
+2022-06-13,Ireland,1
+2022-06-14,Ireland,1
+2022-06-15,Ireland,1
+2022-06-16,Ireland,1
+2022-05-09,Italy,1
+2022-05-13,Italy,1
+2022-05-15,Italy,4
+2022-05-16,Italy,2
+2022-05-17,Italy,1
+2022-05-18,Italy,1
+2022-05-19,Italy,2
+2022-05-20,Italy,3
+2022-05-21,Italy,2
+2022-05-22,Italy,2
+2022-05-23,Italy,1
+2022-05-24,Italy,2
+2022-05-27,Italy,1
+2022-05-28,Italy,1
+2022-05-29,Italy,2
+2022-05-30,Italy,5
+2022-05-31,Italy,1
+2022-06-01,Italy,5
+2022-06-02,Italy,3
+2022-06-03,Italy,7
+2022-06-04,Italy,3
+2022-06-05,Italy,1
+2022-06-06,Italy,3
+2022-06-07,Italy,3
+2022-06-08,Italy,6
+2022-06-09,Italy,2
+2022-06-10,Italy,7
+2022-06-11,Italy,3
+2022-06-12,Italy,4
+2022-06-13,Italy,3
+2022-06-14,Italy,1
+2022-06-16,Italy,1
+2022-06-18,Italy,1
+2022-05-24,Latvia,1
+2022-06-02,Latvia,1
+2022-06-05,Luxembourg,1
+2022-05-27,Malta,1
+2022-06-15,Malta,1
+2022-05-23,Norway,1
+2022-05-30,Norway,1
+2022-06-04,Norway,1
+2022-06-13,Norway,1
+2022-05-18,Poland,1
+2022-05-31,Poland,2
+2022-06-03,Poland,1
+2022-06-06,Poland,1
+2022-06-09,Poland,1
+2022-06-17,Poland,1
+2022-06-02,Romania,1
+2022-06-09,Romania,2
+2022-06-12,Romania,1
+2022-05-18,Slovenia,1
+2022-05-19,Slovenia,1
+2022-05-23,Slovenia,1
+2022-05-26,Slovenia,1
+2022-05-29,Slovenia,1
+2022-06-02,Slovenia,1
+2022-06-07,Slovenia,1
+2022-04-26,Spain,1
+2022-04-27,Spain,1
+2022-05-02,Spain,1
+2022-05-03,Spain,1
+2022-05-04,Spain,2
+2022-05-05,Spain,1
+2022-05-06,Spain,5
+2022-05-07,Spain,2
+2022-05-08,Spain,2
+2022-05-09,Spain,5
+2022-05-10,Spain,7
+2022-05-11,Spain,6
+2022-05-12,Spain,9
+2022-05-13,Spain,7
+2022-05-14,Spain,2
+2022-05-15,Spain,10
+2022-05-16,Spain,12
+2022-05-17,Spain,9
+2022-05-18,Spain,8
+2022-05-19,Spain,16
+2022-05-20,Spain,11
+2022-05-21,Spain,15
+2022-05-22,Spain,17
+2022-05-23,Spain,12
+2022-05-24,Spain,11
+2022-05-25,Spain,19
+2022-05-26,Spain,13
+2022-05-27,Spain,21
+2022-05-28,Spain,16
+2022-05-29,Spain,13
+2022-05-30,Spain,25
+2022-05-31,Spain,30
+2022-06-01,Spain,34
+2022-06-02,Spain,24
+2022-06-03,Spain,29
+2022-06-04,Spain,11
+2022-06-05,Spain,14
+2022-06-06,Spain,24
+2022-06-07,Spain,12
+2022-06-08,Spain,18
+2022-06-09,Spain,14
+2022-06-10,Spain,9
+2022-06-11,Spain,4
+2022-06-12,Spain,4
+2022-06-13,Spain,7
+2022-06-14,Spain,6
+2022-05-05,Sweden,1
+2022-05-12,Sweden,1
+2022-05-20,Sweden,1
+2022-05-24,Sweden,1
+2022-05-27,Sweden,1
+2022-05-30,Sweden,1
+2022-06-02,Sweden,2
+2022-06-03,Sweden,1
+2022-06-07,Sweden,1
+2022-06-10,Sweden,1
+2022-06-12,Sweden,1
+2022-06-14,Sweden,1
+2022-04-08,United Kingdom,1
+2022-04-17,United Kingdom,1
+2022-04-21,United Kingdom,1
+2022-04-22,United Kingdom,1
+2022-04-24,United Kingdom,2
+2022-04-25,United Kingdom,1
+2022-04-29,United Kingdom,3
+2022-04-30,United Kingdom,2
+2022-05-01,United Kingdom,3
+2022-05-02,United Kingdom,5
+2022-05-03,United Kingdom,1
+2022-05-04,United Kingdom,3
+2022-05-05,United Kingdom,5
+2022-05-06,United Kingdom,5
+2022-05-07,United Kingdom,4
+2022-05-08,United Kingdom,4
+2022-05-09,United Kingdom,11
+2022-05-10,United Kingdom,3
+2022-05-11,United Kingdom,7
+2022-05-12,United Kingdom,6
+2022-05-13,United Kingdom,9
+2022-05-14,United Kingdom,13
+2022-05-15,United Kingdom,14
+2022-05-16,United Kingdom,16
+2022-05-17,United Kingdom,16
+2022-05-18,United Kingdom,12
+2022-05-19,United Kingdom,15
+2022-05-20,United Kingdom,19
+2022-05-21,United Kingdom,16
+2022-05-22,United Kingdom,10
+2022-05-23,United Kingdom,20
+2022-05-24,United Kingdom,20
+2022-05-25,United Kingdom,16
+2022-05-26,United Kingdom,16
+2022-05-27,United Kingdom,13
+2022-05-28,United Kingdom,18
+2022-05-29,United Kingdom,14
+2022-05-30,United Kingdom,16
+2022-05-31,United Kingdom,12
+2022-06-01,United Kingdom,22
+2022-06-02,United Kingdom,22
+2022-06-03,United Kingdom,18
+2022-06-04,United Kingdom,14
+2022-06-05,United Kingdom,14
+2022-06-06,United Kingdom,25
+2022-06-07,United Kingdom,20
+2022-06-08,United Kingdom,14
+2022-06-09,United Kingdom,17
+2022-06-10,United Kingdom,13
+2022-06-11,United Kingdom,16
+2022-06-12,United Kingdom,11
+2022-06-13,United Kingdom,18
+2022-06-14,United Kingdom,12
+2022-06-15,United Kingdom,21
+2022-06-16,United Kingdom,41
+2022-06-17,United Kingdom,34
+2022-06-18,United Kingdom,64
+2022-06-19,United Kingdom,34
