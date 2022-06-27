@@ -6,6 +6,8 @@ on:
     paths:
     - '.github/workflows/data-script-deploy.yml'
     - 'src/**'
+    - 'poetry.lock'
+    - 'pyproject.toml'
     - 'Dockerfile'
   workflow_dispatch:
 
