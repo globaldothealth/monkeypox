@@ -543,6 +543,14 @@ Date,Cases,Cumulative_cases,Country
 2022-06-09,1,2,Latvia
 2022-06-20,1,1,Lebanon
 2022-06-16,1,1,Luxembourg
+2022-06-17,0,1,Luxembourg
+2022-06-18,0,1,Luxembourg
+2022-06-19,0,1,Luxembourg
+2022-06-20,0,1,Luxembourg
+2022-06-21,0,1,Luxembourg
+2022-06-22,0,1,Luxembourg
+2022-06-23,0,1,Luxembourg
+2022-06-24,2,3,Luxembourg
 2022-05-28,1,1,Malta
 2022-05-29,0,1,Malta
 2022-05-30,0,1,Malta
@@ -628,6 +636,9 @@ Date,Cases,Cumulative_cases,Country
 2022-06-22,72,167,Netherlands
 2022-06-23,0,167,Netherlands
 2022-06-24,44,211,Netherlands
+2022-06-25,0,211,Netherlands
+2022-06-26,0,211,Netherlands
+2022-06-27,46,257,Netherlands
 2022-05-26,1,1,Northern Ireland
 2022-05-27,0,1,Northern Ireland
 2022-05-28,0,1,Northern Ireland
@@ -911,6 +922,9 @@ Date,Cases,Cumulative_cases,Country
 2022-06-22,5,46,Switzerland
 2022-06-23,6,52,Switzerland
 2022-06-24,3,55,Switzerland
+2022-06-25,0,55,Switzerland
+2022-06-26,0,55,Switzerland
+2022-06-27,13,68,Switzerland
 2022-06-24,1,1,Taiwan
 2022-05-24,1,1,United Arab Emirates
 2022-05-25,0,1,United Arab Emirates
