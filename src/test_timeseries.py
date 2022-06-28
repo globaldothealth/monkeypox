@@ -40,60 +40,6 @@ BY_CONFIRMED = [
 
 BY_COUNTRY_CONFIRMED = [
     {
-        "Date": Timestamp("2022-06-01 00:00:00"),
-        "Cases": 1,
-        "Cumulative_cases": 1,
-        "Country": "England",
-    },
-    {
-        "Date": Timestamp("2022-06-02 00:00:00"),
-        "Cases": 0,
-        "Cumulative_cases": 1,
-        "Country": "England",
-    },
-    {
-        "Date": Timestamp("2022-06-03 00:00:00"),
-        "Cases": 3,
-        "Cumulative_cases": 4,
-        "Country": "England",
-    },
-    {
-        "Date": Timestamp("2022-06-04 00:00:00"),
-        "Cases": 0,
-        "Cumulative_cases": 4,
-        "Country": "England",
-    },
-     {
-        "Date": Timestamp("2022-06-05 00:00:00"),
-        "Cases": 0,
-        "Cumulative_cases": 4,
-        "Country": "England",
-    },
-     {
-        "Date": Timestamp("2022-06-06 00:00:00"),
-        "Cases": 0,
-        "Cumulative_cases": 4,
-        "Country": "England",
-    },
-     {
-        "Date": Timestamp("2022-06-07 00:00:00"),
-        "Cases": 0,
-        "Cumulative_cases": 4,
-        "Country": "England",
-    },
-     {
-        "Date": Timestamp("2022-06-08 00:00:00"),
-        "Cases": 0,
-        "Cumulative_cases": 4,
-        "Country": "England",
-    },
-     {
-        "Date": Timestamp("2022-06-09 00:00:00"),
-        "Cases": 0,
-        "Cumulative_cases": 4,
-        "Country": "England",
-    },
-    {
         "Date": Timestamp("2022-06-02 00:00:00"),
         "Cases": 1,
         "Cumulative_cases": 1,
@@ -141,7 +87,60 @@ BY_COUNTRY_CONFIRMED = [
         "Cumulative_cases": 5,
         "Country": "USA",
     },
-
+    {
+        "Date": Timestamp("2022-06-01 00:00:00"),
+        "Cases": 1,
+        "Cumulative_cases": 1,
+        "Country": "United Kingdom",
+    },
+    {
+        "Date": Timestamp("2022-06-02 00:00:00"),
+        "Cases": 0,
+        "Cumulative_cases": 1,
+        "Country": "United Kingdom",
+    },
+    {
+        "Date": Timestamp("2022-06-03 00:00:00"),
+        "Cases": 3,
+        "Cumulative_cases": 4,
+        "Country": "United Kingdom",
+    },
+    {
+        "Date": Timestamp("2022-06-04 00:00:00"),
+        "Cases": 0,
+        "Cumulative_cases": 4,
+        "Country": "United Kingdom",
+    },
+    {
+        "Date": Timestamp("2022-06-05 00:00:00"),
+        "Cases": 0,
+        "Cumulative_cases": 4,
+        "Country": "United Kingdom",
+    },
+    {
+        "Date": Timestamp("2022-06-06 00:00:00"),
+        "Cases": 0,
+        "Cumulative_cases": 4,
+        "Country": "United Kingdom",
+    },
+    {
+        "Date": Timestamp("2022-06-07 00:00:00"),
+        "Cases": 0,
+        "Cumulative_cases": 4,
+        "Country": "United Kingdom",
+    },
+    {
+        "Date": Timestamp("2022-06-08 00:00:00"),
+        "Cases": 0,
+        "Cumulative_cases": 4,
+        "Country": "United Kingdom",
+    },
+    {
+        "Date": Timestamp("2022-06-09 00:00:00"),
+        "Cases": 0,
+        "Cumulative_cases": 4,
+        "Country": "United Kingdom",
+    },
 ]
 
 

@@ -9,6 +9,7 @@ import pandas as pd
 
 today = pd.Timestamp.today()
 
+UK_COUNTRIES = ["England", "Wales", "Scotland", "Northern Ireland"]
 
 def to_json(df: pd.DataFrame) -> str:
     return df.to_json(orient="records", date_format="iso", indent=2)
@@ -42,7 +43,10 @@ def by_country_confirmed(
 
     last_date = last_date or today
     confirmed = df[df.Status == "confirmed"]
-    confirmed = confirmed.assign(Date=pd.to_datetime(confirmed.Date_confirmation))
+    confirmed = confirmed.assign(
+        Date=pd.to_datetime(confirmed.Date_confirmation),
+        Country=confirmed.Country.replace(UK_COUNTRIES, "United Kingdom"),
+    )
     dfs = []
     for country, country_df in confirmed.groupby("Country"):
         country_counts = country_df.groupby("Date").size().resample("D").sum()
