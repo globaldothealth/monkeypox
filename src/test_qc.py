@@ -35,7 +35,8 @@ def test_valid_url(source, expected):
 
 
 @pytest.mark.parametrize(
-    "source,expected", [("<40", True), (">5", True), ("20-25", True), ("50-10", False)]
+    "source,expected",
+    [("<40", True), (">5", True), ("20-25", True), ("50-10", False), ("5-10", True)],
 )
 def test_valid_integer_range(source, expected):
     assert qc.valid_integer_range(source) == expected

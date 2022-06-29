@@ -65,10 +65,11 @@ def valid_integer_range(value: str | float | int) -> bool:
         return valid_int(value.replace("<", ""))
     if ">" in value:
         return valid_int(value.replace(">", ""))
-    nums = value.split("-")
-    return (
-        len(nums) == 2 and valid_int(x := nums[0]) and valid_int(y := nums[1]) and x < y
-    )
+    try:
+        x, y = value.split("-")
+    except ValueError:  # too many or too few values to unpack
+        return False
+    return valid_int(x) and valid_int(y) and int(x) < int(y)
 
 
 def is_empty(value: Any) -> bool:
@@ -176,7 +177,9 @@ def send_slack_message(webhook_url: str, message: str) -> None:
 
 
 if __name__ == "__main__":
-    results = pretty_lint_results(lint_url_or_file(sys.argv[1]), header=f"QC for {sys.argv[1]}:")
+    results = pretty_lint_results(
+        lint_url_or_file(sys.argv[1]), header=f"QC for {sys.argv[1]}:"
+    )
     if results and (webhook_url := os.getenv("WEBHOOK_URL")):
         send_slack_message(webhook_url, results)
     if results:
