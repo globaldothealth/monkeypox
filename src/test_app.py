@@ -23,6 +23,12 @@ CLEANED_OUTPUT = [
         "Country_ISO3": "ESP",
         "Status": "discarded",
     },
+    {
+        "Date_confirmation": "2022-03-03",
+        "Country": "Australia",
+        "Country_ISO3": "AUS",
+        "Status": "omit_error",
+    },
 ]
 
 
@@ -76,6 +82,13 @@ def test_clean_data():
             "Country": "Spain",
             "Status": "discarded",
         },
+        {
+            "Date_confirmation": "2022-03-03",
+            "Curator_initials": "ZZ",
+            "Notes": "yet another example note",
+            "Country": "Australia",
+            "Status": "omit_error",
+        },
     ]
 
     assert app.clean_data(input_data) == CLEANED_OUTPUT
@@ -87,6 +100,7 @@ def test_format_data():
 2021-05-12,England,GBR,confirmed
 2022-05-05,USA,USA,suspected
 2022-01-01,Spain,ESP,discarded
+2022-03-03,Australia,AUS,omit_error
 """
     actual_JSON, actual_CSV = app.format_data(CLEANED_OUTPUT)
     assert actual_JSON == expected_JSON
