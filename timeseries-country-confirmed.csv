@@ -152,8 +152,8 @@ Date,Cases,Cumulative_cases,Country
 2022-06-25,0,77,Belgium
 2022-06-26,0,77,Belgium
 2022-06-27,0,77,Belgium
-2022-06-28,0,77,Belgium
-2022-06-29,0,77,Belgium
+2022-06-28,40,117,Belgium
+2022-06-29,0,117,Belgium
 2022-06-14,3,3,Benin
 2022-06-15,0,3,Benin
 2022-06-16,0,3,Benin
@@ -239,8 +239,8 @@ Date,Cases,Cumulative_cases,Country
 2022-06-25,0,235,Canada
 2022-06-26,0,235,Canada
 2022-06-27,22,257,Canada
-2022-06-28,0,257,Canada
-2022-06-29,0,257,Canada
+2022-06-28,18,275,Canada
+2022-06-29,1,276,Canada
 2022-06-17,1,1,Chile
 2022-06-18,0,1,Chile
 2022-06-19,0,1,Chile
@@ -342,7 +342,7 @@ Date,Cases,Cumulative_cases,Country
 2022-06-26,0,13,Denmark
 2022-06-27,3,16,Denmark
 2022-06-28,0,16,Denmark
-2022-06-29,0,16,Denmark
+2022-06-29,2,18,Denmark
 2022-05-27,1,1,Finland
 2022-05-28,0,1,Finland
 2022-05-29,0,1,Finland
@@ -475,7 +475,7 @@ Date,Cases,Cumulative_cases,Country
 2022-06-26,0,618,Germany
 2022-06-27,145,763,Germany
 2022-06-28,75,838,Germany
-2022-06-29,0,838,Germany
+2022-06-29,36,874,Germany
 2022-06-08,5,5,Ghana
 2022-06-09,0,5,Ghana
 2022-06-10,0,5,Ghana
@@ -666,8 +666,8 @@ Date,Cases,Cumulative_cases,Country
 2022-06-25,0,16,Israel
 2022-06-26,0,16,Israel
 2022-06-27,13,29,Israel
-2022-06-28,0,29,Israel
-2022-06-29,0,29,Israel
+2022-06-28,4,33,Israel
+2022-06-29,5,38,Israel
 2022-05-19,1,1,Italy
 2022-05-20,2,3,Italy
 2022-05-21,0,3,Italy
@@ -925,11 +925,11 @@ Date,Cases,Cumulative_cases,Country
 2022-06-26,0,4,Norway
 2022-06-27,0,4,Norway
 2022-06-28,11,15,Norway
-2022-06-29,0,15,Norway
+2022-06-29,2,17,Norway
 2022-06-26,1,1,Peru
 2022-06-27,0,1,Peru
-2022-06-28,0,1,Peru
-2022-06-29,0,1,Peru
+2022-06-28,2,3,Peru
+2022-06-29,0,3,Peru
 2022-06-10,1,1,Poland
 2022-06-11,0,1,Poland
 2022-06-12,0,1,Poland
@@ -993,7 +993,7 @@ Date,Cases,Cumulative_cases,Country
 2022-06-26,0,348,Portugal
 2022-06-27,17,365,Portugal
 2022-06-28,8,373,Portugal
-2022-06-29,0,373,Portugal
+2022-06-29,18,391,Portugal
 2022-06-13,1,1,Romania
 2022-06-14,0,1,Romania
 2022-06-15,2,3,Romania
@@ -1009,8 +1009,8 @@ Date,Cases,Cumulative_cases,Country
 2022-06-25,0,6,Romania
 2022-06-26,0,6,Romania
 2022-06-27,0,6,Romania
-2022-06-28,0,6,Romania
-2022-06-29,0,6,Romania
+2022-06-28,3,9,Romania
+2022-06-29,2,11,Romania
 2022-06-17,1,1,Serbia
 2022-06-18,0,1,Serbia
 2022-06-19,0,1,Serbia
@@ -1211,7 +1211,7 @@ Date,Cases,Cumulative_cases,Country
 2022-06-26,0,55,Switzerland
 2022-06-27,13,68,Switzerland
 2022-06-28,4,72,Switzerland
-2022-06-29,0,72,Switzerland
+2022-06-29,9,81,Switzerland
 2022-06-24,1,1,Taiwan
 2022-06-25,0,1,Taiwan
 2022-06-26,0,1,Taiwan
