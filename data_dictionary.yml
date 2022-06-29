@@ -1,4 +1,4 @@
-dictionary_last_modified: 2022-06-23
+dictionary_last_modified: 2022-06-29
 fields:
   - name: ID
     type: integer
@@ -6,11 +6,13 @@ fields:
     required: true
 
   - name: Status
-    type: confirmed | suspected | discarded
+    type: confirmed | suspected | discarded | omit_error
     description: >
       Status of a case. Cases which are discarded were previously
       suspected but have now been confirmed negative, and should
-      be excluded from case counts.
+      be excluded from case counts. Cases which are omit_error were
+      incorrectly added and should be dismissed from any data
+      interpretation.
     required: true
 
   - name: Location
