@@ -50,7 +50,7 @@ ISO3_QUIRKS = {
     "wales": "GBR",
 }
 
-VALID_STATUSES = ["suspected", "confirmed", "excluded", "discarded"]
+VALID_STATUSES = ["suspected", "confirmed", "discarded", "omit_error"]
 
 
 def lookup_iso3(country: Optional[str]) -> str:
@@ -199,7 +199,7 @@ def aggregate_data(data: Data, today: str=None) -> tuple[dict[str, int], dict[st
             raise ValueError(f"No status found for case: {case}")
         if not status in VALID_STATUSES:
             logging.warning(f"Case status {status} not in {VALID_STATUSES}")
-        if status in ["excluded", "discarded"]:
+        if status in ["discarded", "omit_error"]:
             continue
         aggregates[country][status] += 1
         total_count["total"] += 1
