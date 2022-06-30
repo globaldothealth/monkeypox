@@ -31,9 +31,9 @@ Date,Cases,Cumulative_cases,Country
 2022-06-25,0,4,Argentina
 2022-06-26,0,4,Argentina
 2022-06-27,0,4,Argentina
-2022-06-28,0,4,Argentina
-2022-06-29,0,4,Argentina
-2022-06-30,0,4,Argentina
+2022-06-28,1,5,Argentina
+2022-06-29,0,5,Argentina
+2022-06-30,0,5,Argentina
 2022-05-20,2,2,Australia
 2022-05-21,0,2,Australia
 2022-05-22,0,2,Australia
@@ -75,7 +75,7 @@ Date,Cases,Cumulative_cases,Country
 2022-06-27,0,13,Australia
 2022-06-28,0,13,Australia
 2022-06-29,0,13,Australia
-2022-06-30,0,13,Australia
+2022-06-30,1,14,Australia
 2022-05-23,1,1,Austria
 2022-05-24,0,1,Austria
 2022-05-25,0,1,Austria
@@ -356,6 +356,9 @@ Date,Cases,Cumulative_cases,Country
 2022-06-28,0,16,Denmark
 2022-06-29,2,18,Denmark
 2022-06-30,0,18,Denmark
+2022-06-28,1,1,Estonia
+2022-06-29,0,1,Estonia
+2022-06-30,0,1,Estonia
 2022-05-27,1,1,Finland
 2022-05-28,0,1,Finland
 2022-05-29,0,1,Finland
@@ -490,9 +493,9 @@ Date,Cases,Cumulative_cases,Country
 2022-06-25,0,618,Germany
 2022-06-26,0,618,Germany
 2022-06-27,145,763,Germany
-2022-06-28,75,838,Germany
-2022-06-29,36,874,Germany
-2022-06-30,0,874,Germany
+2022-06-28,65,828,Germany
+2022-06-29,46,874,Germany
+2022-06-30,95,969,Germany
 2022-06-08,5,5,Ghana
 2022-06-09,0,5,Ghana
 2022-06-10,0,5,Ghana
@@ -1029,7 +1032,9 @@ Date,Cases,Cumulative_cases,Country
 2022-06-27,17,365,Portugal
 2022-06-28,8,373,Portugal
 2022-06-29,18,391,Portugal
-2022-06-30,0,391,Portugal
+2022-06-30,11,402,Portugal
+2022-06-29,1,1,Puerto Rico
+2022-06-30,0,1,Puerto Rico
 2022-06-13,1,1,Romania
 2022-06-14,0,1,Romania
 2022-06-15,2,3,Romania
@@ -1264,6 +1269,7 @@ Date,Cases,Cumulative_cases,Country
 2022-06-28,0,1,Taiwan
 2022-06-29,0,1,Taiwan
 2022-06-30,0,1,Taiwan
+2022-06-30,1,1,Turkey
 2022-05-24,1,1,United Arab Emirates
 2022-05-25,0,1,United Arab Emirates
 2022-05-26,0,1,United Arab Emirates
