@@ -494,8 +494,8 @@ Date,Cases,Cumulative_cases,Country
 2022-06-26,0,618,Germany
 2022-06-27,145,763,Germany
 2022-06-28,65,828,Germany
-2022-06-29,46,874,Germany
-2022-06-30,95,969,Germany
+2022-06-29,35,863,Germany
+2022-06-30,106,969,Germany
 2022-06-08,5,5,Ghana
 2022-06-09,0,5,Ghana
 2022-06-10,0,5,Ghana
@@ -602,7 +602,7 @@ Date,Cases,Cumulative_cases,Country
 2022-06-27,0,12,Hungary
 2022-06-28,0,12,Hungary
 2022-06-29,0,12,Hungary
-2022-06-30,0,12,Hungary
+2022-06-30,7,19,Hungary
 2022-06-15,3,3,Iceland
 2022-06-16,0,3,Iceland
 2022-06-17,0,3,Iceland
