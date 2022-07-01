@@ -7,6 +7,8 @@
 
 *Data are updated Monday - Friday.*
 
+*The G.h team will be offline in observance of the U.S. Independence Day holiday, Monday, July 4th. Reporting will resume on Tuesday, July 5th.*
+
 This repository contains dated records of curated Monkeypox cases from the 2022 outbreak (April - ), a data dictionary, and a script used to pull contents from a spreadsheet into JSON and CSV files.
 
 The script is intended for use by the curation team and supporting engineers. It requires access to the relevant Google Sheet, and a Google Cloud service account.
