@@ -7,6 +7,9 @@
 
 *Data are updated Monday - Friday.*
 
+#### Upcoming change
+:warning: From **2022-07-11, all data files** (`latest.csv`, `timeseries-*.csv`) **will have cases from the current outbreak, and from countries where MPXV is endemic**. The lists will be distinguished by the first letter of the ID, which will be of string type: **N** denoting cases from the current outbreak (equivalent to the current list), and **E** for cases from endemic countries.
+
 This repository contains dated records of curated Monkeypox cases from the 2022 outbreak (April - ), a data dictionary, and a script used to pull contents from a spreadsheet into JSON and CSV files.
 
 The script is intended for use by the curation team and supporting engineers. It requires access to the relevant Google Sheet, and a Google Cloud service account.
