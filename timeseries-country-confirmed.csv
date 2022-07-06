@@ -434,6 +434,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-04,0,18,Denmark
 2022-07-05,0,18,Denmark
 2022-07-06,0,18,Denmark
+2022-07-06,1,1,Ecuador
 2022-06-28,1,1,Estonia
 2022-06-29,0,1,Estonia
 2022-06-30,0,1,Estonia
@@ -691,13 +692,13 @@ Date,Cases,Cumulative_cases,Country
 2022-06-27,0,3,Greece
 2022-06-28,0,3,Greece
 2022-06-29,0,3,Greece
-2022-06-30,0,3,Greece
-2022-07-01,0,3,Greece
-2022-07-02,0,3,Greece
-2022-07-03,0,3,Greece
-2022-07-04,0,3,Greece
-2022-07-05,0,3,Greece
-2022-07-06,0,3,Greece
+2022-06-30,4,7,Greece
+2022-07-01,0,7,Greece
+2022-07-02,0,7,Greece
+2022-07-03,0,7,Greece
+2022-07-04,0,7,Greece
+2022-07-05,0,7,Greece
+2022-07-06,0,7,Greece
 2022-05-31,1,1,Hungary
 2022-06-01,0,1,Hungary
 2022-06-02,0,1,Hungary
@@ -1251,12 +1252,12 @@ Date,Cases,Cumulative_cases,Country
 2022-06-28,8,373,Portugal
 2022-06-29,18,391,Portugal
 2022-06-30,11,402,Portugal
-2022-07-01,0,402,Portugal
-2022-07-02,0,402,Portugal
-2022-07-03,0,402,Portugal
-2022-07-04,0,402,Portugal
-2022-07-05,13,415,Portugal
-2022-07-06,0,415,Portugal
+2022-07-01,18,420,Portugal
+2022-07-02,0,420,Portugal
+2022-07-03,0,420,Portugal
+2022-07-04,0,420,Portugal
+2022-07-05,13,433,Portugal
+2022-07-06,0,433,Portugal
 2022-06-29,1,1,Puerto Rico
 2022-06-30,0,1,Puerto Rico
 2022-07-01,0,1,Puerto Rico
@@ -1325,7 +1326,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-03,0,1,Singapore
 2022-07-04,0,1,Singapore
 2022-07-05,0,1,Singapore
-2022-07-06,0,1,Singapore
+2022-07-06,1,2,Singapore
 2022-05-24,1,1,Slovenia
 2022-05-25,1,2,Slovenia
 2022-05-26,0,2,Slovenia
