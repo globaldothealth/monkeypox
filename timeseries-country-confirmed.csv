@@ -87,7 +87,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-03,0,12,Australia
 2022-07-04,0,12,Australia
 2022-07-05,0,12,Australia
-2022-07-06,0,12,Australia
+2022-07-06,5,17,Australia
 2022-05-23,1,1,Austria
 2022-05-24,0,1,Austria
 2022-05-25,0,1,Austria
@@ -230,10 +230,10 @@ Date,Cases,Cumulative_cases,Country
 2022-06-30,12,49,Brazil
 2022-07-01,15,64,Brazil
 2022-07-02,12,76,Brazil
-2022-07-03,1,77,Brazil
-2022-07-04,2,79,Brazil
-2022-07-05,0,79,Brazil
-2022-07-06,0,79,Brazil
+2022-07-03,2,78,Brazil
+2022-07-04,2,80,Brazil
+2022-07-05,26,106,Brazil
+2022-07-06,0,106,Brazil
 2022-06-23,2,2,Bulgaria
 2022-06-24,0,2,Bulgaria
 2022-06-25,0,2,Bulgaria
@@ -292,11 +292,11 @@ Date,Cases,Cumulative_cases,Country
 2022-06-29,12,287,Canada
 2022-06-30,0,287,Canada
 2022-07-01,0,287,Canada
-2022-07-02,0,287,Canada
-2022-07-03,0,287,Canada
-2022-07-04,13,300,Canada
-2022-07-05,0,300,Canada
-2022-07-06,0,300,Canada
+2022-07-02,25,312,Canada
+2022-07-03,0,312,Canada
+2022-07-04,37,349,Canada
+2022-07-05,0,349,Canada
+2022-07-06,0,349,Canada
 2022-06-17,1,1,Chile
 2022-06-18,0,1,Chile
 2022-06-19,0,1,Chile
@@ -797,7 +797,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-03,0,39,Ireland
 2022-07-04,0,39,Ireland
 2022-07-05,0,39,Ireland
-2022-07-06,0,39,Ireland
+2022-07-06,5,44,Ireland
 2022-05-21,1,1,Israel
 2022-05-22,0,1,Israel
 2022-05-23,0,1,Israel
@@ -1166,6 +1166,8 @@ Date,Cases,Cumulative_cases,Country
 2022-07-04,0,17,Norway
 2022-07-05,5,22,Norway
 2022-07-06,0,22,Norway
+2022-07-05,1,1,Panama
+2022-07-06,0,1,Panama
 2022-06-26,1,1,Peru
 2022-06-27,0,1,Peru
 2022-06-28,2,3,Peru
@@ -1365,9 +1367,9 @@ Date,Cases,Cumulative_cases,Country
 2022-07-01,0,9,Slovenia
 2022-07-02,0,9,Slovenia
 2022-07-03,0,9,Slovenia
-2022-07-04,0,9,Slovenia
-2022-07-05,0,9,Slovenia
-2022-07-06,0,9,Slovenia
+2022-07-04,3,12,Slovenia
+2022-07-05,0,12,Slovenia
+2022-07-06,0,12,Slovenia
 2022-06-22,1,1,South Africa
 2022-06-23,0,1,South Africa
 2022-06-24,0,1,South Africa
@@ -1543,7 +1545,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-03,0,115,Switzerland
 2022-07-04,0,115,Switzerland
 2022-07-05,6,121,Switzerland
-2022-07-06,0,121,Switzerland
+2022-07-06,10,131,Switzerland
 2022-06-24,1,1,Taiwan
 2022-06-25,0,1,Taiwan
 2022-06-26,0,1,Taiwan
