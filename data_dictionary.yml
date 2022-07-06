@@ -1,8 +1,10 @@
 dictionary_last_modified: 2022-06-29
 fields:
   - name: ID
-    type: integer
-    description: Unique ID of the case
+    type: string
+    description: >
+      Unique ID of the case. ID starts with N for non-endemic list
+      and E for endemic list.
     required: true
 
   - name: Status

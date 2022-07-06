@@ -76,12 +76,16 @@ def setup_logger():
     rootLogger.setLevel(logging.INFO)
 
 
-def get_data() -> Data:
+def get_data(worksheet_title="Confirmed/Suspected") -> Data:
     logging.info("Getting data from Google Sheets")
     client = pygsheets.authorize(service_account_env_var="GOOGLE_CREDENTIALS")
     spreadsheet = client.open_by_key(DOCUMENT_ID)
 
-    return spreadsheet[0].get_all_records()
+    try:
+        return spreadsheet.worksheet("title", worksheet_title).get_all_records()
+    except pygsheets.WorksheetNotFound:
+        logging.error(f"Could not find worksheet with title={worksheet_title}")
+        raise
 
 
 def get_source_urls(data: Data) -> set[str]:
@@ -94,9 +98,10 @@ def get_source_urls(data: Data) -> set[str]:
     return source_urls
 
 
-def clean_data(data: Data) -> Data:
+def clean_data(data: Data, id_prefix: str = "") -> Data:
     logging.info("Cleaning data")
     for case in data:
+        case["ID"] = id_prefix + str(case["ID"])
         case["Country_ISO3"] = lookup_iso3(case.get("Country"))
         # remove keys which are not in data dictionary
         for key in set(case.keys()) - set(FIELDS):
@@ -250,8 +255,10 @@ if __name__ == "__main__":
     setup_logger()
     logging.info("Starting script")
     data = get_data()
-    data = clean_data(data)
-    json_data, csv_data = format_data(data)
+    endemic_data = get_data("Endemic Countries")
+    data = clean_data(data, id_prefix="N")
+    endemic_data = clean_data(endemic_data, id_prefix="E")
+    json_data, csv_data = format_data(data + endemic_data)
 
     # Run quality checks
     if qc_results := qc.lint_string(csv_data):
