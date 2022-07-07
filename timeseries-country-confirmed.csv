@@ -303,8 +303,8 @@ Date,Cases,Cumulative_cases,Country
 2022-07-03,0,312,Canada
 2022-07-04,37,349,Canada
 2022-07-05,0,349,Canada
-2022-07-06,9,358,Canada
-2022-07-07,0,358,Canada
+2022-07-06,21,370,Canada
+2022-07-07,0,370,Canada
 2022-06-17,1,1,Chile
 2022-06-18,0,1,Chile
 2022-06-19,0,1,Chile
@@ -1417,9 +1417,9 @@ Date,Cases,Cumulative_cases,Country
 2022-07-02,0,9,Slovenia
 2022-07-03,0,9,Slovenia
 2022-07-04,3,12,Slovenia
-2022-07-05,0,12,Slovenia
-2022-07-06,0,12,Slovenia
-2022-07-07,0,12,Slovenia
+2022-07-05,1,13,Slovenia
+2022-07-06,0,13,Slovenia
+2022-07-07,1,14,Slovenia
 2022-06-22,1,1,South Africa
 2022-06-23,0,1,South Africa
 2022-06-24,0,1,South Africa
