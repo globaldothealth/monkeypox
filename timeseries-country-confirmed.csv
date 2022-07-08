@@ -645,7 +645,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-05,105,1242,Germany
 2022-07-06,0,1242,Germany
 2022-07-07,143,1385,Germany
-2022-07-08,0,1385,Germany
+2022-07-08,105,1490,Germany
 2022-06-08,5,5,Ghana
 2022-06-09,0,5,Ghana
 2022-06-10,0,5,Ghana
@@ -951,7 +951,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-05,41,233,Italy
 2022-07-06,0,233,Italy
 2022-07-07,0,233,Italy
-2022-07-08,0,233,Italy
+2022-07-08,22,255,Italy
 2022-07-06,1,1,Jamaica
 2022-07-07,0,1,Jamaica
 2022-07-08,0,1,Jamaica
@@ -1376,8 +1376,8 @@ Date,Cases,Cumulative_cases,Country
 2022-07-04,0,11,Romania
 2022-07-05,0,11,Romania
 2022-07-06,0,11,Romania
-2022-07-07,0,11,Romania
-2022-07-08,0,11,Romania
+2022-07-07,3,14,Romania
+2022-07-08,0,14,Romania
 2022-06-17,1,1,Serbia
 2022-06-18,0,1,Serbia
 2022-06-19,0,1,Serbia
