@@ -110,14 +110,14 @@ def clean_data(data: Data, id_prefix: str = "") -> Data:
     return data
 
 
-def format_data(data: Data) -> tuple[str, str]:
+def format_data(data: Data, fields: Optional[list[str]] = FIELDS) -> tuple[str, str]:
     logging.info("Formatting data")
     json_data = json.dumps(data)
     csv_data = io.StringIO()
-    csv_writer = csv.writer(csv_data)
-    csv_writer.writerow(data[0].keys())  # column names
+    csv_writer = csv.DictWriter(csv_data, fieldnames=fields)
+    csv_writer.writeheader()
     for row in data:
-        csv_writer.writerow(row.values())
+        csv_writer.writerow(row)
     return json_data, csv_data.getvalue()
 
 
