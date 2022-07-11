@@ -110,7 +110,10 @@ N2,2022-05-05,USA,USA,suspected
 N3,2022-01-01,Spain,ESP,discarded
 N4,2022-03-03,Australia,AUS,omit_error
 """
-    actual_JSON, actual_CSV = app.format_data(CLEANED_OUTPUT)
+    actual_JSON, actual_CSV = app.format_data(
+        CLEANED_OUTPUT,
+        fields=["ID", "Date_confirmation", "Country", "Country_ISO3", "Status"]
+    )
     assert actual_JSON == expected_JSON
     assert actual_CSV.splitlines() == expected_CSV.splitlines()
 
