@@ -49,6 +49,8 @@ ISO3_QUIRKS = {
     "northern ireland": "GBR",
     "wales": "GBR",
     "democratic republic of the congo": "COD",
+    "republic of the congo": "COG",
+    "republic of congo": "COG",
 }
 
 VALID_STATUSES = ["suspected", "confirmed", "discarded", "omit_error"]
