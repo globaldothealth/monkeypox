@@ -100,8 +100,8 @@ Date,Cases,Cumulative_cases,Country
 2022-07-09,0,20,Australia
 2022-07-10,4,24,Australia
 2022-07-11,0,24,Australia
-2022-07-12,0,24,Australia
-2022-07-13,0,24,Australia
+2022-07-12,4,28,Australia
+2022-07-13,0,28,Australia
 2022-05-23,1,1,Austria
 2022-05-24,0,1,Austria
 2022-05-25,0,1,Austria
@@ -495,9 +495,9 @@ Date,Cases,Cumulative_cases,Country
 2022-07-08,5,375,Canada
 2022-07-09,3,378,Canada
 2022-07-10,0,378,Canada
-2022-07-11,55,433,Canada
-2022-07-12,0,433,Canada
-2022-07-13,0,433,Canada
+2022-07-11,99,477,Canada
+2022-07-12,0,477,Canada
+2022-07-13,0,477,Canada
 2022-04-10,6,6,Central African Republic
 2022-04-11,0,6,Central African Republic
 2022-04-12,0,6,Central African Republic
@@ -614,12 +614,12 @@ Date,Cases,Cumulative_cases,Country
 2022-07-05,0,13,Chile
 2022-07-06,0,13,Chile
 2022-07-07,0,13,Chile
-2022-07-08,0,13,Chile
-2022-07-09,0,13,Chile
-2022-07-10,0,13,Chile
-2022-07-11,0,13,Chile
-2022-07-12,0,13,Chile
-2022-07-13,0,13,Chile
+2022-07-08,1,14,Chile
+2022-07-09,0,14,Chile
+2022-07-10,0,14,Chile
+2022-07-11,2,16,Chile
+2022-07-12,0,16,Chile
+2022-07-13,0,16,Chile
 2022-06-23,3,3,Colombia
 2022-06-24,0,3,Colombia
 2022-06-25,0,3,Colombia
@@ -810,7 +810,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-10,0,28,Denmark
 2022-07-11,1,29,Denmark
 2022-07-12,0,29,Denmark
-2022-07-13,0,29,Denmark
+2022-07-13,3,32,Denmark
 2022-07-06,1,1,Dominican Republic
 2022-07-07,0,1,Dominican Republic
 2022-07-08,0,1,Dominican Republic
@@ -945,8 +945,8 @@ Date,Cases,Cumulative_cases,Country
 2022-07-09,0,721,France
 2022-07-10,0,721,France
 2022-07-11,0,721,France
-2022-07-12,0,721,France
-2022-07-13,0,721,France
+2022-07-12,187,908,France
+2022-07-13,0,908,France
 2022-06-15,1,1,Georgia
 2022-06-16,0,1,Georgia
 2022-06-17,0,1,Georgia
@@ -1031,7 +1031,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-10,0,1558,Germany
 2022-07-11,60,1618,Germany
 2022-07-12,18,1636,Germany
-2022-07-13,0,1636,Germany
+2022-07-13,58,1694,Germany
 2022-06-08,5,5,Ghana
 2022-06-09,0,5,Ghana
 2022-06-10,0,5,Ghana
@@ -1673,8 +1673,8 @@ Date,Cases,Cumulative_cases,Country
 2022-07-09,1,1,New Zealand
 2022-07-10,0,1,New Zealand
 2022-07-11,0,1,New Zealand
-2022-07-12,0,1,New Zealand
-2022-07-13,0,1,New Zealand
+2022-07-12,1,2,New Zealand
+2022-07-13,0,2,New Zealand
 2022-01-31,3,3,Nigeria
 2022-02-01,0,3,Nigeria
 2022-02-02,0,3,Nigeria
@@ -1882,7 +1882,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-10,0,25,Norway
 2022-07-11,4,29,Norway
 2022-07-12,2,31,Norway
-2022-07-13,0,31,Norway
+2022-07-13,2,33,Norway
 2022-07-05,1,1,Panama
 2022-07-06,0,1,Panama
 2022-07-07,0,1,Panama
@@ -1908,8 +1908,8 @@ Date,Cases,Cumulative_cases,Country
 2022-07-09,0,18,Peru
 2022-07-10,0,18,Peru
 2022-07-11,0,18,Peru
-2022-07-12,0,18,Peru
-2022-07-13,0,18,Peru
+2022-07-12,18,36,Peru
+2022-07-13,0,36,Peru
 2022-06-10,1,1,Poland
 2022-06-11,0,1,Poland
 2022-06-12,0,1,Poland
@@ -2141,6 +2141,8 @@ Date,Cases,Cumulative_cases,Country
 2022-07-11,0,14,Romania
 2022-07-12,0,14,Romania
 2022-07-13,0,14,Romania
+2022-07-12,1,1,Russia
+2022-07-13,0,1,Russia
 2022-06-17,1,1,Serbia
 2022-06-18,0,1,Serbia
 2022-06-19,0,1,Serbia
@@ -2249,7 +2251,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-10,0,18,Slovenia
 2022-07-11,0,18,Slovenia
 2022-07-12,0,18,Slovenia
-2022-07-13,0,18,Slovenia
+2022-07-13,1,19,Slovenia
 2022-06-22,1,1,South Africa
 2022-06-23,0,1,South Africa
 2022-06-24,0,1,South Africa
@@ -2460,7 +2462,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-10,0,140,Switzerland
 2022-07-11,23,163,Switzerland
 2022-07-12,2,165,Switzerland
-2022-07-13,0,165,Switzerland
+2022-07-13,16,181,Switzerland
 2022-06-24,1,1,Taiwan
 2022-06-25,0,1,Taiwan
 2022-06-26,0,1,Taiwan
