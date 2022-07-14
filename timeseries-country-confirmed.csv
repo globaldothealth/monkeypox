@@ -276,14 +276,14 @@ Date,Cases,Cumulative_cases,Country
 2022-07-04,2,80,Brazil
 2022-07-05,26,106,Brazil
 2022-07-06,36,142,Brazil
-2022-07-07,31,173,Brazil
-2022-07-08,33,206,Brazil
-2022-07-09,14,220,Brazil
-2022-07-10,0,220,Brazil
-2022-07-11,0,220,Brazil
-2022-07-12,0,220,Brazil
-2022-07-13,0,220,Brazil
-2022-07-14,0,220,Brazil
+2022-07-07,30,172,Brazil
+2022-07-08,32,204,Brazil
+2022-07-09,14,218,Brazil
+2022-07-10,0,218,Brazil
+2022-07-11,10,228,Brazil
+2022-07-12,0,228,Brazil
+2022-07-13,0,228,Brazil
+2022-07-14,82,310,Brazil
 2022-06-23,2,2,Bulgaria
 2022-06-24,0,2,Bulgaria
 2022-06-25,0,2,Bulgaria
@@ -718,17 +718,17 @@ Date,Cases,Cumulative_cases,Country
 2022-07-01,0,8,Czech Republic
 2022-07-02,0,8,Czech Republic
 2022-07-03,0,8,Czech Republic
-2022-07-04,0,8,Czech Republic
-2022-07-05,0,8,Czech Republic
-2022-07-06,0,8,Czech Republic
-2022-07-07,0,8,Czech Republic
-2022-07-08,0,8,Czech Republic
-2022-07-09,0,8,Czech Republic
-2022-07-10,0,8,Czech Republic
-2022-07-11,0,8,Czech Republic
-2022-07-12,2,10,Czech Republic
-2022-07-13,0,10,Czech Republic
-2022-07-14,0,10,Czech Republic
+2022-07-04,1,9,Czech Republic
+2022-07-05,0,9,Czech Republic
+2022-07-06,0,9,Czech Republic
+2022-07-07,1,10,Czech Republic
+2022-07-08,1,11,Czech Republic
+2022-07-09,0,11,Czech Republic
+2022-07-10,0,11,Czech Republic
+2022-07-11,0,11,Czech Republic
+2022-07-12,0,11,Czech Republic
+2022-07-13,1,12,Czech Republic
+2022-07-14,0,12,Czech Republic
 2022-05-29,10,10,Democratic Republic Of The Congo
 2022-05-30,0,10,Democratic Republic Of The Congo
 2022-05-31,0,10,Democratic Republic Of The Congo
@@ -1354,7 +1354,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-11,5,66,Israel
 2022-07-12,7,73,Israel
 2022-07-13,7,80,Israel
-2022-07-14,0,80,Israel
+2022-07-14,8,88,Israel
 2022-05-19,1,1,Italy
 2022-05-20,2,3,Italy
 2022-05-21,0,3,Italy
@@ -2723,24 +2723,24 @@ Date,Cases,Cumulative_cases,Country
 2022-06-24,28,201,United States
 2022-06-25,0,201,United States
 2022-06-26,0,201,United States
-2022-06-27,43,244,United States
-2022-06-28,62,306,United States
+2022-06-27,44,245,United States
+2022-06-28,61,306,United States
 2022-06-29,45,351,United States
 2022-06-30,44,395,United States
-2022-07-01,64,459,United States
-2022-07-02,0,459,United States
-2022-07-03,0,459,United States
-2022-07-04,0,459,United States
-2022-07-05,100,559,United States
+2022-07-01,65,460,United States
+2022-07-02,0,460,United States
+2022-07-03,0,460,United States
+2022-07-04,0,460,United States
+2022-07-05,99,559,United States
 2022-07-06,45,604,United States
 2022-07-07,96,700,United States
 2022-07-08,66,766,United States
 2022-07-09,0,766,United States
 2022-07-10,0,766,United States
 2022-07-11,97,863,United States
-2022-07-12,62,925,United States
-2022-07-13,124,1049,United States
-2022-07-14,0,1049,United States
+2022-07-12,64,927,United States
+2022-07-13,124,1051,United States
+2022-07-14,0,1051,United States
 2022-06-12,1,1,Venezuela
 2022-06-13,0,1,Venezuela
 2022-06-14,0,1,Venezuela
