@@ -288,7 +288,7 @@ if __name__ == "__main__":
     store_pdfs(pdfs, folder=SOURCES_FOLDER)
 
     # Store aggregate data, including timeseries
-    total_count, country_aggregates = aggregate_data(data)
+    total_count, country_aggregates = aggregate_data(data + endemic_data)
     store_aggregates(json.dumps(total_count), json.dumps(country_aggregates))
     store_timeseries(timeseries_confirmed, timeseries_country_confirmed)
 
