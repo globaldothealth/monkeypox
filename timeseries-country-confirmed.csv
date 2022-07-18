@@ -169,6 +169,9 @@ Date,Cases,Cumulative_cases,Country
 2022-07-16,0,83,Austria
 2022-07-17,0,83,Austria
 2022-07-18,0,83,Austria
+2022-07-16,1,1,Barbados
+2022-07-17,0,1,Barbados
+2022-07-18,0,1,Barbados
 2022-05-19,1,1,Belgium
 2022-05-20,2,3,Belgium
 2022-05-21,1,4,Belgium
@@ -789,7 +792,28 @@ Date,Cases,Cumulative_cases,Country
 2022-07-16,0,12,Czech Republic
 2022-07-17,0,12,Czech Republic
 2022-07-18,0,12,Czech Republic
-2022-05-29,10,10,Democratic Republic Of The Congo
+2022-05-08,10,10,Democratic Republic Of The Congo
+2022-05-09,0,10,Democratic Republic Of The Congo
+2022-05-10,0,10,Democratic Republic Of The Congo
+2022-05-11,0,10,Democratic Republic Of The Congo
+2022-05-12,0,10,Democratic Republic Of The Congo
+2022-05-13,0,10,Democratic Republic Of The Congo
+2022-05-14,0,10,Democratic Republic Of The Congo
+2022-05-15,0,10,Democratic Republic Of The Congo
+2022-05-16,0,10,Democratic Republic Of The Congo
+2022-05-17,0,10,Democratic Republic Of The Congo
+2022-05-18,0,10,Democratic Republic Of The Congo
+2022-05-19,0,10,Democratic Republic Of The Congo
+2022-05-20,0,10,Democratic Republic Of The Congo
+2022-05-21,0,10,Democratic Republic Of The Congo
+2022-05-22,0,10,Democratic Republic Of The Congo
+2022-05-23,0,10,Democratic Republic Of The Congo
+2022-05-24,0,10,Democratic Republic Of The Congo
+2022-05-25,0,10,Democratic Republic Of The Congo
+2022-05-26,0,10,Democratic Republic Of The Congo
+2022-05-27,0,10,Democratic Republic Of The Congo
+2022-05-28,0,10,Democratic Republic Of The Congo
+2022-05-29,0,10,Democratic Republic Of The Congo
 2022-05-30,0,10,Democratic Republic Of The Congo
 2022-05-31,0,10,Democratic Republic Of The Congo
 2022-06-01,0,10,Democratic Republic Of The Congo
@@ -2263,10 +2287,10 @@ Date,Cases,Cumulative_cases,Country
 2022-07-12,2,4,Puerto Rico
 2022-07-13,0,4,Puerto Rico
 2022-07-14,0,4,Puerto Rico
-2022-07-15,0,4,Puerto Rico
-2022-07-16,0,4,Puerto Rico
-2022-07-17,0,4,Puerto Rico
-2022-07-18,0,4,Puerto Rico
+2022-07-15,4,8,Puerto Rico
+2022-07-16,0,8,Puerto Rico
+2022-07-17,0,8,Puerto Rico
+2022-07-18,0,8,Puerto Rico
 2022-04-12,2,2,Republic of Congo
 2022-04-13,0,2,Republic of Congo
 2022-04-14,0,2,Republic of Congo
