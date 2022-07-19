@@ -1,0 +1,59 @@
+FROM rocker/r-ver:4.0.3
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=off \
+    PIP_DISABLE_PIP_VERSION_CHECK=on \
+    PIP_DEFAULT_TIMEOUT=100 \
+    POETRY_VERSION=1.1.14 \
+    POETRY_HOME="/opt/poetry" \
+    POETRY_VIRTUALENVS_IN_PROJECT=true \
+    POETRY_NO_INTERACTION=1 \
+    PYSETUP_PATH="/opt/pysetup" \
+    VENV_PATH="/opt/pysetup/.venv"
+
+ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
+
+RUN apt-get update && apt upgrade -y
+
+RUN apt install -y software-properties-common
+
+RUN add-apt-repository ppa:deadsnakes/ppa
+
+# https://github.com/tschaffter/rstudio/issues/11
+RUN apt-get install -y  --no-install-recommends \
+   libxtst6 \
+   libxt6 \
+   curl \
+   build-essential \
+   python3.10 \
+   python3-pip
+
+RUN ln -s /usr/local/lib/R/lib/libR.so /lib/x86_64-linux-gnu/libR.so
+
+RUN curl -sSL https://install.python-poetry.org | python3 -
+
+RUN mkdir /report/
+RUN mkdir /output/
+
+COPY run.py poetry.lock pyproject.toml /report/
+COPY run.R renv.lock /report/
+COPY config.json /report/
+
+WORKDIR /report
+
+ENV PATH="${PATH}:/root/.poetry/bin"
+
+ENV RENV_VERSION 0.15.5
+RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))"
+RUN R -e "remotes::install_github('rstudio/renv@${RENV_VERSION}')"
+
+ENV RENV_PATHS_LIBRARY renv/library
+
+RUN R -e "renv::restore()"
+
+RUN poetry install --no-dev
+
+# TODO: use `renv`
+# CMD Rscript /report/run.R && echo $(ls) && echo $(cat /output/sdcmicro.csv)
+CMD poetry run python3 setup.py && Rscript /report/run.R && poetry run python3 run.py

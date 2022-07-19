@@ -1,0 +1,17 @@
+{
+	"key_variables": [
+		"Location",
+		"City",
+		"Gender",
+		"Hospitalised",
+        "Date_hospitalisation",
+        "Travel_history_location"
+	],
+	"linked_variables": [],
+	"categorical_numerical_variables": [],
+	"weight_variable": [],
+	"pram_variables": [],
+	"household_ids": [],
+	"stratification_variables": [],
+	"sensible_variables": []
+}
