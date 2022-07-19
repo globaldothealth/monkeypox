@@ -20,6 +20,8 @@ The [data dictionary](data_dictionary.yml) contains information about columns/fi
 
 The [archives](archives) folder contains dated JSON and CSV files. They are currently uploaded manually; regularly and automatically updated data sets live in an (currently private) S3 bucket.
 
+The analytics folder contains scripts that use the curated data set. This currently includes an R file that finds the risk of re-identification based on curated data.
+
 There is also a daily briefing report generated from this data at https://www.monkeypox.global.health
 
 ## Getting the data
