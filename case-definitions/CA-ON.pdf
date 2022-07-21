@@ -39,7 +39,7 @@ var linkToFrenchResources = "/fr/ordre-des-ergothérapeutes-de-l-ontario";
     <form method="post" action="/error-pages/404?aspxerrorpath=/docs/default-source/default-document-library/cmoh-77-6-order-monkeypox.pdf" id="aspnetForm">
 <input type="hidden" name="ctl32_TSM" id="ctl32_TSM" value="" />
 <input type="hidden" name="ctl33_TSSM" id="ctl33_TSSM" value="" />
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="rHGzjCZxVJKyE1urQQ7jrDE2qiNRoelnMy5JTxD8OEmRRtquO/vT4RD1YT+FHZq4Uph5fO1yisvwKK0wSe97KuonlbP7F7kvLdUbBdyL16E=" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="RPkPvfLbqHQ7SCvSxsRgj3g/KTVtFPvvUpyurUh6Tb71a4TLzvBYbDq6dH8Qb67C0qgnqHZNt/+mWV1qb2md8+hFieYE6r3ZXKGPw3TaKcg=" />
 
 
 <script type="text/javascript">
@@ -688,7 +688,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </li>                                        
                         
                             <li>           
-                                <a href="/registrants/practice-support/use-of-occupational-therapist-title">Use of Title</a>          
+                                <a href="/registrants/practice-support/use-of-title">Use of Title</a>          
                                 
                             </li>                                        
                         

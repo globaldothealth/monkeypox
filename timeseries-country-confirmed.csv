@@ -587,7 +587,44 @@ Date,Cases,Cumulative_cases,Country
 2022-07-19,29,604,Canada
 2022-07-20,0,604,Canada
 2022-07-21,0,604,Canada
-2022-04-10,6,6,Central African Republic
+2022-03-04,2,2,Central African Republic
+2022-03-05,0,2,Central African Republic
+2022-03-06,0,2,Central African Republic
+2022-03-07,0,2,Central African Republic
+2022-03-08,0,2,Central African Republic
+2022-03-09,0,2,Central African Republic
+2022-03-10,0,2,Central African Republic
+2022-03-11,0,2,Central African Republic
+2022-03-12,0,2,Central African Republic
+2022-03-13,0,2,Central African Republic
+2022-03-14,0,2,Central African Republic
+2022-03-15,0,2,Central African Republic
+2022-03-16,0,2,Central African Republic
+2022-03-17,0,2,Central African Republic
+2022-03-18,0,2,Central African Republic
+2022-03-19,0,2,Central African Republic
+2022-03-20,0,2,Central African Republic
+2022-03-21,0,2,Central African Republic
+2022-03-22,0,2,Central African Republic
+2022-03-23,0,2,Central African Republic
+2022-03-24,0,2,Central African Republic
+2022-03-25,0,2,Central African Republic
+2022-03-26,0,2,Central African Republic
+2022-03-27,0,2,Central African Republic
+2022-03-28,0,2,Central African Republic
+2022-03-29,0,2,Central African Republic
+2022-03-30,0,2,Central African Republic
+2022-03-31,0,2,Central African Republic
+2022-04-01,0,2,Central African Republic
+2022-04-02,0,2,Central African Republic
+2022-04-03,0,2,Central African Republic
+2022-04-04,0,2,Central African Republic
+2022-04-05,0,2,Central African Republic
+2022-04-06,0,2,Central African Republic
+2022-04-07,0,2,Central African Republic
+2022-04-08,0,2,Central African Republic
+2022-04-09,0,2,Central African Republic
+2022-04-10,4,6,Central African Republic
 2022-04-11,0,6,Central African Republic
 2022-04-12,0,6,Central African Republic
 2022-04-13,0,6,Central African Republic
@@ -626,10 +663,10 @@ Date,Cases,Cumulative_cases,Country
 2022-05-16,0,6,Central African Republic
 2022-05-17,0,6,Central African Republic
 2022-05-18,0,6,Central African Republic
-2022-05-19,0,6,Central African Republic
-2022-05-20,0,6,Central African Republic
-2022-05-21,0,6,Central African Republic
-2022-05-22,2,8,Central African Republic
+2022-05-19,2,8,Central African Republic
+2022-05-20,0,8,Central African Republic
+2022-05-21,0,8,Central African Republic
+2022-05-22,0,8,Central African Republic
 2022-05-23,0,8,Central African Republic
 2022-05-24,0,8,Central African Republic
 2022-05-25,0,8,Central African Republic
@@ -1253,9 +1290,9 @@ Date,Cases,Cumulative_cases,Country
 2022-07-16,0,1919,Germany
 2022-07-17,0,1919,Germany
 2022-07-18,35,1954,Germany
-2022-07-19,79,2033,Germany
-2022-07-20,77,2110,Germany
-2022-07-21,81,2191,Germany
+2022-07-19,53,2007,Germany
+2022-07-20,93,2100,Germany
+2022-07-21,91,2191,Germany
 2022-06-08,5,5,Ghana
 2022-06-09,0,5,Ghana
 2022-06-10,0,5,Ghana
@@ -3246,8 +3283,8 @@ Date,Cases,Cumulative_cases,Country
 2022-07-16,0,1787,United States
 2022-07-17,0,1787,United States
 2022-07-18,153,1940,United States
-2022-07-19,126,2066,United States
-2022-07-20,250,2316,United States
+2022-07-19,121,2061,United States
+2022-07-20,255,2316,United States
 2022-07-21,0,2316,United States
 2022-06-12,1,1,Venezuela
 2022-06-13,0,1,Venezuela
