@@ -199,7 +199,7 @@ def aggregate_data(data: Data, today: str=None) -> tuple[dict[str, int], dict[st
     total_count = {"total": 0, "confirmed": 0}
     aggregates: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))  # nested defaultdict
     for case in data:
-        country = case.get("Country")
+        country = case.get("Country_ISO3")
         if not country:
             raise ValueError(f"No country found for case: {case}")
         status = case.get("Status")

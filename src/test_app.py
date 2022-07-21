@@ -122,7 +122,7 @@ def test_aggregate_data():
     expected_total = {"total": 2, "confirmed": 1}
     expected_country_aggregate = {
         "2022-06-05": [
-            {"England": {"confirmed": 1, "suspected": 0}},
+            {"GBR": {"confirmed": 1, "suspected": 0}},
             {"USA": {"confirmed": 0, "suspected": 1}},
         ]
     }
