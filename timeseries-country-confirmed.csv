@@ -754,6 +754,8 @@ Date,Cases,Cumulative_cases,Country
 2022-07-19,3,10,Colombia
 2022-07-20,0,10,Colombia
 2022-07-21,0,10,Colombia
+2022-07-20,1,1,Costa Rica
+2022-07-21,0,1,Costa Rica
 2022-06-23,1,1,Croatia
 2022-06-24,0,1,Croatia
 2022-06-25,0,1,Croatia
@@ -2743,8 +2745,8 @@ Date,Cases,Cumulative_cases,Country
 2022-07-17,0,19,Slovenia
 2022-07-18,7,26,Slovenia
 2022-07-19,0,26,Slovenia
-2022-07-20,0,26,Slovenia
-2022-07-21,0,26,Slovenia
+2022-07-20,1,27,Slovenia
+2022-07-21,0,27,Slovenia
 2022-06-22,1,1,South Africa
 2022-06-23,0,1,South Africa
 2022-06-24,0,1,South Africa
@@ -2933,7 +2935,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-18,0,58,Sweden
 2022-07-19,0,58,Sweden
 2022-07-20,0,58,Sweden
-2022-07-21,0,58,Sweden
+2022-07-21,19,77,Sweden
 2022-05-21,1,1,Switzerland
 2022-05-22,0,1,Switzerland
 2022-05-23,0,1,Switzerland
