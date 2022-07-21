@@ -39,7 +39,7 @@ var linkToFrenchResources = "/fr/ordre-des-ergothérapeutes-de-l-ontario";
     <form method="post" action="/error-pages/404?aspxerrorpath=/docs/default-source/default-document-library/cmoh-77-6-order-monkeypox.pdf" id="aspnetForm">
 <input type="hidden" name="ctl32_TSM" id="ctl32_TSM" value="" />
 <input type="hidden" name="ctl33_TSSM" id="ctl33_TSSM" value="" />
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="e8a3snHA9M04PjCnAODIKZw6hWF5b8JgktaUmXWkVtN2CChKliSYJIMYOAdIUvh/njUsAVxZybuHiMOHOpHBdgODZEEVtBejDmWgMgolYoU=" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="rHGzjCZxVJKyE1urQQ7jrDE2qiNRoelnMy5JTxD8OEmRRtquO/vT4RD1YT+FHZq4Uph5fO1yisvwKK0wSe97KuonlbP7F7kvLdUbBdyL16E=" />
 
 
 <script type="text/javascript">
@@ -308,18 +308,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </li>                                        
                         
                             <li>           
-                                <a href="/about/career-opportunities">Career Opportunities</a>          
-                                
-                            </li>                                        
-                        
-                            <li>           
                                 <a href="/public/about/accessibility">Accessibility</a>          
-                                <ul id="NavigationDropdowns_T087C57A2029_ctl00_ctl00_ctl03_ctl04_childNodesContainer">
+                                <ul id="NavigationDropdowns_T087C57A2029_ctl00_ctl00_ctl03_ctl03_childNodesContainer">
                             <li>           
                                 <a href="/public/about/accessibility/accessibility-request-and-feedback-form">Accessibility Request and Feedback Form</a>          
                                 
                             </li>                                        
                         </ul>
+                            </li>                                        
+                        
+                            <li>           
+                                <a href="/about/career-opportunities">Career Opportunities</a>          
+                                
                             </li>                                        
                         
                             <li>           
@@ -778,7 +778,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </li>                                        
                         
                             <li>           
-                                <a href="/registrants/quality-assurance/quality-assurance-policies">Quality Assurance Policies</a>          
+                                <a href="/registrants/quality-assurance/quality-assurance-forms">Quality Assurance Forms</a>          
                                 
                             </li>                                        
                         
@@ -881,7 +881,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </div>
     <div class="sf_colsOut sf_2cols_2_33" style="width: 33%;">
-        <div id="NavigationDropdowns_T087C57A2059_Col01" class="sf_colsIn sf_2cols_2in_33"><div class='sfContentBlock'><a href="/home" class="btn-blue">Login</a><br />
+        <div id="NavigationDropdowns_T087C57A2059_Col01" class="sf_colsIn sf_2cols_2in_33"><div class='sfContentBlock'><a href="https://occupationaltherapist.coto.org/coto/COTOWEB/Home/cotoweb/Home.aspx" class="btn-blue">Login</a><br />
 <a href="/registrants/practice-support" class="btn-blue">Practice Support</a>
 
 </div><div class="sf_cols nav-footer-wrp">
@@ -1029,7 +1029,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </div>
     <div class="sf_colsOut sf_2cols_2_33" style="">
-        <div id="NavigationDropdowns_T087C57A2061_Col01" class="sf_colsIn sf_2cols_2in_33"><div class="sf_cols nav-footer-wrp">
+        <div id="NavigationDropdowns_T087C57A2061_Col01" class="sf_colsIn sf_2cols_2in_33"><div class='sfContentBlock'><a href="/registrants/practice-support" class="btn-blue">Practice Support</a>
+
+</div><div class="sf_cols nav-footer-wrp">
     <div class="sf_colsOut sf_1col_1_100" style="">
         <div id="NavigationDropdowns_T087C57A2077_Col00" class="sf_colsIn sf_1col_1in_100">
 <div >
