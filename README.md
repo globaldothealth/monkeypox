@@ -9,7 +9,7 @@
 
 #### Upcoming change
 * From **2022-07-07 onwards, only confirmed cases for Brazil will be reported**
-* :warning: From **2022-07-11, all data files** (`latest.csv`, `timeseries-*.csv`) **will have cases from the current outbreak, and from countries where MPXV is endemic**. The lists will be distinguished by the first letter of the ID, which will be of string type: **N** denoting cases from the current outbreak (equivalent to the current list), and **E** for cases from endemic countries.
+* :warning: From **2022-07-11, all data files** (`latest.csv`, `timeseries-*.csv`) **will have cases from the current outbreak, and from countries where MPXV is endemic**. The lists will be distinguished by the first letter of the ID, which will be of string type: **N** denoting cases from the current outbreak (equivalent to the current list), and **E** for cases from endemic countries. Endemic data has been **updated as of 2022-07-22** to accurately reflect confirmed/suspected/total cases from source reporting.
 
 This repository contains dated records of curated Monkeypox cases from the 2022 outbreak (April - ), a data dictionary, and a script used to pull contents from a spreadsheet into JSON and CSV files.
 
