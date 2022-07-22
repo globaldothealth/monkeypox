@@ -39,7 +39,7 @@ var linkToFrenchResources = "/fr/ordre-des-ergothérapeutes-de-l-ontario";
     <form method="post" action="/error-pages/404?aspxerrorpath=/docs/default-source/default-document-library/cmoh-77-6-order-monkeypox.pdf" id="aspnetForm">
 <input type="hidden" name="ctl32_TSM" id="ctl32_TSM" value="" />
 <input type="hidden" name="ctl33_TSSM" id="ctl33_TSSM" value="" />
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="2gkdLWOSWevY4CkCppG24l05vGsnaNak5IJqrtnQKHZTAc7zXQfRLLNyl5JqRvVCbCNtyKuvQaB6sWHpGcBRNfpUYF4x/ji+nKJTWPfsqsg=" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="rlOJSklMjdXALH/sJJ/WQwgSoKQvfmiuAq1mo2ilhWFwj9+kQjgkW9XxB94/DoDQl26XcGOD2H65jS4H4tx1BxWF4AIDsHj0dCQwVsTWSaY=" />
 
 
 <script type="text/javascript">
