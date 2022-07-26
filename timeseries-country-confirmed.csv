@@ -125,9 +125,9 @@ Date,Cases,Cumulative_cases,Country
 2022-07-21,1,42,Australia
 2022-07-22,0,42,Australia
 2022-07-23,0,42,Australia
-2022-07-24,0,42,Australia
-2022-07-25,0,42,Australia
-2022-07-26,0,42,Australia
+2022-07-24,2,44,Australia
+2022-07-25,0,44,Australia
+2022-07-26,0,44,Australia
 2022-05-23,1,1,Austria
 2022-05-24,0,1,Austria
 2022-05-25,0,1,Austria
@@ -1116,7 +1116,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-23,0,48,Denmark
 2022-07-24,0,48,Denmark
 2022-07-25,11,59,Denmark
-2022-07-26,0,59,Denmark
+2022-07-26,1,60,Denmark
 2022-07-06,1,1,Dominican Republic
 2022-07-07,0,1,Dominican Republic
 2022-07-08,0,1,Dominican Republic
@@ -1428,7 +1428,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-23,0,2268,Germany
 2022-07-24,0,2268,Germany
 2022-07-25,84,2352,Germany
-2022-07-26,0,2352,Germany
+2022-07-26,58,2410,Germany
 2022-06-08,5,5,Ghana
 2022-06-09,0,5,Ghana
 2022-06-10,0,5,Ghana
@@ -1822,7 +1822,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-23,0,105,Israel
 2022-07-24,9,114,Israel
 2022-07-25,0,114,Israel
-2022-07-26,0,114,Israel
+2022-07-26,7,121,Israel
 2022-05-19,1,1,Italy
 2022-05-20,2,3,Italy
 2022-05-21,0,3,Italy
@@ -1891,7 +1891,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-23,0,407,Italy
 2022-07-24,0,407,Italy
 2022-07-25,0,407,Italy
-2022-07-26,0,407,Italy
+2022-07-26,19,426,Italy
 2022-07-06,1,1,Jamaica
 2022-07-07,0,1,Jamaica
 2022-07-08,0,1,Jamaica
@@ -2301,7 +2301,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-23,0,712,Netherlands
 2022-07-24,0,712,Netherlands
 2022-07-25,0,712,Netherlands
-2022-07-26,0,712,Netherlands
+2022-07-26,106,818,Netherlands
 2022-07-09,1,1,New Zealand
 2022-07-10,0,1,New Zealand
 2022-07-11,0,1,New Zealand
@@ -2553,7 +2553,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-23,0,46,Norway
 2022-07-24,0,46,Norway
 2022-07-25,0,46,Norway
-2022-07-26,0,46,Norway
+2022-07-26,3,49,Norway
 2022-07-05,1,1,Panama
 2022-07-06,0,1,Panama
 2022-07-07,0,1,Panama
@@ -2605,8 +2605,8 @@ Date,Cases,Cumulative_cases,Country
 2022-07-22,17,143,Peru
 2022-07-23,0,143,Peru
 2022-07-24,0,143,Peru
-2022-07-25,0,143,Peru
-2022-07-26,0,143,Peru
+2022-07-25,65,208,Peru
+2022-07-26,0,208,Peru
 2022-06-10,1,1,Poland
 2022-06-11,0,1,Poland
 2022-06-12,0,1,Poland
@@ -2748,11 +2748,11 @@ Date,Cases,Cumulative_cases,Country
 2022-07-19,0,8,Puerto Rico
 2022-07-20,0,8,Puerto Rico
 2022-07-21,0,8,Puerto Rico
-2022-07-22,0,8,Puerto Rico
-2022-07-23,0,8,Puerto Rico
-2022-07-24,0,8,Puerto Rico
-2022-07-25,0,8,Puerto Rico
-2022-07-26,0,8,Puerto Rico
+2022-07-22,5,13,Puerto Rico
+2022-07-23,0,13,Puerto Rico
+2022-07-24,0,13,Puerto Rico
+2022-07-25,0,13,Puerto Rico
+2022-07-26,0,13,Puerto Rico
 2022-07-20,1,1,Qatar
 2022-07-21,0,1,Qatar
 2022-07-22,0,1,Qatar
@@ -2936,8 +2936,8 @@ Date,Cases,Cumulative_cases,Country
 2022-07-22,0,1,Saudi Arabia
 2022-07-23,0,1,Saudi Arabia
 2022-07-24,0,1,Saudi Arabia
-2022-07-25,0,1,Saudi Arabia
-2022-07-26,0,1,Saudi Arabia
+2022-07-25,2,3,Saudi Arabia
+2022-07-26,0,3,Saudi Arabia
 2022-06-17,1,1,Serbia
 2022-06-18,0,1,Serbia
 2022-06-19,0,1,Serbia
@@ -3238,7 +3238,7 @@ Date,Cases,Cumulative_cases,Country
 2022-07-23,0,3125,Spain
 2022-07-24,0,3125,Spain
 2022-07-25,0,3125,Spain
-2022-07-26,0,3125,Spain
+2022-07-26,613,3738,Spain
 2022-05-19,1,1,Sweden
 2022-05-20,0,1,Sweden
 2022-05-21,0,1,Sweden
@@ -3579,8 +3579,8 @@ Date,Cases,Cumulative_cases,Country
 2022-07-22,0,2208,United Kingdom
 2022-07-23,0,2208,United Kingdom
 2022-07-24,0,2208,United Kingdom
-2022-07-25,0,2208,United Kingdom
-2022-07-26,0,2208,United Kingdom
+2022-07-25,224,2432,United Kingdom
+2022-07-26,0,2432,United Kingdom
 2022-05-18,1,1,United States
 2022-05-19,1,2,United States
 2022-05-20,0,2,United States
@@ -3639,18 +3639,18 @@ Date,Cases,Cumulative_cases,Country
 2022-07-12,64,1122,United States
 2022-07-13,123,1245,United States
 2022-07-14,181,1426,United States
-2022-07-15,342,1768,United States
-2022-07-16,0,1768,United States
-2022-07-17,0,1768,United States
-2022-07-18,146,1914,United States
-2022-07-19,119,2033,United States
-2022-07-20,209,2242,United States
-2022-07-21,318,2560,United States
-2022-07-22,323,2883,United States
-2022-07-23,0,2883,United States
-2022-07-24,0,2883,United States
-2022-07-25,0,2883,United States
-2022-07-26,0,2883,United States
+2022-07-15,341,1767,United States
+2022-07-16,0,1767,United States
+2022-07-17,0,1767,United States
+2022-07-18,228,1995,United States
+2022-07-19,119,2114,United States
+2022-07-20,209,2323,United States
+2022-07-21,181,2504,United States
+2022-07-22,372,2876,United States
+2022-07-23,0,2876,United States
+2022-07-24,0,2876,United States
+2022-07-25,604,3480,United States
+2022-07-26,0,3480,United States
 2022-06-12,1,1,Venezuela
 2022-06-13,0,1,Venezuela
 2022-06-14,0,1,Venezuela
