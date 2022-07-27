@@ -282,6 +282,11 @@ if __name__ == "__main__":
                timeseries.to_csv(timeseries_confirmed),
                timeseries.to_csv(timeseries_country_confirmed))
 
+    # Store aggregate data, including timeseries
+    total_count, country_aggregates = aggregate_data(data + endemic_data)
+    store_aggregates(json.dumps(total_count), json.dumps(country_aggregates))
+    store_timeseries(timeseries_confirmed, timeseries_country_confirmed)
+
     # Fetch source URLs
     try:
         source_urls = get_source_urls(data)
@@ -289,11 +294,6 @@ if __name__ == "__main__":
         store_pdfs(pdfs, folder=SOURCES_FOLDER)
     except Exception as e:
         logging.error(f"Error occurred in saving source URLs: {e}")
-
-    # Store aggregate data, including timeseries
-    total_count, country_aggregates = aggregate_data(data + endemic_data)
-    store_aggregates(json.dumps(total_count), json.dumps(country_aggregates))
-    store_timeseries(timeseries_confirmed, timeseries_country_confirmed)
 
     # Store case definitions
     store_case_definitions(Path('case-definitions.json'))
