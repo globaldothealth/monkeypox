@@ -283,9 +283,12 @@ if __name__ == "__main__":
                timeseries.to_csv(timeseries_country_confirmed))
 
     # Fetch source URLs
-    source_urls = get_source_urls(data)
-    pdfs = urls_to_pdfs(source_urls, folder=SOURCES_FOLDER)
-    store_pdfs(pdfs, folder=SOURCES_FOLDER)
+    try:
+        source_urls = get_source_urls(data)
+        pdfs = urls_to_pdfs(source_urls, folder=SOURCES_FOLDER)
+        store_pdfs(pdfs, folder=SOURCES_FOLDER)
+    except Exception as e:
+        logging.error(f"Error occurred in saving source URLs: {e}")
 
     # Store aggregate data, including timeseries
     total_count, country_aggregates = aggregate_data(data + endemic_data)
