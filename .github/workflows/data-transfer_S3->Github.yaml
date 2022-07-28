@@ -21,7 +21,7 @@ jobs:
     - name: Download files from S3
       uses: keithweaver/aws-s3-github-action@v1.0.0
       with:
-        command: sync
+        command: sync --exclude="*" --include="latest.csv" --include="latest.json" --include="timeseries-confirmed.csv" --include="timeseries-country-confirmed.csv"
         source: s3://${{ secrets.S3_BUCKET }}
         destination: ./bucket
         aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -34,15 +34,6 @@ jobs:
         sudo mv bucket/latest.csv .
         sudo mv bucket/timeseries-confirmed.csv .
         sudo mv bucket/timeseries-country-confirmed.csv .
-        sudo mv -v bucket/archives/* ./archives/
-        mkdir -p ecdc
-        sudo mv -v bucket/ecdc/* ./ecdc/ || echo "No ECDC data found"
-        git add ./latest.*
-        git add ./timeseries-*
-        git add ./archives
-        git add ./ecdc
-        sudo mv -v bucket/case-definitions/* ./case-definitions/
-        git add ./case-definitions
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git commit -m "Updating data files" || echo "Nothing changed since last run."
