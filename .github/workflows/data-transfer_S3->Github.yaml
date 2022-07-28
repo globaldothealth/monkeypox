@@ -21,7 +21,7 @@ jobs:
     - name: Download files from S3
       uses: keithweaver/aws-s3-github-action@v1.0.0
       with:
-        command: sync --exclude="*" --include="latest.csv" --include="latest.json" --include="timeseries-confirmed.csv" --include="timeseries-country-confirmed.csv"
+        command: sync
         source: s3://${{ secrets.S3_BUCKET }}
         destination: ./bucket
         aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
