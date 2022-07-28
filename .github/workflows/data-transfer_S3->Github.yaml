@@ -18,16 +18,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Download files from S3
+    - name: Download latest.json from S3
       uses: keithweaver/aws-s3-github-action@v1.0.0
       with:
-        command: sync
-        source: s3://${{ secrets.S3_BUCKET }}
-        destination: ./bucket
+        command: cp
+        source: s3://${{ secrets.S3_BUCKET }}/latest.json
+        destination: ./bucket/latest.json
         aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws_region: eu-central-1
-        flags: --delete --exclude="*" --include="latest.csv" --include="latest.json" --include="timeseries-confirmed.csv" --include="timeseries-country-confirmed.csv"
+    - name: Download latest.csv from S3
+      uses: keithweaver/aws-s3-github-action@v1.0.0
+      with:
+        command: cp
+        source: s3://${{ secrets.S3_BUCKET }}/latest.csv
+        destination: ./bucket/latest.csv
+        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws_region: eu-central-1
+    - name: Download timeseries-confirmed.csv from S3
+      uses: keithweaver/aws-s3-github-action@v1.0.0
+      with:
+        command: cp
+        source: s3://${{ secrets.S3_BUCKET }}/timeseries-confirmed.csv
+        destination: ./bucket/timeseries-confirmed.csv
+        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws_region: eu-central-1
+    - name: Download timeseries-country-confirmed.csvfrom S3
+      uses: keithweaver/aws-s3-github-action@v1.0.0
+      with:
+        command: cp
+        source: s3://${{ secrets.S3_BUCKET }}/timeseries-country-confirmed.csv
+        destination: ./bucket/timeseries-country-confirmed.csv
+        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws_region: eu-central-1
     - name: Upload files to GitHub
       run: |
         sudo mv bucket/latest.json .
