@@ -170,6 +170,10 @@ fields:
     description: Date case was entered into line list
     required: true
 
+  - name: Date_death
+    type: iso8601date
+    description: Date of death
+
   - name: Date_last_modified
     type: iso8601date
     description: Last date when case was modified in line list
