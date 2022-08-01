@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monkeypox Data Files</title>
+</head>
+<body>
+    <div>
+        <h2>Contents of {{ folder }}</h2>
+    </div>
+    {% for f in files %}
+        <div>
+            <a href="{{ url_for('get_presigned_url', folder=folder, file_name=f) }}">{{ f }}</a>
+        </div>
+    {% endfor %}
+    <div>
+        <a href="{{ url_for('home') }}">Home</a>
+    </div>
+</body>
+</html>
