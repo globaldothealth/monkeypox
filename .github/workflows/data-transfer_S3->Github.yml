@@ -60,6 +60,7 @@ jobs:
         sudo mv bucket/latest.csv .
         sudo mv bucket/timeseries-confirmed.csv .
         sudo mv bucket/timeseries-country-confirmed.csv .
+        git add latest* timeseries*
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git commit -m "Updating data files" || echo "Nothing changed since last run."
