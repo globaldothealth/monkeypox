@@ -8,6 +8,7 @@ on:
     - 'src/**'
     - 'poetry.lock'
     - 'pyproject.toml'
+    - 'data_dictionary.yml'
     - 'Dockerfile'
   workflow_dispatch:
 
