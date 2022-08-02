@@ -20,8 +20,6 @@ The script is intended for use by the curation team and supporting engineers. It
 
 The [data dictionary](data_dictionary.yml) contains information about columns/fields in the data sets.
 
-The [archives](archives) folder contains dated JSON and CSV files. They are currently uploaded manually; regularly and automatically updated data sets live in an (currently private) S3 bucket.
-
 The analytics folder contains scripts that use the curated data set. This currently includes an R file that finds the risk of re-identification based on curated data.
 
 There is also a daily briefing report generated from this data at https://www.monkeypox.global.health
@@ -45,7 +43,8 @@ df = pd.read_csv("https://raw.githubusercontent.com/globaldothealth/monkeypox/ma
 df <- read.csv("https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.csv")
 ```
 
-Users can access archived line list, case definition, and ECDC files [here](https://7rydd2v2ra.execute-api.eu-central-1.amazonaws.com/web/).
+Users can access archived line list, case definition, and ECDC files [here](https://7rydd2v2ra.execute-api.eu-central-1.amazonaws.com/web/). 
+The archives folder contains timestamped JSON and CSV files.
 
 ## Contributing
 
@@ -73,6 +72,6 @@ Please cite as: "Global.health Monkeypox (accessed on YYYY-MM-DD)"
 
 Kraemer, Tegally, Pigott, Dasgupta, Sheldon, Wilkinson, Schultheiss, et al. Tracking the 2022 Monkeypox Outbreak with Epidemiological Data in Real-Time. The Lancet Infectious Diseases. https://doi.org/10.1016/S1473-3099(22)00359-0.
 
-For files in the [ecdc](ecdc) folder, please cite (reproduction is authorized, provided the source is acknowledged):
+For files in the ECDC folder, please cite (reproduction is authorized, provided the source is acknowledged):
 
 European Centre for Disease Prevention and Control/WHO Regional Office for Europe. Monkeypox, Joint Epidemiological overview, {day} {month}, 2022
