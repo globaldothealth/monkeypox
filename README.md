@@ -2,8 +2,7 @@
 
 [![tests](https://github.com/globaldothealth/monkeypox/actions/workflows/tests.yml/badge.svg)](https://github.com/globaldothealth/monkeypox/actions/workflows/tests.yml) [![quality-checks](https://github.com/globaldothealth/monkeypox/actions/workflows/qc.yml/badge.svg)](https://github.com/globaldothealth/monkeypox/actions/workflows/qc.yml)
 
-[![Monkeypox data GSheets -> S3 script deploy](https://github.com/globaldothealth/monkeypox/actions/workflows/data-script-deploy.yaml/badge.svg)](https://github.com/globaldothealth/monkeypox/actions/workflows/data-script-deploy.yaml) [![Monkeypox data S3 -> Github](https://github.com/globaldothealth/monkeypox/actions/workflows/data-transfer_S3-%3EGithub.yaml/badge.svg)](https://github.com/globaldothealth/monkeypox/actions/workflows/data-transfer_S3-%3EGithub.yaml)
-
+[![Monkeypox data GSheets -> S3 script deploy](https://github.com/globaldothealth/monkeypox/actions/workflows/data-script-deploy.yml/badge.svg)](https://github.com/globaldothealth/monkeypox/actions/workflows/data-script-deploy.yml) [![Monkeypox data S3 -> Github](https://github.com/globaldothealth/monkeypox/actions/workflows/data-transfer_S3-%3EGithub.yml/badge.svg)](https://github.com/globaldothealth/monkeypox/actions/workflows/data-transfer_S3-%3EGithub.yml)
 
 ## Contents
 
