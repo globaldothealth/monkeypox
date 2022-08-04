@@ -63,7 +63,7 @@ or email data to info@global.health. Remove any Personally Identifiable Informat
 
 ## License and attribution
 
-This repository and data exports (except files in the *ecdc* folder) are published under the CC BY 4.0 license.
+This repository and data exports are published under the CC BY 4.0 license.
 
 Please cite as: "Global.health Monkeypox (accessed on YYYY-MM-DD)" 
 
