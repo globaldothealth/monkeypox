@@ -16,7 +16,7 @@ from logger import setup_logger
 LOCALSTACK_URL = os.environ.get("LOCALSTACK_URL", "http://localstack:4566")
 S3_BUCKET = os.environ.get("S3_BUCKET", "monkeypox")
 
-FOLDERS = ["archives", "case-definitions", "ecdc"]
+FOLDERS = ["archives", "case-definitions", "ecdc", "ecdc-archives"]
 
 S3_CLIENT = boto3.client("s3", endpoint_url=LOCALSTACK_URL)
 FAKE = Faker()

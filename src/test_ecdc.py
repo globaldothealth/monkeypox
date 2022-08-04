@@ -59,7 +59,7 @@ def test_get_json_data() -> dict[str]:
     """
     result = None
     try:
-        result = get_json_data(BeautifulSoup(html, "html5lib"))
+        result = get_json_data(BeautifulSoup(html, "html5lib"), ONSET_OCA_DIV_ID)
     except Exception:
-        result = get_json_data(BeautifulSoup(html, "html.parser"))
+        result = get_json_data(BeautifulSoup(html, "html.parser"), ONSET_OCA_DIV_ID)
     assert result == {"x": 1}

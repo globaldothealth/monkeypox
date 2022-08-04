@@ -32,7 +32,7 @@ REGEXES = {
     ONSET_DATE_DIV_ID: r"Date: (20\d\d-[0-1]\d-\d\d)<br />count:\s+(\d+)<br />TypeDate: (\w+)"
 }
 
-FIELDS: {
+FIELDS = {
     ONSET_OCA_DIV_ID: ONSET_OCA_FIELDS,
     NOTIF_DIV_ID: NOTIF_FIELDS,
     ONSET_DATE_DIV_ID: ONSET_DATE_FIELDS
@@ -40,7 +40,10 @@ FIELDS: {
 
 
 def fetch_soup(url: str) -> str:
-    return BeautifulSoup(requests.get(url).content.decode("utf-8"), "html5lib")
+    try:
+        return BeautifulSoup(requests.get(url).content.decode("utf-8"), "html5lib")
+    except Exception:
+        return BeautifulSoup(requests.get(url).content.decode("utf-8"), "html.parser")
 
 
 # Yep, that JSON contains HTML.
@@ -61,11 +64,11 @@ def parse_line(line: str, div: str) -> Optional[dict[str, str | int]]:
     return None
 
 
-def get_json_data(soup) -> dict[str]:
-    div = soup.find("div", id=ONSET_OCA_DIV_ID)
-    if div is None:
-        raise ValueError(f"div[id='{ONSET_OCA_DIV_ID}'] not found")
-    script = div.find("script")
+def get_json_data(soup: str, div: str) -> dict[str]:
+    html = soup.find("div", id=div)
+    if html is None:
+        raise ValueError(f"div[id='{div}'] not found")
+    script = html.find("script")
     if script is None:
         raise ValueError("No JSON data found in div")
     return json.loads(script.contents[0])
@@ -73,24 +76,19 @@ def get_json_data(soup) -> dict[str]:
 
 def process_json(json_data: dict[str], div: str) -> list[dict[str, str | int]]:
     records = []
-    if div == ONSET_OCA_DIV_ID:
-        for country in json_data["x"]["data"]:
-            text = country["text"]
-            # countries with only one entry are not in a list
-            text = text if isinstance(text, list) else [text]
-            # parse each line and remove invalid lines
-            records.extend(list(filter(None, map(parse_line, text, repeat(div)))))
-    if div in [NOTIF_DIV_ID, ONSET_DATE_DIV_ID]:
-        text = json_data["x"]["data"]["text"]
-        lines = text.split(",")
-        records.extend(list(filter(None, map(parse_line, lines, repeat(div)))))
+    for group in json_data["x"]["data"]:
+        text = group["text"]
+        # countries with only one entry are not in a list
+        text = text if isinstance(text, list) else [text]
+        # parse each line and remove invalid lines
+        records.extend(list(filter(None, map(parse_line, text, repeat(div)))))
 
     return records
 
 
-def to_csv(json_data: list[dict[str, str | int]], field_names: str) -> str:
+def to_csv(json_data: list[dict[str, str | int]], field_names: list[str]) -> str:
     buf = io.StringIO()
-    writer = csv.DictWriter(buf, fieldnames=ONSET_OCA_FIELDS)
+    writer = csv.DictWriter(buf, fieldnames=field_names)
     writer.writeheader()
     for row in json_data:
         writer.writerow(row)
@@ -98,12 +96,12 @@ def to_csv(json_data: list[dict[str, str | int]], field_names: str) -> str:
 
 
 def get_ecdc_data(
-    url: str = URL, div: str = ONSET_OCA_DIV_ID, output: Output = Output.CSV
+    div: str, url: str = URL, output: Output = Output.CSV
 ) -> str | list[dict[str, str | int]]:
-    json_soup = get_json_data(fetch_soup(URL))
+    json_soup = get_json_data(fetch_soup(URL), div=div)
     data = process_json(json_soup, div)
     if output == Output.CSV:
-        return to_csv(data)
+        return to_csv(data, FIELDS[div])
     elif output == Output.JSON:
         return json.dumps(data)
     else:
