@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 from flask import url_for
 import pytest
 
-from run import app, list_bucket_contents, ARCHIVES, CASE_DEFINITIONS, ECDC
+from run import app, list_bucket_contents, ARCHIVES, CASE_DEFINITIONS, ECDC, ECDC_ARCHIVES
 
 
 LOCALSTACK_URL = os.environ.get("LOCALSTACK_URL")
@@ -39,7 +39,7 @@ def test_folders_displayed(client):
 	assert "ECDC</a>" in response.text
 
 
-@pytest.mark.parametrize("endpoint", [ARCHIVES, CASE_DEFINITIONS, ECDC])
+@pytest.mark.parametrize("endpoint", [ARCHIVES, CASE_DEFINITIONS, ECDC, ECDC_ARCHIVES])
 def test_folders_contain_files(client, endpoint):
 	response = client.get(f"/{endpoint}")
 	assert "csv</a>" in response.text

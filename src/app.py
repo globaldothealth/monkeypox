@@ -10,6 +10,8 @@ from urllib.parse import urlparse
 from collections import defaultdict
 from pathlib import Path
 from typing import Any, Optional
+import concurrent
+from itertools import repeat
 
 import boto3
 import yaml
@@ -18,6 +20,7 @@ import pygsheets
 import pycountry
 import requests
 import pandas as pd
+import click
 
 import qc
 import timeseries
@@ -91,6 +94,23 @@ def get_data(worksheet_title="Confirmed/Suspected") -> Data:
         raise
 
 
+def run_quality_checks(csv_data):
+    if qc_results := qc.lint_string(csv_data):
+        logging.error("Quality check failed")
+        logging.error(pretty_results := qc.pretty_lint_results(qc_results))
+        if (webhook_url := os.getenv("WEBHOOK_URL")):
+            qc.send_slack_message(webhook_url, pretty_results)
+        sys.exit(1)
+
+
+def calculate_timeseries(csv_data) -> (pd.DataFrame, pd.DataFrame):
+    logging.info("Calculating timeseries")
+    df = pd.read_csv(io.StringIO(csv_data))
+    timeseries_confirmed = timeseries.by_confirmed(df)
+    timeseries_country_confirmed = timeseries.by_country_confirmed(df)
+    return timeseries_confirmed, timeseries_country_confirmed
+
+
 def get_source_urls(data: Data) -> set[str]:
     logging.info("Getting source urls from data")
     source_urls = set()
@@ -103,13 +123,20 @@ def get_source_urls(data: Data) -> set[str]:
 
 def clean_data(data: Data, id_prefix: str = "") -> Data:
     logging.info("Cleaning data")
-    for case in data:
-        case["ID"] = id_prefix + str(case["ID"])
-        case["Country_ISO3"] = lookup_iso3(case.get("Country"))
-        # remove keys which are not in data dictionary
-        for key in set(case.keys()) - set(FIELDS):
-            case.pop(key)
-    return data
+    cleaned_data = []
+    with concurrent.futures.ProcessPoolExecutor() as executor:
+        for result in executor.map(clean_case, data, repeat(id_prefix)):
+            cleaned_data.append(result)
+    return cleaned_data
+
+
+def clean_case(case: dict, id_prefix: str):
+    case["ID"] = id_prefix + str(case["ID"])
+    case["Country_ISO3"] = lookup_iso3(case.get("Country"))
+    # remove keys which are not in data dictionary
+    for key in set(case.keys()) - set(FIELDS):
+        case.pop(key)
+    return case
 
 
 def format_data(data: Data, fields: Optional[list[str]] = FIELDS) -> tuple[str, str]:
@@ -184,7 +211,7 @@ def bucket_contains(file_name: str, folder: str) -> bool:
 
 
 def store_pdfs(pdfs: list[str], folder: str):
-    logging.info("Uploading sources to S3")
+    logging.info("Uploading PDFs to S3")
     for pdf in pdfs:
         try:
             S3.Object(DATA_BUCKET, f"{folder}/{pdf}").upload_file(pdf)
@@ -252,52 +279,56 @@ def store_case_definitions(case_definition_urls: Path):
 def store_ecdc():
     logging.info("Fetching and storing ECDC data")
     for div in TARGET_DIVS:
-    	file_name = f"ecdc/ecdc-{div}.csv"
-    	S3.Object(DATA_BUCKET, file_name).put(Body=get_ecdc_data(div=div))
+        now = datetime.today()
+        logging.info(f"Getting data from div {div}")
+        file_name = f"ecdc/ecdc-{div}.csv"
+        S3.Object(DATA_BUCKET, file_name).put(Body=get_ecdc_data(div=div))
+        file_name = f"ecdc-archives/{now}-ecdc-{div}.csv"
+        S3.Object(DATA_BUCKET, file_name).put(Body=get_ecdc_data(div=div))
 
 
-if __name__ == "__main__":
+@click.command()
+@click.option("--gsheets", is_flag=True, show_default=True, default=True, help="Backup data from Google Sheets")
+@click.option("--sources", is_flag=True, show_default=True, default=False, help="Backup source URLs as PDFs")
+@click.option("--casedefs", is_flag=True, show_default=True, default=True, help="Backup case definition files")
+@click.option("--ecdc", is_flag=True, show_default=True, default=True, help="Backup ECDC data")
+def run(gsheets, sources, casedefs, ecdc):
     setup_logger()
     logging.info("Starting script")
     data = get_data()
-    endemic_data = get_data("Endemic Countries")
-    data = clean_data(data, id_prefix="N")
-    endemic_data = clean_data(endemic_data, id_prefix="E")
-    json_data, csv_data = format_data(data + endemic_data)
+    if gsheets:
+        endemic_data = get_data("Endemic Countries")
+        data = clean_data(data, id_prefix="N")
+        endemic_data = clean_data(endemic_data, id_prefix="E")
+        json_data, csv_data = format_data(data + endemic_data)
 
-    # Run quality checks
-    if qc_results := qc.lint_string(csv_data):
-        logging.error("Quality check failed")
-        logging.error(pretty_results := qc.pretty_lint_results(qc_results))
-        if (webhook_url := os.getenv("WEBHOOK_URL")):
-            qc.send_slack_message(webhook_url, pretty_results)
-        sys.exit(1)
+        run_quality_checks(csv_data)
 
-    # Calculate timeseries
-    logging.info("Calculating timeseries")
-    df = pd.read_csv(io.StringIO(csv_data))
-    timeseries_confirmed = timeseries.by_confirmed(df)
-    timeseries_country_confirmed = timeseries.by_country_confirmed(df)
+        ts_conf, ts_ctry_conf = calculate_timeseries(csv_data)
 
-    # Store data
-    store_data(json_data, csv_data,
-               timeseries.to_csv(timeseries_confirmed),
-               timeseries.to_csv(timeseries_country_confirmed))
+        store_data(json_data, csv_data,
+                   timeseries.to_csv(ts_conf),
+                   timeseries.to_csv(ts_ctry_conf))
 
-    # Store aggregate data, including timeseries
-    total_count, country_aggregates = aggregate_data(data + endemic_data)
-    store_aggregates(json.dumps(total_count), json.dumps(country_aggregates))
-    store_timeseries(timeseries_confirmed, timeseries_country_confirmed)
+        total_count, country_aggregates = aggregate_data(data + endemic_data)
+        store_aggregates(json.dumps(total_count), json.dumps(country_aggregates))
+        store_timeseries(ts_conf, ts_ctry_conf)
 
-    # Fetch source URLs
-    try:
-        source_urls = get_source_urls(data)
-        pdfs = urls_to_pdfs(source_urls, folder=SOURCES_FOLDER)
-        store_pdfs(pdfs, folder=SOURCES_FOLDER)
-    except Exception as e:
-        logging.error(f"Error occurred in saving source URLs: {e}")
+    if sources:
+        try:
+            source_urls = get_source_urls(data)
+            pdfs = urls_to_pdfs(source_urls, folder=SOURCES_FOLDER)
+            store_pdfs(pdfs, folder=SOURCES_FOLDER)
+        except Exception as e:
+            logging.error(f"Error occurred in saving source URLs: {e}")
 
-    # Store case definitions
-    store_case_definitions(Path('case-definitions.json'))
-    store_ecdc()
+    if casedefs:
+        store_case_definitions(Path('case-definitions.json'))
+
+    if ecdc:
+        store_ecdc()
     logging.info("Script completed")
+
+
+if __name__ == "__main__":
+    run()

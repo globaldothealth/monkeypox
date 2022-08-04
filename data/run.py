@@ -14,6 +14,7 @@ S3_BUCKET = os.environ.get("S3_BUCKET")
 ARCHIVES = "archives"
 CASE_DEFINITIONS = "case-definitions"
 ECDC = "ecdc"
+ECDC_ARCHIVES = "ecdc-archives"
 
 FLASK_HOST = os.environ.get("FLASK_HOST", "0.0.0.0")
 FLASK_PORT = os.environ.get("FLASK_PORT", 5000)
@@ -50,6 +51,13 @@ def get_ecdc_files():
     files = [f.split("/")[1] for f in list_bucket_contents(ECDC)]
     logging.debug(f"Files in {ECDC} folder: {files}")
     return render_template("folder.html", folder=ECDC, files=files)
+
+
+@app.route(f"/{ECDC_ARCHIVES}")
+def get_ecdc_archive_files():
+    files = [f.split("/")[1] for f in list_bucket_contents(ECDC_ARCHIVES)]
+    logging.debug(f"Files in {ECDC_ARCHIVES} folder: {files}")
+    return render_template("folder.html", folder=ECDC_ARCHIVES, files=files)
 
 
 def list_bucket_contents(folder: str) -> list[str]:

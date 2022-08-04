@@ -6,10 +6,11 @@
 </head>
 <body>
     <div>
-        Contents of G.h Monkeypox data bucket
+        <h2>Contents of G.h Monkeypox data bucket</h2>
     </div>
-    <a href="{{ url_for('get_archive_files') }}">Line List Archives</a><br>
-    <a href="{{ url_for('get_case_definition_files') }}">Case definitions</a><br>
-    <a href="{{ url_for('get_ecdc_files') }}">ECDC</a><br>
+    <div><a href="{{ url_for('get_archive_files') }}">Line List Archives</a></div>
+    <div><a href="{{ url_for('get_case_definition_files') }}">Case definitions</a></div>
+    <div><a href="{{ url_for('get_ecdc_files') }}">ECDC</a></div>
+    <div><a href="{{ url_for('get_ecdc_archive_files') }}">ECDC Archives</a></div>
 </body>
 </html>
