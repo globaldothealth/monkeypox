@@ -47,7 +47,7 @@ ENV EPID_INGESTION_SOURCE_ID "XXXXXXXXXXX"
 
 WORKDIR /app
 
-COPY setup_localstack.py logger.py run.py test_run.py ./
+COPY setup_localstack.py logger.py run.py test_data.py ./
 COPY templates/* ./templates/
 COPY poetry.lock pyproject.toml ./
 
