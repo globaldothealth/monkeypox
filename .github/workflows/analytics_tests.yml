@@ -1,0 +1,27 @@
+name: Test analytics script(s)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/analytics_tests.yml'
+      - 'analytics/*.py'
+      - 'analytics/pyproject.toml'
+      - 'analytics/poetry.lock'
+      - 'analytics/Dockerfile-test'
+  pull_request:
+    paths:
+      - '.github/workflows/analytics_tests.yml'
+      - 'analytics/*.py'
+      - 'analytics/pyproject.toml'
+      - 'analytics/poetry.lock'
+      - 'analytics/Dockerfile-test'
+ 
+ 
+jobs:
+  tests:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run tests
+        run: cd analytics && ./test_stack.sh

@@ -19,8 +19,9 @@ def test_csvs_stored():
 	objects = s3_client.list_objects(Bucket=S3_BUCKET)
 	for obj in objects.get("Contents"):
 		key = obj.get("Key")
-		s3_client.download_file(S3_BUCKET, key, key)
-		reader = csv.DictReader(open(key))
+		file_name = key.split("/")[-1]
+		s3_client.download_file(S3_BUCKET, key, file_name)
+		reader = csv.DictReader(open(file_name))
 		data = next(reader)
 		assert len(data) > 0
 
