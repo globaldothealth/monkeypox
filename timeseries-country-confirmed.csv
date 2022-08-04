@@ -154,9 +154,9 @@ Date,Cases,Cumulative_cases,Country
 2022-07-30,0,45,Australia
 2022-07-31,0,45,Australia
 2022-08-01,0,45,Australia
-2022-08-02,0,45,Australia
-2022-08-03,0,45,Australia
-2022-08-04,0,45,Australia
+2022-08-02,9,54,Australia
+2022-08-03,0,54,Australia
+2022-08-04,0,54,Australia
 2022-05-23,1,1,Austria
 2022-05-24,0,1,Austria
 2022-05-25,0,1,Austria
@@ -3757,8 +3757,8 @@ Date,Cases,Cumulative_cases,Country
 2022-07-31,0,35,Slovenia
 2022-08-01,0,35,Slovenia
 2022-08-02,0,35,Slovenia
-2022-08-03,0,35,Slovenia
-2022-08-04,0,35,Slovenia
+2022-08-03,2,37,Slovenia
+2022-08-04,0,37,Slovenia
 2022-06-22,1,1,South Africa
 2022-06-23,0,1,South Africa
 2022-06-24,0,1,South Africa
