@@ -21,7 +21,7 @@ import pandas as pd
 
 import qc
 import timeseries
-import ecdc
+from ecdc import get_ecdc_data, TARGET_DIVS
 
 
 Data = list[dict[str, Any]]
@@ -251,7 +251,9 @@ def store_case_definitions(case_definition_urls: Path):
 
 def store_ecdc():
     logging.info("Fetching and storing ECDC data")
-    S3.Object(DATA_BUCKET, "ecdc/ecdc-by-date-of-onset-country.csv").put(Body=ecdc.run())
+    for div in TARGET_DIVS:
+    	file_name = f"ecdc/ecdc-{div}.csv"
+    	S3.Object(DATA_BUCKET, file_name).put(Body=get_ecdc_data(div=div))
 
 
 if __name__ == "__main__":
