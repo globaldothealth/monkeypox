@@ -36,7 +36,7 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 RUN mkdir /report/
 RUN mkdir /output/
 
-COPY run.py poetry.lock pyproject.toml /report/
+COPY run.sh run.py setup.py poetry.lock pyproject.toml /report/
 COPY run.R renv.lock /report/
 COPY config.json /report/
 
@@ -54,6 +54,4 @@ RUN R -e "renv::restore()"
 
 RUN poetry install --no-dev
 
-# TODO: use `renv`
-# CMD Rscript /report/run.R && echo $(ls) && echo $(cat /output/sdcmicro.csv)
-CMD poetry run python3 setup.py && Rscript /report/run.R && poetry run python3 run.py
+CMD ./run.sh

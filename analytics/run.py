@@ -7,11 +7,12 @@ import boto3
 import requests
 
 
-SLACK_WEBHOOK_URL = os.environ.get("SLACK_WEBHOOK_URL", None)
-LOCALSTACK_URL = os.environ.get("LOCALSTACK_URL", "http://localstack:4566")
-S3_BUCKET = os.environ.get("S3_BUCKET", None)
+SLACK_WEBHOOK_URL = os.environ.get("SLACK_WEBHOOK_URL")
+LOCALSTACK_URL = os.environ.get("LOCALSTACK_URL")
+S3_BUCKET = os.environ.get("S3_BUCKET")
 DATA_FILE = "/output/sdcmicro.csv"
 OUTPUT_DIR = "/output/"
+S3_PREFIX = "reidentification-risk"
 
 TODAY = datetime.now().strftime("%d_%m_%Y")
 
@@ -30,7 +31,7 @@ def format_message(data: dict) -> str:
 
 	message = f"SDCMicro risk measures for {TODAY}:\n\n"
 	message += f"Number of observations with higher risk than the main part of the data: {hros}\n"
-	message += f"Expected number of re-identifications: {reids} ({pct}%)"
+	message += f"Expected number of reidentifications: {reids} ({pct}%)"
 
 	return message
 
@@ -58,9 +59,10 @@ def upload_output_files() -> None:
 	for (root, dirs, files) in os.walk(OUTPUT_DIR):
 		for f in files:
 			try:
-				s3_client.upload_file(f"{OUTPUT_DIR}/{f}", S3_BUCKET, f"{TODAY}_{f}")
+				s3_client.upload_file(f"{OUTPUT_DIR}/{f}", S3_BUCKET, f"{S3_PREFIX}/{TODAY}_{f}")
 			except Exception:
 				logging.exception(f"Error uploading {f} to S3")
+				raise
 
 
 if __name__ == "__main__":

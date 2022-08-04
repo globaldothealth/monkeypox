@@ -72,7 +72,7 @@ def test_files_downloadable(client, folder):
 
 	presigned = ""
 
-	if match := re.search(r"href=[\"']?([^\"' >]+)", response.text)
+	if match := re.search(r"href=[\"']?([^\"' >]+)", response.text):
 		presigned = match.group(1)
 	else:
 		pytest.fail("The endpoint should return a presigned URL")
