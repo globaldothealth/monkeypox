@@ -78,8 +78,8 @@ Date,Cases,Cumulative_cases,Country
 2022-07-31,0,23,Argentina
 2022-08-01,0,23,Argentina
 2022-08-02,0,23,Argentina
-2022-08-03,0,23,Argentina
-2022-08-04,0,23,Argentina
+2022-08-03,9,32,Argentina
+2022-08-04,0,32,Argentina
 2022-05-20,2,2,Australia
 2022-05-21,0,2,Australia
 2022-05-22,0,2,Australia
@@ -1338,7 +1338,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-01,0,99,Denmark
 2022-08-02,0,99,Denmark
 2022-08-03,6,105,Denmark
-2022-08-04,0,105,Denmark
+2022-08-04,3,108,Denmark
 2022-07-06,1,1,Dominican Republic
 2022-07-07,0,1,Dominican Republic
 2022-07-08,0,1,Dominican Republic
@@ -1713,7 +1713,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-01,82,2677,Germany
 2022-08-02,47,2724,Germany
 2022-08-03,57,2781,Germany
-2022-08-04,0,2781,Germany
+2022-08-04,58,2839,Germany
 2022-06-08,5,5,Ghana
 2022-06-09,0,5,Ghana
 2022-06-10,0,5,Ghana
@@ -2192,7 +2192,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-01,0,146,Israel
 2022-08-02,7,153,Israel
 2022-08-03,4,157,Israel
-2022-08-04,0,157,Israel
+2022-08-04,3,160,Israel
 2022-05-19,1,1,Italy
 2022-05-20,2,3,Italy
 2022-05-21,0,3,Italy
@@ -2776,7 +2776,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-01,47,925,Netherlands
 2022-08-02,0,925,Netherlands
 2022-08-03,2,927,Netherlands
-2022-08-04,0,927,Netherlands
+2022-08-04,30,957,Netherlands
 2022-07-12,1,1,New Caledonia
 2022-07-13,0,1,New Caledonia
 2022-07-14,0,1,New Caledonia
@@ -3149,8 +3149,8 @@ Date,Cases,Cumulative_cases,Country
 2022-07-31,36,305,Peru
 2022-08-01,8,313,Peru
 2022-08-02,11,324,Peru
-2022-08-03,0,324,Peru
-2022-08-04,0,324,Peru
+2022-08-03,16,340,Peru
+2022-08-04,0,340,Peru
 2022-07-28,1,1,Philippines
 2022-07-29,0,1,Philippines
 2022-07-30,0,1,Philippines
@@ -4008,7 +4008,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-01,0,85,Sweden
 2022-08-02,0,85,Sweden
 2022-08-03,17,102,Sweden
-2022-08-04,0,102,Sweden
+2022-08-04,9,111,Sweden
 2022-05-21,1,1,Switzerland
 2022-05-22,0,1,Switzerland
 2022-05-23,0,1,Switzerland
@@ -4084,7 +4084,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-01,0,272,Switzerland
 2022-08-02,26,298,Switzerland
 2022-08-03,6,304,Switzerland
-2022-08-04,0,304,Switzerland
+2022-08-04,8,312,Switzerland
 2022-06-24,1,1,Taiwan
 2022-06-25,0,1,Taiwan
 2022-06-26,0,1,Taiwan
