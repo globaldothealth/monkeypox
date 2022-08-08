@@ -433,9 +433,9 @@ Date,Cases,Cumulative_cases,Country
 2022-08-03,2,3,Bolivia
 2022-08-04,0,3,Bolivia
 2022-08-05,0,3,Bolivia
-2022-08-06,0,3,Bolivia
-2022-08-07,0,3,Bolivia
-2022-08-08,0,3,Bolivia
+2022-08-06,2,5,Bolivia
+2022-08-07,0,5,Bolivia
+2022-08-08,0,5,Bolivia
 2022-07-13,1,1,Bosnia And Herzegovina
 2022-07-14,0,1,Bosnia And Herzegovina
 2022-07-15,0,1,Bosnia And Herzegovina
@@ -2355,8 +2355,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-04,3,160,Israel
 2022-08-05,0,160,Israel
 2022-08-06,0,160,Israel
-2022-08-07,0,160,Israel
-2022-08-08,0,160,Israel
+2022-08-07,6,166,Israel
+2022-08-08,0,166,Israel
 2022-05-19,1,1,Italy
 2022-05-20,2,3,Italy
 2022-05-21,0,3,Italy
