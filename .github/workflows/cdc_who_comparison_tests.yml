@@ -1,0 +1,27 @@
+name: Test G.h to CDC and WHO comparison script
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cdc_who_gh_comparison_tests.yml'
+      - 'scripts/cdc_who_gh_comparison/*.py'
+      - 'scripts/cdc_who_gh_comparison/pyproject.toml'
+      - 'scripts/cdc_who_gh_comparison/poetry.lock'
+      - 'scripts/cdc_who_gh_comparison/Dockerfile-test'
+  pull_request:
+    paths:
+      - '.github/workflows/cdc_who_gh_comparison_tests.yml'
+      - 'scripts/cdc_who_gh_comparison/*.py'
+      - 'scripts/cdc_who_gh_comparison/pyproject.toml'
+      - 'scripts/cdc_who_gh_comparison/poetry.lock'
+      - 'scripts/cdc_who_gh_comparison/Dockerfile-test'
+
+
+jobs:
+  tests:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run tests
+        run: cd scripts/cdc_who_gh_comparison && ./test_stack.sh

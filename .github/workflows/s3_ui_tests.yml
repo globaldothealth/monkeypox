@@ -1,0 +1,27 @@
+name: Test S3 frontend
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/data_tests.yml'
+      - 's3_ui/*.py'
+      - 's3_ui/pyproject.toml'
+      - 's3_ui/poetry.lock'
+      - 's3_ui/Dockerfile-test'
+  pull_request:
+    paths:
+      - '.github/workflows/data_tests.yml'
+      - 's3_ui/*.py'
+      - 's3_ui/pyproject.toml'
+      - 's3_ui/poetry.lock'
+      - 's3_ui/Dockerfile-test'
+ 
+ 
+jobs:
+  tests:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run tests
+        run: cd s3_ui && ./test_stack.sh

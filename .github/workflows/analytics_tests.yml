@@ -1,27 +1,27 @@
-name: Test analytics script(s)
+name: Test reidentification risk script
 
 on:
   push:
     branches: [main]
     paths:
       - '.github/workflows/analytics_tests.yml'
-      - 'analytics/*.py'
-      - 'analytics/pyproject.toml'
-      - 'analytics/poetry.lock'
-      - 'analytics/Dockerfile-test'
+      - 'scripts/reidentification_risk/*.py'
+      - 'scripts/reidentification_risk/pyproject.toml'
+      - 'scripts/reidentification_risk/poetry.lock'
+      - 'scripts/reidentification_risk/Dockerfile-test'
   pull_request:
     paths:
       - '.github/workflows/analytics_tests.yml'
-      - 'analytics/*.py'
-      - 'analytics/pyproject.toml'
-      - 'analytics/poetry.lock'
-      - 'analytics/Dockerfile-test'
- 
- 
+      - 'scripts/reidentification_risk/*.py'
+      - 'scripts/reidentification_risk/pyproject.toml'
+      - 'scripts/reidentification_risk/poetry.lock'
+      - 'scripts/reidentification_risk/Dockerfile-test'
+
+
 jobs:
   tests:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - name: Run tests
-        run: cd analytics && ./test_stack.sh
+        run: cd scripts/reidentification_risk && ./test_stack.sh
