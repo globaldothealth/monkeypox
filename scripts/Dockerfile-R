@@ -36,9 +36,9 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 RUN mkdir /report/
 RUN mkdir /output/
 
-COPY run.sh run.py setup.py poetry.lock pyproject.toml /report/
+COPY run.sh *.py poetry.lock pyproject.toml /report/
 COPY run.R renv.lock /report/
-COPY config.json /report/
+COPY *.json /report/
 
 WORKDIR /report
 

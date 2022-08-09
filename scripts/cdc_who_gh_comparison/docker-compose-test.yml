@@ -1,0 +1,16 @@
+services:
+  test:
+    build:
+      context: ./
+      dockerfile: ./../Dockerfile-test
+      args:
+        SCRIPT_DIR: "cdc_who_comparison"
+    environment:
+      MOUNTEBANK_URL: "http://mountebank:2525"
+      IMPOSTER_PORT: 4242
+      SLACK_WEBHOOK_URL: "http://mountebank:4242"
+  mountebank:
+    image: jkris/mountebank
+    ports:
+      - "2525:2525"  # Mountebank port
+      - "4242:4242"  # Imposter port

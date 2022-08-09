@@ -1,13 +1,14 @@
 services:
-  test:
+  app:
     build:
       context: ./
-      dockerfile: "Dockerfile-test"
+      dockerfile: ./../Dockerfile-R
+      args:
+        SCRIPT_DIR: "reidentification_risk"
     environment:
       LOCALSTACK_URL: "http://localstack:4566"
       MOUNTEBANK_URL: "http://mountebank:2525"
-      IMPOSTER_PORT: 4242
-      SLACK_WEBHOOK_URL: "http://mountebank:4242"
+      SLACK_WEBHOOK_URL: "http://mountebank:4545"
       S3_BUCKET: "fake"
       AWS_ACCESS_KEY_ID: "fake"
       AWS_SECRET_ACCESS_KEY: "fake"
@@ -18,10 +19,8 @@ services:
       AWS_SECRET_ACCESS_KEY: "fake"
       SERVICES: "s3"
       DOCKER_HOST: "unix:///var/run/docker.sock"
-      START_WEB: 0  # https://github.com/localstack/localstack/issues/1466#issuecomment-599822542
-      HOSTNAME: "localhost"
-      EAGER_SERVICE_LOADING: 1
     volumes:
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
     ports:
       - "4566:4566"            # LocalStack Gateway
@@ -30,4 +29,4 @@ services:
     image: jkris/mountebank
     ports:
       - "2525:2525"  # Mountebank port
-      - "4242:4242"  # Imposter port
+      - "4545:4545"  # Imposter port
