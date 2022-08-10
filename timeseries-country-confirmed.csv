@@ -84,14 +84,14 @@ Date,Cases,Cumulative_cases,Country
 2022-07-31,0,23,Argentina
 2022-08-01,0,23,Argentina
 2022-08-02,0,23,Argentina
-2022-08-03,9,32,Argentina
-2022-08-04,0,32,Argentina
-2022-08-05,0,32,Argentina
-2022-08-06,0,32,Argentina
-2022-08-07,0,32,Argentina
-2022-08-08,0,32,Argentina
-2022-08-09,0,32,Argentina
-2022-08-10,0,32,Argentina
+2022-08-03,14,37,Argentina
+2022-08-04,0,37,Argentina
+2022-08-05,0,37,Argentina
+2022-08-06,0,37,Argentina
+2022-08-07,0,37,Argentina
+2022-08-08,0,37,Argentina
+2022-08-09,0,37,Argentina
+2022-08-10,0,37,Argentina
 2022-05-20,2,2,Australia
 2022-05-21,0,2,Australia
 2022-05-22,0,2,Australia
@@ -2852,9 +2852,9 @@ Date,Cases,Cumulative_cases,Country
 2022-08-05,0,17,Malta
 2022-08-06,0,17,Malta
 2022-08-07,0,17,Malta
-2022-08-08,7,24,Malta
-2022-08-09,0,24,Malta
-2022-08-10,0,24,Malta
+2022-08-08,13,30,Malta
+2022-08-09,0,30,Malta
+2022-08-10,0,30,Malta
 2022-07-15,1,1,Martinique
 2022-07-16,0,1,Martinique
 2022-07-17,0,1,Martinique
@@ -2955,8 +2955,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-06,0,91,Mexico
 2022-08-07,0,91,Mexico
 2022-08-08,0,91,Mexico
-2022-08-09,0,91,Mexico
-2022-08-10,0,91,Mexico
+2022-08-09,56,147,Mexico
+2022-08-10,0,147,Mexico
 2022-08-01,1,1,Montenegro
 2022-08-02,0,1,Montenegro
 2022-08-03,0,1,Montenegro
@@ -3481,9 +3481,9 @@ Date,Cases,Cumulative_cases,Country
 2022-08-05,0,1,Panama
 2022-08-06,0,1,Panama
 2022-08-07,0,1,Panama
-2022-08-08,0,1,Panama
-2022-08-09,0,1,Panama
-2022-08-10,0,1,Panama
+2022-08-08,1,2,Panama
+2022-08-09,0,2,Panama
+2022-08-10,0,2,Panama
 2022-06-26,1,1,Peru
 2022-06-27,0,1,Peru
 2022-06-28,2,3,Peru
@@ -4958,8 +4958,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-06,0,7492,United States
 2022-08-07,0,7492,United States
 2022-08-08,1410,8902,United States
-2022-08-09,0,8902,United States
-2022-08-10,0,8902,United States
+2022-08-09,559,9461,United States
+2022-08-10,0,9461,United States
 2022-07-29,1,1,Uruguay
 2022-07-30,0,1,Uruguay
 2022-07-31,0,1,Uruguay
