@@ -853,8 +853,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-06,0,957,Canada
 2022-08-07,0,957,Canada
 2022-08-08,0,957,Canada
-2022-08-09,0,957,Canada
-2022-08-10,0,957,Canada
+2022-08-09,32,989,Canada
+2022-08-10,0,989,Canada
 2022-03-04,2,2,Central African Republic
 2022-03-05,0,2,Central African Republic
 2022-03-06,0,2,Central African Republic
@@ -1899,7 +1899,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-07,0,2887,Germany
 2022-08-08,29,2916,Germany
 2022-08-09,66,2982,Germany
-2022-08-10,0,2982,Germany
+2022-08-10,43,3025,Germany
 2022-06-08,5,5,Ghana
 2022-06-09,0,5,Ghana
 2022-06-10,0,5,Ghana
@@ -2438,7 +2438,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-07,6,166,Israel
 2022-08-08,3,169,Israel
 2022-08-09,0,169,Israel
-2022-08-10,0,169,Israel
+2022-08-10,5,174,Israel
 2022-05-19,1,1,Italy
 2022-05-20,2,3,Italy
 2022-05-21,0,3,Italy
@@ -4826,8 +4826,8 @@ Date,Cases,Cumulative_cases,Country
 2022-06-20,219,793,United Kingdom
 2022-06-21,0,793,United Kingdom
 2022-06-22,0,793,United Kingdom
-2022-06-23,0,793,United Kingdom
-2022-06-24,117,910,United Kingdom
+2022-06-23,117,910,United Kingdom
+2022-06-24,0,910,United Kingdom
 2022-06-25,0,910,United Kingdom
 2022-06-26,166,1076,United Kingdom
 2022-06-27,0,1076,United Kingdom
@@ -4847,12 +4847,12 @@ Date,Cases,Cumulative_cases,Country
 2022-07-11,183,1735,United Kingdom
 2022-07-12,0,1735,United Kingdom
 2022-07-13,0,1735,United Kingdom
-2022-07-14,0,1735,United Kingdom
-2022-07-15,121,1856,United Kingdom
+2022-07-14,121,1856,United Kingdom
+2022-07-15,0,1856,United Kingdom
 2022-07-16,0,1856,United Kingdom
 2022-07-17,0,1856,United Kingdom
-2022-07-18,0,1856,United Kingdom
-2022-07-19,281,2137,United Kingdom
+2022-07-18,281,2137,United Kingdom
+2022-07-19,0,2137,United Kingdom
 2022-07-20,0,2137,United Kingdom
 2022-07-21,71,2208,United Kingdom
 2022-07-22,0,2208,United Kingdom
