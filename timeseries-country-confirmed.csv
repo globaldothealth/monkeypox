@@ -461,8 +461,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-07,0,5,Bolivia
 2022-08-08,0,5,Bolivia
 2022-08-09,0,5,Bolivia
-2022-08-10,0,5,Bolivia
-2022-08-11,0,5,Bolivia
+2022-08-10,1,6,Bolivia
+2022-08-11,4,10,Bolivia
 2022-07-13,1,1,Bosnia And Herzegovina
 2022-07-14,0,1,Bosnia And Herzegovina
 2022-07-15,0,1,Bosnia And Herzegovina
@@ -1549,7 +1549,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-08,3,10,Ecuador
 2022-08-09,0,10,Ecuador
 2022-08-10,0,10,Ecuador
-2022-08-11,0,10,Ecuador
+2022-08-11,6,16,Ecuador
 2022-06-28,1,1,Estonia
 2022-06-29,0,1,Estonia
 2022-06-30,0,1,Estonia
@@ -3565,8 +3565,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-07,96,505,Peru
 2022-08-08,42,547,Peru
 2022-08-09,36,583,Peru
-2022-08-10,0,583,Peru
-2022-08-11,0,583,Peru
+2022-08-10,49,632,Peru
+2022-08-11,0,632,Peru
 2022-07-28,1,1,Philippines
 2022-07-29,0,1,Philippines
 2022-07-30,0,1,Philippines
