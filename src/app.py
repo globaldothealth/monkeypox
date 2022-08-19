@@ -51,6 +51,8 @@ ISO3_QUIRKS = {
     "scotland": "GBR",
     "northern ireland": "GBR",
     "wales": "GBR",
+    "curaçao": "CUW",  # search_fuzzy() returns NLD as first result
+    "curacao": "CUW",
     "democratic republic of the congo": "COD",
     "republic of the congo": "COG",
     "republic of congo": "COG",
