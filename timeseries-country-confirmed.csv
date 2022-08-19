@@ -200,8 +200,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-15,0,71,Australia
 2022-08-16,12,83,Australia
 2022-08-17,0,83,Australia
-2022-08-18,0,83,Australia
-2022-08-19,0,83,Australia
+2022-08-18,7,90,Australia
+2022-08-19,0,90,Australia
 2022-05-23,1,1,Austria
 2022-05-24,0,1,Austria
 2022-05-25,0,1,Austria
@@ -532,9 +532,9 @@ Date,Cases,Cumulative_cases,Country
 2022-08-14,0,11,Bolivia
 2022-08-15,10,21,Bolivia
 2022-08-16,6,27,Bolivia
-2022-08-17,0,27,Bolivia
-2022-08-18,0,27,Bolivia
-2022-08-19,0,27,Bolivia
+2022-08-17,4,31,Bolivia
+2022-08-18,6,37,Bolivia
+2022-08-19,0,37,Bolivia
 2022-07-13,1,1,Bosnia And Herzegovina
 2022-07-14,0,1,Bosnia And Herzegovina
 2022-07-15,0,1,Bosnia And Herzegovina
@@ -1377,8 +1377,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-15,0,3,Cyprus
 2022-08-16,0,3,Cyprus
 2022-08-17,0,3,Cyprus
-2022-08-18,0,3,Cyprus
-2022-08-19,0,3,Cyprus
+2022-08-18,1,4,Cyprus
+2022-08-19,0,4,Cyprus
 2022-05-24,1,1,Czech Republic
 2022-05-25,0,1,Czech Republic
 2022-05-26,4,5,Czech Republic
@@ -1659,7 +1659,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-16,3,154,Denmark
 2022-08-17,1,155,Denmark
 2022-08-18,3,158,Denmark
-2022-08-19,0,158,Denmark
+2022-08-19,5,163,Denmark
 2022-07-06,1,1,Dominican Republic
 2022-07-07,0,1,Dominican Republic
 2022-07-08,0,1,Dominican Republic
@@ -1979,8 +1979,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-15,0,2659,France
 2022-08-16,76,2735,France
 2022-08-17,0,2735,France
-2022-08-18,0,2735,France
-2022-08-19,0,2735,France
+2022-08-18,138,2873,France
+2022-08-19,0,2873,France
 2022-06-15,1,1,Georgia
 2022-06-16,0,1,Georgia
 2022-06-17,0,1,Georgia
@@ -2883,7 +2883,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-16,18,662,Italy
 2022-08-17,0,662,Italy
 2022-08-18,0,662,Italy
-2022-08-19,0,662,Italy
+2022-08-19,27,689,Italy
 2022-07-06,1,1,Jamaica
 2022-07-07,0,1,Jamaica
 2022-07-08,0,1,Jamaica
@@ -3202,8 +3202,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-15,0,41,Luxembourg
 2022-08-16,0,41,Luxembourg
 2022-08-17,2,43,Luxembourg
-2022-08-18,0,43,Luxembourg
-2022-08-19,0,43,Luxembourg
+2022-08-18,2,45,Luxembourg
+2022-08-19,0,45,Luxembourg
 2022-05-28,1,1,Malta
 2022-05-29,0,1,Malta
 2022-05-30,0,1,Malta
@@ -4002,7 +4002,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-16,0,74,Norway
 2022-08-17,0,74,Norway
 2022-08-18,0,74,Norway
-2022-08-19,0,74,Norway
+2022-08-19,2,76,Norway
 2022-07-05,1,1,Panama
 2022-07-06,0,1,Panama
 2022-07-07,0,1,Panama
@@ -4125,8 +4125,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-15,0,1,Philippines
 2022-08-16,0,1,Philippines
 2022-08-17,0,1,Philippines
-2022-08-18,0,1,Philippines
-2022-08-19,0,1,Philippines
+2022-08-18,1,2,Philippines
+2022-08-19,1,3,Philippines
 2022-06-10,1,1,Poland
 2022-06-11,0,1,Poland
 2022-06-12,0,1,Poland
@@ -4572,8 +4572,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-15,0,31,Romania
 2022-08-16,1,32,Romania
 2022-08-17,0,32,Romania
-2022-08-18,0,32,Romania
-2022-08-19,0,32,Romania
+2022-08-18,1,33,Romania
+2022-08-19,0,33,Romania
 2022-07-12,1,1,Russia
 2022-07-13,0,1,Russia
 2022-07-14,0,1,Russia
@@ -4730,9 +4730,9 @@ Date,Cases,Cumulative_cases,Country
 2022-08-14,0,23,Serbia
 2022-08-15,0,23,Serbia
 2022-08-16,0,23,Serbia
-2022-08-17,0,23,Serbia
-2022-08-18,0,23,Serbia
-2022-08-19,0,23,Serbia
+2022-08-17,8,31,Serbia
+2022-08-18,0,31,Serbia
+2022-08-19,0,31,Serbia
 2022-06-20,1,1,Singapore
 2022-06-21,0,1,Singapore
 2022-06-22,0,1,Singapore
@@ -4982,9 +4982,9 @@ Date,Cases,Cumulative_cases,Country
 2022-08-14,0,3,South Africa
 2022-08-15,1,4,South Africa
 2022-08-16,0,4,South Africa
-2022-08-17,0,4,South Africa
-2022-08-18,0,4,South Africa
-2022-08-19,0,4,South Africa
+2022-08-17,1,5,South Africa
+2022-08-18,0,5,South Africa
+2022-08-19,0,5,South Africa
 2022-06-22,1,1,South Korea
 2022-06-23,0,1,South Korea
 2022-06-24,0,1,South Korea
@@ -5758,13 +5758,13 @@ Date,Cases,Cumulative_cases,Country
 2022-08-07,0,7491,United States
 2022-08-08,1411,8902,United States
 2022-08-09,559,9461,United States
-2022-08-10,899,10360,United States
-2022-08-11,366,10726,United States
-2022-08-12,404,11130,United States
-2022-08-13,0,11130,United States
-2022-08-14,0,11130,United States
-2022-08-15,713,11843,United States
-2022-08-16,793,12636,United States
+2022-08-10,900,10361,United States
+2022-08-11,366,10727,United States
+2022-08-12,404,11131,United States
+2022-08-13,0,11131,United States
+2022-08-14,0,11131,United States
+2022-08-15,713,11844,United States
+2022-08-16,792,12636,United States
 2022-08-17,815,13451,United States
 2022-08-18,599,14050,United States
 2022-08-19,0,14050,United States
