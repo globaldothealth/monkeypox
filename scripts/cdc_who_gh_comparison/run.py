@@ -275,7 +275,7 @@ def omit_cases(sheet: pygsheets.Worksheet, rows: [int], status_col: int, date_co
 		if not remaining:
 			return
 
-	logging.warning(f"{remaining} cases from {state} could not be omitted")
+	logging.warning(f"{remaining} cases could not be omitted")
 
 
 def format_slack_message(data: dict[str, int], cdc: bool, who: bool) -> str:
