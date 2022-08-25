@@ -221,9 +221,9 @@ Date,Cases,Cumulative_cases,Country
 2022-08-20,0,90,Australia
 2022-08-21,0,90,Australia
 2022-08-22,0,90,Australia
-2022-08-23,0,90,Australia
-2022-08-24,0,90,Australia
-2022-08-25,0,90,Australia
+2022-08-23,13,103,Australia
+2022-08-24,0,103,Australia
+2022-08-25,0,103,Australia
 2022-05-23,1,1,Austria
 2022-05-24,0,1,Austria
 2022-05-25,0,1,Austria
@@ -1931,8 +1931,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-21,1,7,Dominican Republic
 2022-08-22,0,7,Dominican Republic
 2022-08-23,0,7,Dominican Republic
-2022-08-24,0,7,Dominican Republic
-2022-08-25,0,7,Dominican Republic
+2022-08-24,2,9,Dominican Republic
+2022-08-25,0,9,Dominican Republic
 2022-07-06,1,1,Ecuador
 2022-07-07,0,1,Ecuador
 2022-07-08,0,1,Ecuador
@@ -3141,9 +3141,9 @@ Date,Cases,Cumulative_cases,Country
 2022-08-20,0,194,Israel
 2022-08-21,14,208,Israel
 2022-08-22,5,213,Israel
-2022-08-23,0,213,Israel
-2022-08-24,0,213,Israel
-2022-08-25,0,213,Israel
+2022-08-23,2,215,Israel
+2022-08-24,0,215,Israel
+2022-08-25,0,215,Israel
 2022-05-19,1,1,Italy
 2022-05-20,2,3,Italy
 2022-05-21,0,3,Italy
@@ -4475,7 +4475,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-22,0,76,Norway
 2022-08-23,0,76,Norway
 2022-08-24,0,76,Norway
-2022-08-25,0,76,Norway
+2022-08-25,1,77,Norway
 2022-07-05,1,1,Panama
 2022-07-06,0,1,Panama
 2022-07-07,0,1,Panama
@@ -4587,8 +4587,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-21,60,1128,Peru
 2022-08-22,60,1188,Peru
 2022-08-23,19,1207,Peru
-2022-08-24,0,1207,Peru
-2022-08-25,0,1207,Peru
+2022-08-24,50,1257,Peru
+2022-08-25,0,1257,Peru
 2022-07-28,1,1,Philippines
 2022-07-29,0,1,Philippines
 2022-07-30,0,1,Philippines
@@ -5944,9 +5944,9 @@ Date,Cases,Cumulative_cases,Country
 2022-08-20,0,399,Switzerland
 2022-08-21,0,399,Switzerland
 2022-08-22,17,416,Switzerland
-2022-08-23,0,416,Switzerland
-2022-08-24,0,416,Switzerland
-2022-08-25,0,416,Switzerland
+2022-08-23,8,424,Switzerland
+2022-08-24,0,424,Switzerland
+2022-08-25,0,424,Switzerland
 2022-06-24,1,1,Taiwan
 2022-06-25,0,1,Taiwan
 2022-06-26,0,1,Taiwan
