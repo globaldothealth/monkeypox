@@ -122,8 +122,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-22,0,72,Argentina
 2022-08-23,0,72,Argentina
 2022-08-24,0,72,Argentina
-2022-08-25,0,72,Argentina
-2022-08-26,0,72,Argentina
+2022-08-25,55,127,Argentina
+2022-08-26,0,127,Argentina
 2022-08-22,1,1,Aruba
 2022-08-23,0,1,Aruba
 2022-08-24,0,1,Aruba
@@ -323,7 +323,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-23,13,231,Austria
 2022-08-24,3,234,Austria
 2022-08-25,0,234,Austria
-2022-08-26,0,234,Austria
+2022-08-26,19,253,Austria
 2022-06-24,1,1,Bahamas
 2022-06-25,0,1,Bahamas
 2022-06-26,0,1,Bahamas
@@ -664,9 +664,9 @@ Date,Cases,Cumulative_cases,Country
 2022-08-21,1,43,Bolivia
 2022-08-22,0,43,Bolivia
 2022-08-23,6,49,Bolivia
-2022-08-24,0,49,Bolivia
-2022-08-25,0,49,Bolivia
-2022-08-26,0,49,Bolivia
+2022-08-24,4,53,Bolivia
+2022-08-25,0,53,Bolivia
+2022-08-26,0,53,Bolivia
 2022-07-13,1,1,Bosnia And Herzegovina
 2022-07-14,0,1,Bosnia And Herzegovina
 2022-07-15,0,1,Bosnia And Herzegovina
@@ -2756,10 +2756,10 @@ Date,Cases,Cumulative_cases,Country
 2022-08-20,0,4,Guatemala
 2022-08-21,0,4,Guatemala
 2022-08-22,0,4,Guatemala
-2022-08-23,0,4,Guatemala
-2022-08-24,0,4,Guatemala
-2022-08-25,0,4,Guatemala
-2022-08-26,0,4,Guatemala
+2022-08-23,1,5,Guatemala
+2022-08-24,1,6,Guatemala
+2022-08-25,0,6,Guatemala
+2022-08-26,0,6,Guatemala
 2022-08-22,1,1,Guyana
 2022-08-23,0,1,Guyana
 2022-08-24,0,1,Guyana
@@ -3292,7 +3292,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-23,25,714,Italy
 2022-08-24,0,714,Italy
 2022-08-25,0,714,Italy
-2022-08-26,0,714,Italy
+2022-08-26,26,740,Italy
 2022-07-06,1,1,Jamaica
 2022-07-07,0,1,Jamaica
 2022-07-08,0,1,Jamaica
@@ -4053,8 +4053,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-22,0,1,Morocco
 2022-08-23,0,1,Morocco
 2022-08-24,0,1,Morocco
-2022-08-25,0,1,Morocco
-2022-08-26,0,1,Morocco
+2022-08-25,2,3,Morocco
+2022-08-26,0,3,Morocco
 2022-05-20,1,1,Netherlands
 2022-05-21,1,2,Netherlands
 2022-05-22,0,2,Netherlands
@@ -4544,7 +4544,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-23,0,76,Norway
 2022-08-24,0,76,Norway
 2022-08-25,1,77,Norway
-2022-08-26,0,77,Norway
+2022-08-26,2,79,Norway
 2022-07-05,1,1,Panama
 2022-07-06,0,1,Panama
 2022-07-07,0,1,Panama
@@ -4598,6 +4598,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-24,1,8,Panama
 2022-08-25,0,8,Panama
 2022-08-26,0,8,Panama
+2022-08-25,1,1,Paraguay
+2022-08-26,0,1,Paraguay
 2022-06-26,1,1,Peru
 2022-06-27,0,1,Peru
 2022-06-28,2,3,Peru
@@ -4658,8 +4660,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-22,60,1188,Peru
 2022-08-23,19,1207,Peru
 2022-08-24,50,1257,Peru
-2022-08-25,0,1257,Peru
-2022-08-26,0,1257,Peru
+2022-08-25,43,1300,Peru
+2022-08-26,0,1300,Peru
 2022-07-28,1,1,Philippines
 2022-07-29,0,1,Philippines
 2022-07-30,0,1,Philippines
@@ -4867,9 +4869,9 @@ Date,Cases,Cumulative_cases,Country
 2022-08-21,0,810,Portugal
 2022-08-22,0,810,Portugal
 2022-08-23,0,810,Portugal
-2022-08-24,0,810,Portugal
-2022-08-25,0,810,Portugal
-2022-08-26,0,810,Portugal
+2022-08-24,36,846,Portugal
+2022-08-25,0,846,Portugal
+2022-08-26,0,846,Portugal
 2022-06-29,1,1,Puerto Rico
 2022-06-30,0,1,Puerto Rico
 2022-07-01,0,1,Puerto Rico
