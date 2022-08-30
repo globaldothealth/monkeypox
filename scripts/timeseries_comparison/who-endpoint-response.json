@@ -1,0 +1,69 @@
+{
+    "Success": true,
+    "Message": null,
+    "SystemMessage": null,
+    "Errors": null,
+    "Data": [
+        {
+            "COUNTRY": "United States of America",
+            "ISO3": "USA",
+            "WHO_REGION": "AMRO",
+            "DATEREP": "03 Jun 2022",
+            "TOTAL_CONFCASES": 2,
+            "TOTAL_PROBCASES": 0,
+            "TOTAL_ConfDeaths": 0,
+            "NEW_CONFCASES": 2,
+            "NEW_PROBCASES": 0,
+            "NEW_CONFDEATHS": 0
+        },
+        {
+            "COUNTRY": "United States of America",
+            "ISO3": "USA",
+            "WHO_REGION": "AMRO",
+            "DATEREP": "04 Jun 2022",
+            "TOTAL_CONFCASES": 3,
+            "TOTAL_PROBCASES": 0,
+            "TOTAL_ConfDeaths": 0,
+            "NEW_CONFCASES": 1,
+            "NEW_PROBCASES": 0,
+            "NEW_CONFDEATHS": 0
+        },
+        {
+            "COUNTRY": "United States of America",
+            "ISO3": "USA",
+            "WHO_REGION": "AMRO",
+            "DATEREP": "05 Jun 2022",
+            "TOTAL_CONFCASES": 7,
+            "TOTAL_PROBCASES": 0,
+            "TOTAL_ConfDeaths": 0,
+            "NEW_CONFCASES": 4,
+            "NEW_PROBCASES": 0,
+            "NEW_CONFDEATHS": 0
+        },
+        {
+            "COUNTRY": "The United Kingdom",
+            "ISO3": "GBR",
+            "WHO_REGION": "AMRO",
+            "DATEREP": "01 Jun 2022",
+            "TOTAL_CONFCASES": 1,
+            "TOTAL_PROBCASES": 0,
+            "TOTAL_ConfDeaths": 0,
+            "NEW_CONFCASES": 1,
+            "NEW_PROBCASES": 0,
+            "NEW_CONFDEATHS": 0
+        },
+        {
+            "COUNTRY": "The United Kingdom",
+            "ISO3": "GBR",
+            "WHO_REGION": "AMRO",
+            "DATEREP": "02 Jun 2022",
+            "TOTAL_CONFCASES": 3,
+            "TOTAL_PROBCASES": 0,
+            "TOTAL_ConfDeaths": 1,
+            "NEW_CONFCASES": 2,
+            "NEW_PROBCASES": 0,
+            "NEW_CONFDEATHS": 1
+        }
+    ],
+    "DataTotalCount": 1
+}

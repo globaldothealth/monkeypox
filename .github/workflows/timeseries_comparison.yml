@@ -1,0 +1,25 @@
+name: Test WHO vs G.h timeseries comparison script
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/timeseries_comparison.yml'
+      - 'scripts/timeseries_comparison/*.py'
+      - 'scripts/timeseries_comparison/pyproject.toml'
+      - 'scripts/timeseries_comparison/poetry.lock'
+  pull_request:
+    paths:
+      - '.github/workflows/timeseries_comparison.yml'
+      - 'scripts/timeseries_comparison/*.py'
+      - 'scripts/timeseries_comparison/pyproject.toml'
+      - 'scripts/timeseries_comparison/poetry.lock'
+
+
+jobs:
+  tests:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run tests
+        run: cd scripts/timeseries_comparison && ./test_stack.sh
