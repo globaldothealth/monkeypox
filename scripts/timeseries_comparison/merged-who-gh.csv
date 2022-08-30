@@ -1,0 +1,18 @@
+Date,GH_confirmed_cases,GH_cumulative_confirmed_cases,GH_country,ISO3,WHO_country,WHO_REGION,WHO_cumulative_confirmed_cases,WHO_cumulative_probable_cases,WHO_cumulative_confirmed_deaths,WHO_confirmed_cases,WHO_probable_cases,WHO_confirmed_deaths
+2022-06-02,1,1,USA,USA,,,,,,,,
+2022-06-03,0,1,USA,USA,United States of America,AMRO,2.0,0.0,0.0,2.0,0.0,0.0
+2022-06-04,0,1,USA,USA,United States of America,AMRO,3.0,0.0,0.0,1.0,0.0,0.0
+2022-06-05,4,5,USA,USA,United States of America,AMRO,7.0,0.0,0.0,4.0,0.0,0.0
+2022-06-06,0,5,USA,USA,,,,,,,,
+2022-06-07,0,5,USA,USA,,,,,,,,
+2022-06-08,0,5,USA,USA,,,,,,,,
+2022-06-09,0,5,USA,USA,,,,,,,,
+2022-06-01,1,1,United Kingdom,GBR,The United Kingdom,AMRO,1.0,0.0,0.0,1.0,0.0,0.0
+2022-06-02,0,1,United Kingdom,GBR,The United Kingdom,AMRO,3.0,0.0,1.0,2.0,0.0,1.0
+2022-06-03,3,4,United Kingdom,GBR,,,,,,,,
+2022-06-04,0,4,United Kingdom,GBR,,,,,,,,
+2022-06-05,0,4,United Kingdom,GBR,,,,,,,,
+2022-06-06,0,4,United Kingdom,GBR,,,,,,,,
+2022-06-07,0,4,United Kingdom,GBR,,,,,,,,
+2022-06-08,0,4,United Kingdom,GBR,,,,,,,,
+2022-06-09,0,4,United Kingdom,GBR,,,,,,,,
