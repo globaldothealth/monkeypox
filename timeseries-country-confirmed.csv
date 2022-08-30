@@ -1534,8 +1534,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-26,0,273,Colombia
 2022-08-27,0,273,Colombia
 2022-08-28,0,273,Colombia
-2022-08-29,0,273,Colombia
-2022-08-30,0,273,Colombia
+2022-08-29,309,582,Colombia
+2022-08-30,0,582,Colombia
 2022-07-20,1,1,Costa Rica
 2022-07-21,0,1,Costa Rica
 2022-07-22,0,1,Costa Rica
@@ -1701,8 +1701,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-26,0,4,Cyprus
 2022-08-27,0,4,Cyprus
 2022-08-28,0,4,Cyprus
-2022-08-29,0,4,Cyprus
-2022-08-30,0,4,Cyprus
+2022-08-29,1,5,Cyprus
+2022-08-30,0,5,Cyprus
 2022-05-24,1,1,Czech Republic
 2022-05-25,0,1,Czech Republic
 2022-05-26,4,5,Czech Republic
@@ -2128,7 +2128,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-27,0,35,Ecuador
 2022-08-28,0,35,Ecuador
 2022-08-29,9,44,Ecuador
-2022-08-30,0,44,Ecuador
+2022-08-30,6,50,Ecuador
 2022-06-28,1,1,Estonia
 2022-06-29,0,1,Estonia
 2022-06-30,0,1,Estonia
@@ -2573,7 +2573,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-27,0,3387,Germany
 2022-08-28,0,3387,Germany
 2022-08-29,35,3422,Germany
-2022-08-30,0,3422,Germany
+2022-08-30,33,3455,Germany
 2022-06-08,5,5,Ghana
 2022-06-09,0,5,Ghana
 2022-06-10,0,5,Ghana
@@ -4820,7 +4820,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-27,0,79,Norway
 2022-08-28,0,79,Norway
 2022-08-29,0,79,Norway
-2022-08-30,0,79,Norway
+2022-08-30,1,80,Norway
 2022-07-05,1,1,Panama
 2022-07-06,0,1,Panama
 2022-07-07,0,1,Panama
@@ -4948,8 +4948,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-26,42,1342,Peru
 2022-08-27,40,1382,Peru
 2022-08-28,52,1434,Peru
-2022-08-29,0,1434,Peru
-2022-08-30,0,1434,Peru
+2022-08-29,29,1463,Peru
+2022-08-30,0,1463,Peru
 2022-07-28,1,1,Philippines
 2022-07-29,0,1,Philippines
 2022-07-30,0,1,Philippines
@@ -6407,7 +6407,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-27,0,436,Switzerland
 2022-08-28,0,436,Switzerland
 2022-08-29,19,455,Switzerland
-2022-08-30,0,455,Switzerland
+2022-08-30,1,456,Switzerland
 2022-06-24,1,1,Taiwan
 2022-06-25,0,1,Taiwan
 2022-06-26,0,1,Taiwan
@@ -6793,8 +6793,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-26,0,3340,United Kingdom
 2022-08-27,0,3340,United Kingdom
 2022-08-28,0,3340,United Kingdom
-2022-08-29,0,3340,United Kingdom
-2022-08-30,0,3340,United Kingdom
+2022-08-29,73,3413,United Kingdom
+2022-08-30,0,3413,United Kingdom
 2022-05-18,1,1,United States
 2022-05-19,1,2,United States
 2022-05-20,0,2,United States
