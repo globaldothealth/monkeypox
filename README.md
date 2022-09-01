@@ -6,7 +6,7 @@
 
 ## Contents
 
-*Data are updated Monday - Friday.*
+*Data are updated Monday - Friday.* The G.h team will be offline in observance of the U.S. Labor Day holiday on Monday, September 5th. Reporting will resume on Tuesday, September 6th.
 
 #### Data changes
 * **2022-07-07**: Only confirmed cases for Brazil are reported
