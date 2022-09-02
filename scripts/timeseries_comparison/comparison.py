@@ -154,7 +154,7 @@ def main(
     )
     who = who_df(json.loads(read_key_content(env["FETCH_BUCKET"], who_key)))
     data = merge_data(gh, who)
-    store(data, env["STORE_BUCKET"], {"gh_file": gh_key, "who_file": who_key})
+    store(data, env["STORE_BUCKET"], date, {"gh_file": gh_key, "who_file": who_key})
 
 
 if __name__ == "__main__":
