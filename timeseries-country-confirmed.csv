@@ -254,8 +254,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-29,0,106,Australia
 2022-08-30,15,121,Australia
 2022-08-31,0,121,Australia
-2022-09-01,0,121,Australia
-2022-09-02,0,121,Australia
+2022-09-01,3,124,Australia
+2022-09-02,0,124,Australia
 2022-05-23,1,1,Austria
 2022-05-24,0,1,Austria
 2022-05-25,0,1,Austria
@@ -358,7 +358,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-30,0,265,Austria
 2022-08-31,0,265,Austria
 2022-09-01,0,265,Austria
-2022-09-02,0,265,Austria
+2022-09-02,8,273,Austria
 2022-06-24,1,1,Bahamas
 2022-06-25,0,1,Bahamas
 2022-06-26,0,1,Bahamas
@@ -881,8 +881,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-29,220,4692,Brazil
 2022-08-30,184,4876,Brazil
 2022-08-31,161,5037,Brazil
-2022-09-01,0,5037,Brazil
-2022-09-02,0,5037,Brazil
+2022-09-01,160,5197,Brazil
+2022-09-02,0,5197,Brazil
 2022-06-23,2,2,Bulgaria
 2022-06-24,0,2,Bulgaria
 2022-06-25,0,2,Bulgaria
@@ -2096,8 +2096,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-29,0,171,Denmark
 2022-08-30,4,175,Denmark
 2022-08-31,0,175,Denmark
-2022-09-01,0,175,Denmark
-2022-09-02,0,175,Denmark
+2022-09-01,2,177,Denmark
+2022-09-02,0,177,Denmark
 2022-07-06,1,1,Dominican Republic
 2022-07-07,0,1,Dominican Republic
 2022-07-08,0,1,Dominican Republic
@@ -2679,7 +2679,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-30,33,3455,Germany
 2022-08-31,12,3467,Germany
 2022-09-01,13,3480,Germany
-2022-09-02,0,3480,Germany
+2022-09-02,13,3493,Germany
 2022-06-08,5,5,Ghana
 2022-06-09,0,5,Ghana
 2022-06-10,0,5,Ghana
@@ -4610,9 +4610,9 @@ Date,Cases,Cumulative_cases,Country
 2022-08-28,0,1136,Netherlands
 2022-08-29,0,1136,Netherlands
 2022-08-30,24,1160,Netherlands
-2022-08-31,0,1160,Netherlands
-2022-09-01,0,1160,Netherlands
-2022-09-02,0,1160,Netherlands
+2022-08-31,6,1166,Netherlands
+2022-09-01,0,1166,Netherlands
+2022-09-02,0,1166,Netherlands
 2022-07-12,1,1,New Caledonia
 2022-07-13,0,1,New Caledonia
 2022-07-14,0,1,New Caledonia
@@ -5031,7 +5031,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-30,1,80,Norway
 2022-08-31,0,80,Norway
 2022-09-01,0,80,Norway
-2022-09-02,0,80,Norway
+2022-09-02,2,82,Norway
 2022-07-05,1,1,Panama
 2022-07-06,0,1,Panama
 2022-07-07,0,1,Panama
@@ -5168,8 +5168,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-29,29,1463,Peru
 2022-08-30,33,1496,Peru
 2022-08-31,35,1531,Peru
-2022-09-01,0,1531,Peru
-2022-09-02,0,1531,Peru
+2022-09-01,15,1546,Peru
+2022-09-02,0,1546,Peru
 2022-07-28,1,1,Philippines
 2022-07-29,0,1,Philippines
 2022-07-30,0,1,Philippines
@@ -6686,8 +6686,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-29,19,455,Switzerland
 2022-08-30,14,469,Switzerland
 2022-08-31,2,471,Switzerland
-2022-09-01,0,471,Switzerland
-2022-09-02,0,471,Switzerland
+2022-09-01,5,476,Switzerland
+2022-09-02,0,476,Switzerland
 2022-06-24,1,1,Taiwan
 2022-06-25,0,1,Taiwan
 2022-06-26,0,1,Taiwan
