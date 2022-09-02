@@ -1721,9 +1721,9 @@ Date,Cases,Cumulative_cases,Country
 2022-08-28,0,1,Cuba
 2022-08-29,0,1,Cuba
 2022-08-30,0,1,Cuba
-2022-08-31,0,1,Cuba
-2022-09-01,0,1,Cuba
-2022-09-02,0,1,Cuba
+2022-08-31,1,2,Cuba
+2022-09-01,0,2,Cuba
+2022-09-02,0,2,Cuba
 2022-08-15,1,1,Curaçao
 2022-08-16,0,1,Curaçao
 2022-08-17,0,1,Curaçao
@@ -3042,8 +3042,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-29,0,6,Guatemala
 2022-08-30,0,6,Guatemala
 2022-08-31,0,6,Guatemala
-2022-09-01,0,6,Guatemala
-2022-09-02,0,6,Guatemala
+2022-09-01,2,8,Guatemala
+2022-09-02,0,8,Guatemala
 2022-08-22,1,1,Guyana
 2022-08-23,0,1,Guyana
 2022-08-24,0,1,Guyana
