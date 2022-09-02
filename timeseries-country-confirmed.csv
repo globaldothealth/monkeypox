@@ -742,8 +742,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-29,16,69,Bolivia
 2022-08-30,10,79,Bolivia
 2022-08-31,0,79,Bolivia
-2022-09-01,0,79,Bolivia
-2022-09-02,0,79,Bolivia
+2022-09-01,7,86,Bolivia
+2022-09-02,0,86,Bolivia
 2022-07-13,1,1,Bosnia And Herzegovina
 2022-07-14,0,1,Bosnia And Herzegovina
 2022-07-15,0,1,Bosnia And Herzegovina
@@ -1968,33 +1968,33 @@ Date,Cases,Cumulative_cases,Country
 2022-08-04,0,163,Democratic Republic Of The Congo
 2022-08-05,0,163,Democratic Republic Of The Congo
 2022-08-06,0,163,Democratic Republic Of The Congo
-2022-08-07,0,163,Democratic Republic Of The Congo
-2022-08-08,0,163,Democratic Republic Of The Congo
-2022-08-09,0,163,Democratic Republic Of The Congo
-2022-08-10,0,163,Democratic Republic Of The Congo
-2022-08-11,0,163,Democratic Republic Of The Congo
-2022-08-12,0,163,Democratic Republic Of The Congo
-2022-08-13,0,163,Democratic Republic Of The Congo
-2022-08-14,0,163,Democratic Republic Of The Congo
-2022-08-15,0,163,Democratic Republic Of The Congo
-2022-08-16,0,163,Democratic Republic Of The Congo
-2022-08-17,0,163,Democratic Republic Of The Congo
-2022-08-18,0,163,Democratic Republic Of The Congo
-2022-08-19,0,163,Democratic Republic Of The Congo
-2022-08-20,0,163,Democratic Republic Of The Congo
-2022-08-21,0,163,Democratic Republic Of The Congo
-2022-08-22,0,163,Democratic Republic Of The Congo
-2022-08-23,0,163,Democratic Republic Of The Congo
-2022-08-24,0,163,Democratic Republic Of The Congo
-2022-08-25,0,163,Democratic Republic Of The Congo
-2022-08-26,0,163,Democratic Republic Of The Congo
-2022-08-27,0,163,Democratic Republic Of The Congo
-2022-08-28,0,163,Democratic Republic Of The Congo
-2022-08-29,0,163,Democratic Republic Of The Congo
-2022-08-30,0,163,Democratic Republic Of The Congo
-2022-08-31,0,163,Democratic Republic Of The Congo
-2022-09-01,0,163,Democratic Republic Of The Congo
-2022-09-02,0,163,Democratic Republic Of The Congo
+2022-08-07,32,195,Democratic Republic Of The Congo
+2022-08-08,0,195,Democratic Republic Of The Congo
+2022-08-09,0,195,Democratic Republic Of The Congo
+2022-08-10,0,195,Democratic Republic Of The Congo
+2022-08-11,0,195,Democratic Republic Of The Congo
+2022-08-12,0,195,Democratic Republic Of The Congo
+2022-08-13,0,195,Democratic Republic Of The Congo
+2022-08-14,0,195,Democratic Republic Of The Congo
+2022-08-15,0,195,Democratic Republic Of The Congo
+2022-08-16,0,195,Democratic Republic Of The Congo
+2022-08-17,0,195,Democratic Republic Of The Congo
+2022-08-18,0,195,Democratic Republic Of The Congo
+2022-08-19,0,195,Democratic Republic Of The Congo
+2022-08-20,0,195,Democratic Republic Of The Congo
+2022-08-21,0,195,Democratic Republic Of The Congo
+2022-08-22,0,195,Democratic Republic Of The Congo
+2022-08-23,0,195,Democratic Republic Of The Congo
+2022-08-24,0,195,Democratic Republic Of The Congo
+2022-08-25,0,195,Democratic Republic Of The Congo
+2022-08-26,0,195,Democratic Republic Of The Congo
+2022-08-27,0,195,Democratic Republic Of The Congo
+2022-08-28,0,195,Democratic Republic Of The Congo
+2022-08-29,0,195,Democratic Republic Of The Congo
+2022-08-30,0,195,Democratic Republic Of The Congo
+2022-08-31,0,195,Democratic Republic Of The Congo
+2022-09-01,0,195,Democratic Republic Of The Congo
+2022-09-02,0,195,Democratic Republic Of The Congo
 2022-05-23,1,1,Denmark
 2022-05-24,1,2,Denmark
 2022-05-25,0,2,Denmark
@@ -2491,8 +2491,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-29,123,3539,France
 2022-08-30,0,3539,France
 2022-08-31,0,3539,France
-2022-09-01,0,3539,France
-2022-09-02,0,3539,France
+2022-09-01,99,3638,France
+2022-09-02,0,3638,France
 2022-06-15,1,1,Georgia
 2022-06-16,0,1,Georgia
 2022-06-17,0,1,Georgia
@@ -2946,8 +2946,8 @@ Date,Cases,Cumulative_cases,Country
 2022-08-29,2,56,Greece
 2022-08-30,0,56,Greece
 2022-08-31,0,56,Greece
-2022-09-01,0,56,Greece
-2022-09-02,0,56,Greece
+2022-09-01,2,58,Greece
+2022-09-02,0,58,Greece
 2022-08-09,2,2,Greenland
 2022-08-10,0,2,Greenland
 2022-08-11,0,2,Greenland
@@ -3043,7 +3043,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-30,0,6,Guatemala
 2022-08-31,0,6,Guatemala
 2022-09-01,2,8,Guatemala
-2022-09-02,0,8,Guatemala
+2022-09-02,2,10,Guatemala
 2022-08-22,1,1,Guyana
 2022-08-23,0,1,Guyana
 2022-08-24,0,1,Guyana
@@ -3646,7 +3646,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-30,20,760,Italy
 2022-08-31,0,760,Italy
 2022-09-01,0,760,Italy
-2022-09-02,0,760,Italy
+2022-09-02,13,773,Italy
 2022-07-06,1,1,Jamaica
 2022-07-07,0,1,Jamaica
 2022-07-08,0,1,Jamaica
@@ -5398,9 +5398,9 @@ Date,Cases,Cumulative_cases,Country
 2022-08-28,0,846,Portugal
 2022-08-29,0,846,Portugal
 2022-08-30,0,846,Portugal
-2022-08-31,0,846,Portugal
-2022-09-01,0,846,Portugal
-2022-09-02,0,846,Portugal
+2022-08-31,25,871,Portugal
+2022-09-01,0,871,Portugal
+2022-09-02,0,871,Portugal
 2022-06-29,1,1,Puerto Rico
 2022-06-30,0,1,Puerto Rico
 2022-07-01,0,1,Puerto Rico
@@ -6441,7 +6441,7 @@ Date,Cases,Cumulative_cases,Country
 2022-08-30,84,6543,Spain
 2022-08-31,0,6543,Spain
 2022-09-01,0,6543,Spain
-2022-09-02,0,6543,Spain
+2022-09-02,102,6645,Spain
 2022-07-31,1,1,Sudan
 2022-08-01,0,1,Sudan
 2022-08-02,0,1,Sudan
