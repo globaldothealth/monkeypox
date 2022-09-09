@@ -5686,8 +5686,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-05,63,1724,Peru
 2022-09-06,2,1726,Peru
 2022-09-07,34,1760,Peru
-2022-09-08,0,1760,Peru
-2022-09-09,0,1760,Peru
+2022-09-08,48,1808,Peru
+2022-09-09,0,1808,Peru
 2022-07-28,1,1,Philippines
 2022-07-29,0,1,Philippines
 2022-07-30,0,1,Philippines
@@ -7090,7 +7090,7 @@ Date,Cases,Cumulative_cases,Country
 2022-09-06,104,6749,Spain
 2022-09-07,0,6749,Spain
 2022-09-08,0,6749,Spain
-2022-09-09,0,6749,Spain
+2022-09-09,135,6884,Spain
 2022-07-31,1,1,Sudan
 2022-08-01,0,1,Sudan
 2022-08-02,0,1,Sudan
