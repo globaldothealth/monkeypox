@@ -852,8 +852,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-08,3,113,Bolivia
 2022-09-09,0,113,Bolivia
 2022-09-10,0,113,Bolivia
-2022-09-11,0,113,Bolivia
-2022-09-12,0,113,Bolivia
+2022-09-11,6,119,Bolivia
+2022-09-12,0,119,Bolivia
 2022-07-13,1,1,Bosnia And Herzegovina
 2022-07-14,0,1,Bosnia And Herzegovina
 2022-07-15,0,1,Bosnia And Herzegovina
@@ -4051,8 +4051,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-08,0,244,Israel
 2022-09-09,0,244,Israel
 2022-09-10,0,244,Israel
-2022-09-11,0,244,Israel
-2022-09-12,0,244,Israel
+2022-09-11,1,245,Israel
+2022-09-12,0,245,Israel
 2022-05-19,1,1,Italy
 2022-05-20,2,3,Italy
 2022-05-21,0,3,Italy
@@ -6609,11 +6609,11 @@ Date,Cases,Cumulative_cases,Country
 2022-09-05,0,1,Russia
 2022-09-06,0,1,Russia
 2022-09-07,0,1,Russia
-2022-09-08,0,1,Russia
-2022-09-09,0,1,Russia
-2022-09-10,0,1,Russia
-2022-09-11,0,1,Russia
-2022-09-12,0,1,Russia
+2022-09-08,1,2,Russia
+2022-09-09,0,2,Russia
+2022-09-10,0,2,Russia
+2022-09-11,0,2,Russia
+2022-09-12,0,2,Russia
 2022-08-01,1,1,Saint Martin (French part)
 2022-08-02,0,1,Saint Martin (French part)
 2022-08-03,0,1,Saint Martin (French part)
