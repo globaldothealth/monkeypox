@@ -41,12 +41,17 @@ STATES = ["Alabama", "Alaska", "Arizona", "Arkansas", "California",
 CDC_SOURCE = "https://www.cdc.gov/poxvirus/monkeypox/response/2022/us-map.html"
 
 WHO_TO_GH = {
-	"Republic of Korea": "South Korea",
-	"Venezuela (Bolivarian Republic of)": "Venezuela",
-	"Türkiye": "Turkey",
-	"Bosnia and Herzegovina" :"Bosnia And Herzegovina",
-	"Czechia": "Czech Republic",
-	"Bolivia (Plurinational State of)": "Bolivia"
+    "Republic of Korea": "South Korea",
+    "Venezuela (Bolivarian Republic of)": "Venezuela",
+    "Türkiye": "Turkey",
+    "T\u00fcrkiye": "Turkey",
+    "Bosnia and Herzegovina": "Bosnia And Herzegovina",
+    "Czechia": "Czech Republic",
+    "Bolivia (Plurinational State of)": "Bolivia",
+    "Russian Federation": "Russia",
+    "Saint Martin": "Saint Martin (French part)",
+    "Republic of Moldova": "Moldova",
+    "Iran (Islamic Republic of)": "Iran"
 }
 
 OMIT_ERROR = "omit_error"
