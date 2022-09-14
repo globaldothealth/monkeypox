@@ -2890,13 +2890,13 @@ Date,Cases,Cumulative_cases,Country
 2022-09-05,0,3638,France
 2022-09-06,75,3713,France
 2022-09-07,0,3713,France
-2022-09-08,63,3776,France
-2022-09-09,0,3776,France
-2022-09-10,0,3776,France
-2022-09-11,0,3776,France
-2022-09-12,46,3822,France
-2022-09-13,0,3822,France
-2022-09-14,0,3822,France
+2022-09-08,65,3778,France
+2022-09-09,0,3778,France
+2022-09-10,0,3778,France
+2022-09-11,0,3778,France
+2022-09-12,46,3824,France
+2022-09-13,0,3824,France
+2022-09-14,0,3824,France
 2022-06-15,1,1,Georgia
 2022-06-16,0,1,Georgia
 2022-06-17,0,1,Georgia
@@ -8424,9 +8424,9 @@ Date,Cases,Cumulative_cases,Country
 2022-09-09,387,21761,United States
 2022-09-10,0,21761,United States
 2022-09-11,0,21761,United States
-2022-09-12,74,21835,United States
-2022-09-13,0,21835,United States
-2022-09-14,0,21835,United States
+2022-09-12,73,21834,United States
+2022-09-13,646,22480,United States
+2022-09-14,0,22480,United States
 2022-07-29,1,1,Uruguay
 2022-07-30,0,1,Uruguay
 2022-07-31,0,1,Uruguay
