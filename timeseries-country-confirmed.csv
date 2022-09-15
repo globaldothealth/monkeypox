@@ -2518,9 +2518,9 @@ Date,Cases,Cumulative_cases,Country
 2022-09-10,0,12,Dominican Republic
 2022-09-11,0,12,Dominican Republic
 2022-09-12,0,12,Dominican Republic
-2022-09-13,3,15,Dominican Republic
-2022-09-14,0,15,Dominican Republic
-2022-09-15,0,15,Dominican Republic
+2022-09-13,9,21,Dominican Republic
+2022-09-14,0,21,Dominican Republic
+2022-09-15,0,21,Dominican Republic
 2022-07-06,1,1,Ecuador
 2022-07-07,0,1,Ecuador
 2022-07-08,0,1,Ecuador
@@ -6493,8 +6493,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-11,0,137,Puerto Rico
 2022-09-12,15,152,Puerto Rico
 2022-09-13,0,152,Puerto Rico
-2022-09-14,0,152,Puerto Rico
-2022-09-15,0,152,Puerto Rico
+2022-09-14,6,158,Puerto Rico
+2022-09-15,0,158,Puerto Rico
 2022-07-20,1,1,Qatar
 2022-07-21,0,1,Qatar
 2022-07-22,0,1,Qatar
@@ -8528,8 +8528,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-11,0,21761,United States
 2022-09-12,73,21834,United States
 2022-09-13,646,22480,United States
-2022-09-14,0,22480,United States
-2022-09-15,0,22480,United States
+2022-09-14,140,22620,United States
+2022-09-15,0,22620,United States
 2022-07-29,1,1,Uruguay
 2022-07-30,0,1,Uruguay
 2022-07-31,0,1,Uruguay
