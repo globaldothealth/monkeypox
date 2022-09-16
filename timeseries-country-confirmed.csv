@@ -1771,8 +1771,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-12,0,575,Chile
 2022-09-13,0,575,Chile
 2022-09-14,0,575,Chile
-2022-09-15,0,575,Chile
-2022-09-16,0,575,Chile
+2022-09-15,109,684,Chile
+2022-09-16,0,684,Chile
 2022-06-23,3,3,Colombia
 2022-06-24,0,3,Colombia
 2022-06-25,0,3,Colombia
@@ -1914,10 +1914,10 @@ Date,Cases,Cumulative_cases,Country
 2022-09-10,0,3,Costa Rica
 2022-09-11,0,3,Costa Rica
 2022-09-12,0,3,Costa Rica
-2022-09-13,0,3,Costa Rica
-2022-09-14,0,3,Costa Rica
-2022-09-15,0,3,Costa Rica
-2022-09-16,0,3,Costa Rica
+2022-09-13,1,4,Costa Rica
+2022-09-14,0,4,Costa Rica
+2022-09-15,0,4,Costa Rica
+2022-09-16,0,4,Costa Rica
 2022-06-23,1,1,Croatia
 2022-06-24,0,1,Croatia
 2022-06-25,0,1,Croatia
@@ -2547,8 +2547,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-12,0,12,Dominican Republic
 2022-09-13,9,21,Dominican Republic
 2022-09-14,0,21,Dominican Republic
-2022-09-15,0,21,Dominican Republic
-2022-09-16,0,21,Dominican Republic
+2022-09-15,9,30,Dominican Republic
+2022-09-16,0,30,Dominican Republic
 2022-07-06,1,1,Ecuador
 2022-07-07,0,1,Ecuador
 2022-07-08,0,1,Ecuador
@@ -3969,11 +3969,11 @@ Date,Cases,Cumulative_cases,Country
 2022-09-09,0,11,India
 2022-09-10,0,11,India
 2022-09-11,0,11,India
-2022-09-12,0,11,India
-2022-09-13,0,11,India
-2022-09-14,0,11,India
-2022-09-15,0,11,India
-2022-09-16,0,11,India
+2022-09-12,1,12,India
+2022-09-13,0,12,India
+2022-09-14,0,12,India
+2022-09-15,0,12,India
+2022-09-16,0,12,India
 2022-08-19,1,1,Indonesia
 2022-08-20,0,1,Indonesia
 2022-08-21,0,1,Indonesia
@@ -4387,7 +4387,7 @@ Date,Cases,Cumulative_cases,Country
 2022-09-13,8,813,Italy
 2022-09-14,0,813,Italy
 2022-09-15,0,813,Italy
-2022-09-16,0,813,Italy
+2022-09-16,15,828,Italy
 2022-07-06,1,1,Jamaica
 2022-07-07,0,1,Jamaica
 2022-07-08,0,1,Jamaica
@@ -6638,8 +6638,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-12,0,3,Qatar
 2022-09-13,0,3,Qatar
 2022-09-14,0,3,Qatar
-2022-09-15,0,3,Qatar
-2022-09-16,0,3,Qatar
+2022-09-15,1,4,Qatar
+2022-09-16,0,4,Qatar
 2022-04-12,2,2,Republic of Congo
 2022-04-13,0,2,Republic of Congo
 2022-04-14,0,2,Republic of Congo
