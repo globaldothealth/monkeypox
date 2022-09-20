@@ -15,6 +15,10 @@ services:
       CDC_FOLDER: "cdc"
       ECDC_FOLDER: "ecdc"
       WHO_FOLDER: "who"
+      DB_CONNECTION: "mongodb://mongo:27017"
+      DATABASE_NAME: "monkeypox"
+      CDC_COLLECTION: "cdc"
+      WHO_COLLECTION: "who"
       AWS_ACCESS_KEY_ID: "fake"
       AWS_SECRET_ACCESS_KEY: "fake"
   localstack:
@@ -35,3 +39,11 @@ services:
     ports:
       - "2525:2525"  # Mountebank port
       - "4545:4545"  # Imposter port
+  mongo:
+    image: mongo:5.0.12
+    restart: always
+    init: true
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: "monkeypox"

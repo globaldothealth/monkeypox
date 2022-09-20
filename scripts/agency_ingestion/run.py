@@ -12,6 +12,8 @@ import sys
 import boto3
 from bs4 import BeautifulSoup
 import click
+from pymongo import MongoClient
+from pymongo.errors import PyMongoError
 import requests
 
 
@@ -22,10 +24,27 @@ CDC_URL = os.environ.get("CDC_URL")
 ECDC_URL = os.environ.get("ECDC_URL")
 WHO_URL = os.environ.get("WHO_URL")
 
-AGENCIES = {
-	"CDC": os.environ.get("CDC_FOLDER"),
-	"ECDC": os.environ.get("ECDC_FOLDER"),
-	"WHO": os.environ.get("WHO_FOLDER")
+DB_CONNECTION = os.environ.get("DB_CONNECTION")
+DATABASE_NAME = os.environ.get("DATABASE_NAME")
+
+CDC_COLLECTION = os.environ.get("CDC_COLLECTION", "cdc")
+WHO_COLLECTION = os.environ.get("WHO_COLLECTION", "who")
+
+CDC = "CDC"
+ECDC = "ECDC"
+WHO = "WHO"
+
+AGENCIES = [CDC, ECDC, WHO]
+
+AGENCY_FOLDERS = {
+	CDC: os.environ.get("CDC_FOLDER"),
+	ECDC: os.environ.get("ECDC_FOLDER"),
+	WHO: os.environ.get("WHO_FOLDER")
+}
+
+AGENCY_COLLECTIONS = {
+	CDC: os.environ.get("CDC_COLLECTION"),
+	WHO: os.environ.get("WHO_COLLECTION")
 }
 
 # ECDC scraping targets
@@ -69,14 +88,16 @@ class AgencyIngestor():
 		self.url = url
 		self.data = []
 		self.csv_data = ""
+		self.data_folder = AGENCY_FOLDERS.get(self.name, self.name)
 
 	def ingest_data(self):
 		logging.info(f"Ingesting {self.name} data")
 		self.get_data()
 		self.data_to_csv(self.data[0])
-		folder = AGENCIES.get(self.name, self.name)
-		self.store_data(f"{folder}/{TODAY}.csv")
-		self.store_data(f"{self.name.lower()}_latest.csv")
+		self.store_data()
+
+	def store_data(self):
+		self.data_to_s3()
 
 	def get_data(self):
 		raise NotImplementedError("The base class' method does nothing")
@@ -90,22 +111,29 @@ class AgencyIngestor():
 			writer.writerow(row)
 		self.csv_data = buf.getvalue()
 
-	def store_data(self, file_name: str):
-		logging.info(f"Storing {file_name}")
+	def data_to_s3(self):
+		logging.info("Storing data in S3")
 		try:
 			s3 = boto3.resource("s3")
 			if LOCALSTACK_URL:
 				s3 = boto3.resource("s3", endpoint_url=LOCALSTACK_URL)
-			s3.Object(S3_BUCKET, file_name).put(Body=self.csv_data)
+			for file_name in [f"{self.data_folder}/{TODAY}.csv", f"{self.name.lower()}_latest.csv"]:
+				s3.Object(S3_BUCKET, file_name).put(Body=self.csv_data)
 		except Exception as exc:
-			logging.exception(f"An exception occurred while trying to upload {file_name}")
+			logging.exception("An exception occurred while trying to upload data to S3")
 			raise
 
 
 class CDCIngestor(AgencyIngestor):
 
 	def __init__(self):
-		super().__init__("CDC", CDC_URL)
+		super().__init__(CDC, CDC_URL)
+
+	def ingest_data(self):
+		logging.info(f"Ingesting {self.name} data")
+		self.get_data()
+		self.data_to_csv(self.data[0])
+		self.store_data()
 
 	def get_data(self):
 		logging.info(f"Getting {self.name} data")
@@ -117,11 +145,29 @@ class CDCIngestor(AgencyIngestor):
 			logging.exception(f"Something went wrong when trying to retrieve {self.name} data")
 			raise
 
+	def store_data(self):
+		self.data_to_s3()
+		self.data_to_db()
+
+	def data_to_db(self):
+		logging.info("Adding CDC data to the database")
+		try:
+			client = MongoClient(DB_CONNECTION)
+			database = client[DATABASE_NAME]
+			for entry in self.data:
+				find = {"Location": entry["Location"]}
+				# update = {"$set": {"Cases": int(entry["Cases"])}}
+				update = {"$set": entry}
+				database[CDC_COLLECTION].update_one(find, update, upsert=True)
+		except PyMongoError:
+			logging.exception("An error occurred while trying to insert data")
+			raise
+
 
 class WHOIngestor(AgencyIngestor):
 
 	def __init__(self):
-		super().__init__("WHO", WHO_URL)
+		super().__init__(WHO, WHO_URL)
 
 	def get_data(self):
 		logging.info(f"Getting {self.name} data")
@@ -131,25 +177,43 @@ class WHOIngestor(AgencyIngestor):
 			logging.exception(f"Something went wrong when trying to retrieve {self.name} data")
 			raise
 
+	def store_data(self):
+		self.data_to_s3()
+		self.data_to_db()
+
+	def data_to_db(self):
+		logging.info("Adding WHO data to the database")
+		try:
+			client = MongoClient(DB_CONNECTION)
+			database = client[DATABASE_NAME]
+			for entry in self.data:
+				find = {"COUNTRY": entry["COUNTRY"]}
+				update = {"$set": entry}
+				database[WHO_COLLECTION].update_one(find, update, upsert=True)
+		except PyMongoError:
+			logging.exception("An error occurred while trying to insert data")
+			raise
+
 
 class ECDCIngestor(AgencyIngestor):
 
 	def __init__(self):
-		super().__init__("ECDC", ECDC_URL)
+		super().__init__(ECDC, ECDC_URL)
 		self.soup = None
 		self.site_content = ""
 		self.json_soup = {}
+		self.target_div = ""
 
 	def ingest_data(self):
 		logging.info("Ingesting ECDC data")
 		self.get_site_content()
 		self.make_soup()
 		for div in TARGET_DIVS:
-			self.get_json(div)
-			self.process_json(div)
-			self.data_to_csv(FIELDS.get(div))
-			self.store_data(f"{AGENCIES['ECDC']}/{TODAY}_{div}.csv")
-			self.store_data(f"ecdc_{div}_latest.csv")
+			self.target_div = div
+			self.get_json()
+			self.process_json()
+			self.data_to_csv(FIELDS.get(self.target_div))
+			self.data_to_s3()
 			self.data = []
 
 	def get_site_content(self):
@@ -171,41 +235,53 @@ class ECDCIngestor(AgencyIngestor):
 				logging.exception("Something went wrong trying to make BeautifulSoup")
 				raise
 
-	def get_json(self, div: str):
+	def get_json(self):
 		logging.info("Getting HTML from ECDC website")
-		html = self.soup.find("div", id=div)
+		html = self.soup.find("div", id=self.target_div)
 		if html is None:
-			raise ValueError(f"div[id='{div}'] not found")
+			raise ValueError(f"div[id='{self.target_div}'] not found")
 		script = html.find("script")
 		if script is None:
-			raise ValueError("No JSON data found in div")
+			raise ValueError(f"No JSON data found in div {self.target_div}")
 		try:
 			self.json_soup = json.loads(script.contents[0])
 		except Exception:
 			logging.exception("Something went wrong getting JSON from <script>")
 			raise
 
-	def process_json(self, div: str) -> list[dict[str, str | int]]:
+	def process_json(self) -> list[dict[str, str | int]]:
 		logging.info("Processing JSON data")
 		for group in self.json_soup["x"]["data"]:
 			text = group["text"]
 			text = text if isinstance(text, list) else [text]
 			# parse each line and remove invalid lines
-			self.data.extend(list(filter(None, map(self.parse_line, text, repeat(div)))))
+			self.data.extend(list(filter(None, map(self.parse_line, text))))
 
-	@classmethod
-	def parse_line(cls, line: str, div: str) -> [dict[str, str | int]]:
-		if match := re.match(REGEXES.get(div), line):
-			if div == ONSET_OCA_DIV_ID:
+	def parse_line(self, line: str) -> [dict[str, str | int]]:
+		if match := re.match(REGEXES.get(self.target_div), line):
+			if self.target_div == ONSET_OCA_DIV_ID:
 				date, count, country = match.groups()
 				return {"date": date, "count": int(count), "country": country}
-			if div == NOTIF_DIV_ID:
+			if self.target_div == NOTIF_DIV_ID:
 				date, count = match.groups()
 				return {"date": date, "count": int(count)}
-			if div == ONSET_DATE_DIV_ID:
+			if self.target_div == ONSET_DATE_DIV_ID:
 				date, count, onset_type = match.groups()
 				return {"date": date, "count": int(count), "type": onset_type}
 		return {}
+
+	def data_to_s3(self):
+		logging.info("Storing data in S3")
+		files = [f"{AGENCY_FOLDERS[ECDC]}/{TODAY}_{self.target_div}.csv", f"ecdc_{self.target_div}_latest.csv"]
+		try:
+			s3 = boto3.resource("s3")
+			if LOCALSTACK_URL:
+				s3 = boto3.resource("s3", endpoint_url=LOCALSTACK_URL)
+			for file_name in files:
+				s3.Object(S3_BUCKET, file_name).put(Body=self.csv_data)
+		except Exception as exc:
+			logging.exception("An exception occurred while trying to upload data to S3")
+			raise
 
 
 @click.command()

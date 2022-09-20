@@ -15,6 +15,9 @@ services:
       AWS_SECRET_ACCESS_KEY: "fake"
       DB_CONNECTION: "mongodb://mongo:27017"
       DATABASE_NAME: "monkeypox"
+      CDC_COLLECTION: "cdc"
+      GH_COLLECTION: "gh"
+      WHO_COLLECTION: "who"
   localstack:
     image: localstack/localstack
     environment:

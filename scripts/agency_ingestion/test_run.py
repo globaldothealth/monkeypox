@@ -1,23 +1,28 @@
 import csv
+import io
 import os
 
 import boto3
+from pymongo import MongoClient
 import pytest
 
 from run import (AgencyIngestor, CDCIngestor, ECDCIngestor, WHOIngestor, TODAY,
-	S3_BUCKET, AGENCIES, TARGET_DIVS, NOTIF_DIV_ID, ONSET_DATE_DIV_ID, ONSET_OCA_DIV_ID)
+	LOCALSTACK_URL, S3_BUCKET, AGENCY_FOLDERS, DB_CONNECTION, DATABASE_NAME, CDC_COLLECTION,
+	WHO_COLLECTION, TARGET_DIVS, NOTIF_DIV_ID, ONSET_DATE_DIV_ID, ONSET_OCA_DIV_ID)
 
 from setup import get_csv, get_html, get_json, CDC_DATA_CSV, ECDC_HTML, WHO_DATA_JSON
-
-
-LOCALSTACK_URL = os.environ.get("LOCALSTACK_URL")
-S3_BUCKET = os.environ.get("S3_BUCKET")
 
 
 def get_contents(file_name: str) -> str:
 	s3 = boto3.resource("s3", endpoint_url=LOCALSTACK_URL)
 	obj = s3.Object(S3_BUCKET, file_name)
 	return obj.get()["Body"].read().decode("utf-8")
+
+
+def get_db_records(collection: str) -> list[dict]:
+	db = MongoClient(DB_CONNECTION)[DATABASE_NAME][collection]
+	cursor = db.find({})
+	return [record for record in cursor]
 
 
 def is_valid_csv(data: str) -> bool:
@@ -28,15 +33,25 @@ def is_valid_csv(data: str) -> bool:
 	return True
 
 
+def csv_to_dicts(data: str) -> list[dict]:
+	f = io.StringIO(data)
+	reader = csv.DictReader(f)
+	return [row for row in reader]
+
+
 @pytest.mark.skipif(not os.environ.get("DOCKERIZED", False),
 						reason="Running e2e tests outside of mock environment disabled")
 def test_ingest_cdc_data():
 	ingestor = CDCIngestor()
 	ingestor.ingest_data()
-	data_a = get_contents(f"{AGENCIES['CDC']}/{TODAY}.csv")
-	data_b = get_contents("cdc_latest.csv")
-	assert is_valid_csv(data_a)
-	assert data_a == data_b
+	data_today = get_contents(f"{AGENCY_FOLDERS['CDC']}/{TODAY}.csv")
+	data_latest = get_contents("cdc_latest.csv")
+	assert is_valid_csv(data_today)
+	assert data_today == data_latest
+	data_db = get_db_records(CDC_COLLECTION)
+	data_dicts = csv_to_dicts(data_today)
+	for db, csv in zip(data_db, data_dicts):  # using default dictionary ordering
+		assert db["Cases"] == csv["Cases"]
 
 
 @pytest.mark.skipif(not os.environ.get("DOCKERIZED", False),
@@ -59,8 +74,8 @@ def test_data_to_csv():
 def test_store_data():
 	ingestor = AgencyIngestor("WHO", "")
 	ingestor.csv_data = "foo"
-	ingestor.store_data("test.txt")
-	assert get_contents("test.txt") == ingestor.csv_data
+	ingestor.store_data()
+	assert get_contents("who_latest.csv") == ingestor.csv_data
 
 
 @pytest.mark.skipif(not os.environ.get("DOCKERIZED", False),
@@ -68,10 +83,14 @@ def test_store_data():
 def test_ingest_who_data():
 	ingestor = WHOIngestor()
 	ingestor.ingest_data()
-	data_a = get_contents(f"{AGENCIES['WHO']}/{TODAY}.csv")
-	data_b = get_contents("who_latest.csv")
-	assert is_valid_csv(data_a)
-	assert data_a == data_b
+	data_today = get_contents(f"{AGENCY_FOLDERS['WHO']}/{TODAY}.csv")
+	data_latest = get_contents("who_latest.csv")
+	assert is_valid_csv(data_today)
+	assert data_today == data_latest
+	data_db = get_db_records(WHO_COLLECTION)
+	data_dicts = csv_to_dicts(data_today)
+	for db, csv in zip(data_db, data_dicts):  # using default dictionary ordering
+		assert int(db["CasesAll"]) == int(csv["CasesAll"])
 
 
 @pytest.mark.skipif(not os.environ.get("DOCKERIZED", False),
@@ -89,10 +108,10 @@ def test_ingest_ecdc_data():
 	ingestor = ECDCIngestor()
 	ingestor.ingest_data()
 	for div in TARGET_DIVS:
-		data_a = get_contents(f"{AGENCIES['ECDC']}/{TODAY}_{div}.csv")
-		data_b = get_contents(f"ecdc_{div}_latest.csv")
-		assert is_valid_csv(data_a)
-		assert data_a == data_b
+		data_today = get_contents(f"{AGENCY_FOLDERS['ECDC']}/{TODAY}_{div}.csv")
+		data_latest = get_contents(f"ecdc_{div}_latest.csv")
+		assert is_valid_csv(data_today)
+		assert data_today == data_latest
 
 
 def test_get_ecdc_site_content():
@@ -111,7 +130,8 @@ def test_get_ecdc_json():
 	ingestor = ECDCIngestor()
 	ingestor.site_content = html
 	ingestor.make_soup()
-	ingestor.get_json(ONSET_OCA_DIV_ID)
+	ingestor.target_div = ONSET_OCA_DIV_ID
+	ingestor.get_json()
 	assert ingestor.json_soup == {"x": 1}
 
 
@@ -159,5 +179,6 @@ def test_get_ecdc_json():
 )
 def test_parse_line(source, div, expected):
 	ingestor = ECDCIngestor()
-	result = ingestor.parse_line(source, div)
+	ingestor.target_div = div
+	result = ingestor.parse_line(source)
 	assert result == expected, f"Expected {expected}, got {result}"
