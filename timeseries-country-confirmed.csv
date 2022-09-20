@@ -447,8 +447,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-16,2,300,Austria
 2022-09-17,0,300,Austria
 2022-09-18,0,300,Austria
-2022-09-19,0,300,Austria
-2022-09-20,0,300,Austria
+2022-09-19,1,301,Austria
+2022-09-20,0,301,Austria
 2022-06-24,1,1,Bahamas
 2022-06-25,0,1,Bahamas
 2022-06-26,0,1,Bahamas
@@ -538,6 +538,11 @@ Date,Cases,Cumulative_cases,Country
 2022-09-18,0,2,Bahamas
 2022-09-19,0,2,Bahamas
 2022-09-20,0,2,Bahamas
+2022-09-16,1,1,Bahrain
+2022-09-17,0,1,Bahrain
+2022-09-18,0,1,Bahrain
+2022-09-19,0,1,Bahrain
+2022-09-20,0,1,Bahrain
 2022-07-16,1,1,Barbados
 2022-07-17,0,1,Barbados
 2022-07-18,0,1,Barbados
@@ -940,8 +945,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-16,4,138,Bolivia
 2022-09-17,7,145,Bolivia
 2022-09-18,0,145,Bolivia
-2022-09-19,0,145,Bolivia
-2022-09-20,0,145,Bolivia
+2022-09-19,4,149,Bolivia
+2022-09-20,0,149,Bolivia
 2022-07-13,1,1,Bosnia And Herzegovina
 2022-07-14,0,1,Bosnia And Herzegovina
 2022-07-15,0,1,Bosnia And Herzegovina
@@ -1938,8 +1943,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-16,0,1260,Colombia
 2022-09-17,0,1260,Colombia
 2022-09-18,0,1260,Colombia
-2022-09-19,0,1260,Colombia
-2022-09-20,0,1260,Colombia
+2022-09-19,393,1653,Colombia
+2022-09-20,0,1653,Colombia
 2022-07-20,1,1,Costa Rica
 2022-07-21,0,1,Costa Rica
 2022-07-22,0,1,Costa Rica
@@ -2330,8 +2335,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-16,0,62,Czech Republic
 2022-09-17,0,62,Czech Republic
 2022-09-18,0,62,Czech Republic
-2022-09-19,0,62,Czech Republic
-2022-09-20,0,62,Czech Republic
+2022-09-19,3,65,Czech Republic
+2022-09-20,0,65,Czech Republic
 2022-05-08,10,10,Democratic Republic Of The Congo
 2022-05-09,0,10,Democratic Republic Of The Congo
 2022-05-10,0,10,Democratic Republic Of The Congo
@@ -3328,7 +3333,7 @@ Date,Cases,Cumulative_cases,Country
 2022-09-17,0,3556,Germany
 2022-09-18,0,3556,Germany
 2022-09-19,7,3563,Germany
-2022-09-20,0,3563,Germany
+2022-09-20,7,3570,Germany
 2022-06-08,5,5,Ghana
 2022-06-09,0,5,Ghana
 2022-06-10,0,5,Ghana
@@ -4608,7 +4613,7 @@ Date,Cases,Cumulative_cases,Country
 2022-09-17,0,828,Italy
 2022-09-18,0,828,Italy
 2022-09-19,0,828,Italy
-2022-09-20,0,828,Italy
+2022-09-20,9,837,Italy
 2022-07-06,1,1,Jamaica
 2022-07-07,0,1,Jamaica
 2022-07-08,0,1,Jamaica
@@ -4683,9 +4688,9 @@ Date,Cases,Cumulative_cases,Country
 2022-09-15,0,12,Jamaica
 2022-09-16,0,12,Jamaica
 2022-09-17,0,12,Jamaica
-2022-09-18,0,12,Jamaica
-2022-09-19,0,12,Jamaica
-2022-09-20,0,12,Jamaica
+2022-09-18,1,13,Jamaica
+2022-09-19,0,13,Jamaica
+2022-09-20,0,13,Jamaica
 2022-07-25,1,1,Japan
 2022-07-26,0,1,Japan
 2022-07-27,0,1,Japan
@@ -4865,8 +4870,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-16,0,4,Latvia
 2022-09-17,0,4,Latvia
 2022-09-18,0,4,Latvia
-2022-09-19,0,4,Latvia
-2022-09-20,0,4,Latvia
+2022-09-19,1,5,Latvia
+2022-09-20,0,5,Latvia
 2022-06-20,1,1,Lebanon
 2022-06-21,0,1,Lebanon
 2022-06-22,0,1,Lebanon
@@ -6425,8 +6430,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-16,0,12,Panama
 2022-09-17,0,12,Panama
 2022-09-18,0,12,Panama
-2022-09-19,0,12,Panama
-2022-09-20,0,12,Panama
+2022-09-19,1,13,Panama
+2022-09-20,0,13,Panama
 2022-08-25,1,1,Paraguay
 2022-08-26,0,1,Paraguay
 2022-08-27,0,1,Paraguay
@@ -6697,8 +6702,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-16,0,160,Poland
 2022-09-17,0,160,Poland
 2022-09-18,0,160,Poland
-2022-09-19,0,160,Poland
-2022-09-20,0,160,Poland
+2022-09-19,7,167,Poland
+2022-09-20,0,167,Poland
 2022-05-17,3,3,Portugal
 2022-05-18,11,14,Portugal
 2022-05-19,9,23,Portugal
@@ -7233,8 +7238,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-16,0,37,Romania
 2022-09-17,0,37,Romania
 2022-09-18,0,37,Romania
-2022-09-19,0,37,Romania
-2022-09-20,0,37,Romania
+2022-09-19,1,38,Romania
+2022-09-20,0,38,Romania
 2022-07-12,1,1,Russia
 2022-07-13,0,1,Russia
 2022-07-14,0,1,Russia
@@ -8680,8 +8685,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-16,0,1,Ukraine
 2022-09-17,0,1,Ukraine
 2022-09-18,0,1,Ukraine
-2022-09-19,0,1,Ukraine
-2022-09-20,0,1,Ukraine
+2022-09-19,1,2,Ukraine
+2022-09-20,0,2,Ukraine
 2022-05-24,1,1,United Arab Emirates
 2022-05-25,0,1,United Arab Emirates
 2022-05-26,0,1,United Arab Emirates
