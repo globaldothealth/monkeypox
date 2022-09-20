@@ -1117,11 +1117,11 @@ Date,Cases,Cumulative_cases,Country
 2022-09-13,117,6246,Brazil
 2022-09-14,202,6448,Brazil
 2022-09-15,201,6649,Brazil
-2022-09-16,158,6807,Brazil
-2022-09-17,62,6869,Brazil
-2022-09-18,0,6869,Brazil
-2022-09-19,0,6869,Brazil
-2022-09-20,0,6869,Brazil
+2022-09-16,157,6806,Brazil
+2022-09-17,61,6867,Brazil
+2022-09-18,0,6867,Brazil
+2022-09-19,0,6867,Brazil
+2022-09-20,152,7019,Brazil
 2022-06-23,2,2,Bulgaria
 2022-06-24,0,2,Bulgaria
 2022-06-25,0,2,Bulgaria
@@ -4487,8 +4487,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-16,0,246,Israel
 2022-09-17,0,246,Israel
 2022-09-18,1,247,Israel
-2022-09-19,0,247,Israel
-2022-09-20,0,247,Israel
+2022-09-19,3,250,Israel
+2022-09-20,0,250,Israel
 2022-05-19,1,1,Italy
 2022-05-20,2,3,Italy
 2022-05-21,0,3,Italy
@@ -8944,7 +8944,7 @@ Date,Cases,Cumulative_cases,Country
 2022-09-17,0,3552,United Kingdom
 2022-09-18,0,3552,United Kingdom
 2022-09-19,0,3552,United Kingdom
-2022-09-20,0,3552,United Kingdom
+2022-09-20,33,3585,United Kingdom
 2022-05-18,1,1,United States
 2022-05-19,1,2,United States
 2022-05-20,0,2,United States
@@ -9224,5 +9224,5 @@ Date,Cases,Cumulative_cases,Country
 2022-09-16,0,3,Venezuela
 2022-09-17,0,3,Venezuela
 2022-09-18,0,3,Venezuela
-2022-09-19,0,3,Venezuela
-2022-09-20,0,3,Venezuela
+2022-09-19,2,5,Venezuela
+2022-09-20,0,5,Venezuela
