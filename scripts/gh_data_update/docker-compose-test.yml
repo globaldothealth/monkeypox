@@ -1,0 +1,41 @@
+services:
+  test:
+    build:
+      context: ./
+      dockerfile: ./../Dockerfile-test
+      args:
+        SCRIPT_DIR: "gh_data_update"
+    environment:
+      DOCKERIZED: "absolutely"
+      LOCALSTACK_URL: "http://localstack:4566"
+      S3_BUCKET: "fake"
+      CDC_FOLDER: "cdc"
+      GH_FOLDER: "gh"
+      WHO_FOLDER: "who"
+      AWS_ACCESS_KEY_ID: "fake"
+      AWS_SECRET_ACCESS_KEY: "fake"
+      DB_CONNECTION: "mongodb://mongo:27017"
+      DATABASE_NAME: "monkeypox"
+  localstack:
+    image: localstack/localstack
+    environment:
+      AWS_ACCESS_KEY_ID: "fake"
+      AWS_SECRET_ACCESS_KEY: "fake"
+      SERVICES: "s3"
+      DOCKER_HOST: "unix:///var/run/docker.sock"
+      START_WEB: 0  # https://github.com/localstack/localstack/issues/1466#issuecomment-599822542
+      HOSTNAME: "localhost"
+      EAGER_SERVICE_LOADING: 1
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+      - "4566:4566"            # LocalStack Gateway
+      - "4510-4559:4510-4559"  # external services port range
+  mongo:
+    image: mongo:5.0.12
+    restart: always
+    init: true
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: "monkeypox"

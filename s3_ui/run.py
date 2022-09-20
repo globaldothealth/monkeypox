@@ -13,8 +13,12 @@ S3_BUCKET = os.environ.get("S3_BUCKET")
 
 ARCHIVES = "archives"
 CASE_DEFINITIONS = "case-definitions"
+CDC = "cdc"
+CDC_ARCHIVES = "cdc-archives"
 ECDC = "ecdc"
 ECDC_ARCHIVES = "ecdc-archives"
+WHO = "who"
+WHO_ARCHIVES = "who-archives"
 
 FLASK_HOST = os.environ.get("FLASK_HOST", "0.0.0.0")
 FLASK_PORT = os.environ.get("FLASK_PORT", 5000)
@@ -46,6 +50,20 @@ def get_case_definition_files():
     return render_template("folder.html", folder=CASE_DEFINITIONS, files=files)
 
 
+@app.route(f"/{CDC}")
+def get_cdc_files():
+    files = [f.split("/")[1] for f in list_bucket_contents(CDC)]
+    logging.debug(f"Files in {CDC} folder: {files}")
+    return render_template("folder.html", folder=CDC, files=files)
+
+
+@app.route(f"/{CDC_ARCHIVES}")
+def get_cdc_archive_files():
+    files = [f.split("/")[1] for f in list_bucket_contents(CDC_ARCHIVES)]
+    logging.debug(f"Files in {CDC_ARCHIVES} folder: {files}")
+    return render_template("folder.html", folder=CDC_ARCHIVES, files=files)
+
+
 @app.route(f"/{ECDC}")
 def get_ecdc_files():
     files = [f.split("/")[1] for f in list_bucket_contents(ECDC)]
@@ -58,6 +76,20 @@ def get_ecdc_archive_files():
     files = [f.split("/")[1] for f in list_bucket_contents(ECDC_ARCHIVES)]
     logging.debug(f"Files in {ECDC_ARCHIVES} folder: {files}")
     return render_template("folder.html", folder=ECDC_ARCHIVES, files=files)
+
+
+@app.route(f"/{WHO}")
+def get_who_files():
+    files = [f.split("/")[1] for f in list_bucket_contents(WHO)]
+    logging.debug(f"Files in {WHO} folder: {files}")
+    return render_template("folder.html", folder=WHO, files=files)
+
+
+@app.route(f"/{WHO_ARCHIVES}")
+def get_who_archive_files():
+    files = [f.split("/")[1] for f in list_bucket_contents(WHO_ARCHIVES)]
+    logging.debug(f"Files in {WHO_ARCHIVES} folder: {files}")
+    return render_template("folder.html", folder=WHO_ARCHIVES, files=files)
 
 
 def list_bucket_contents(folder: str) -> list[str]:
