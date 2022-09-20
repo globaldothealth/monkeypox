@@ -16,6 +16,10 @@ services:
       CDC_URL: "http://mountebank:4242"
       ECDC_URL: "http://mountebank:4243"
       WHO_URL: "http://mountebank:4244"
+      DB_CONNECTION: "mongodb://mongo:27017"
+      DATABASE_NAME: "monkeypox"
+      CDC_COLLECTION: "cdc"
+      WHO_COLLECTION: "who"
       CDC_DATA_CSV: "cdc_data.csv"
       ECDC_HTML: "ecdc_site.html"
       WHO_DATA_JSON: "who_data.json"
@@ -44,3 +48,11 @@ services:
     ports:
       - "2525:2525"  # Mountebank port
       - "4242-4244:4242-4244"  # Stub ports
+  mongo:
+    image: mongo:5.0.12
+    restart: always
+    init: true
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: "monkeypox"

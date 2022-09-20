@@ -22,7 +22,7 @@ DB_CONNECTION = os.environ.get("DB_CONNECTION", "test")
 
 DATABASE_NAME = os.environ.get("DB_NAME", "monkeypox")
 CDC_COLLECTION = os.environ.get("CDC_COLLECTION", "cdc")
-GH_COLLECTION = os.environ.get("GH_COLLECTION", "cdc")
+GH_COLLECTION = os.environ.get("GH_COLLECTION", "gh")
 WHO_COLLECTION = os.environ.get("WHO_COLLECTION", "who")
 
 CDC_DATA_CSV = os.environ.get("CDC_DATA_CSV", "cdc_data.csv")
