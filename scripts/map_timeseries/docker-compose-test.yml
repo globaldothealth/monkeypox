@@ -1,0 +1,37 @@
+services:
+  test:
+    build:
+      context: ./
+      dockerfile: ./../Dockerfile-test
+      args:
+        SCRIPT_DIR: "map_timeseries"
+    environment:
+      DOCKERIZED: "absolutely"
+      LOCALSTACK_URL: "http://localstack:4566"
+      MOUNTEBANK_URL: "http://mountebank:2525"
+      S3_BUCKET: "fake"
+      WHO_STUB_PORT: 4244
+      WHO_URL: "http://mountebank:4244"
+      WHO_DATA_JSON: "who_data.json"
+      AWS_ACCESS_KEY_ID: "fake"
+      AWS_SECRET_ACCESS_KEY: "fake"
+  localstack:
+    image: localstack/localstack
+    environment:
+      AWS_ACCESS_KEY_ID: "fake"
+      AWS_SECRET_ACCESS_KEY: "fake"
+      SERVICES: "s3"
+      DOCKER_HOST: "unix:///var/run/docker.sock"
+      START_WEB: 0  # https://github.com/localstack/localstack/issues/1466#issuecomment-599822542
+      HOSTNAME: "localhost"
+      EAGER_SERVICE_LOADING: 1
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+      - "4566:4566"            # LocalStack Gateway
+      - "4510-4559:4510-4559"  # external services port range
+  mountebank:
+    image: jkris/mountebank
+    ports:
+      - "2525:2525"  # Mountebank port
+      - "4242-4244:4242-4244"  # Stub ports
