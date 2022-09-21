@@ -6,9 +6,10 @@
 
 ## Contents
 
-*Data are updated Monday - Friday.* 
+The Global.health team completed a 100 days mission to provide decision makers, researchers, and the public with timely and accurate, openly-accessible, global line-list data for the 2022 monkeypox outbreak. Now, we are at a point of transition. On 2022-09-23, the Global.health team will shift from providing manually-curated line-list data to openly-available data resources, compiling downloadable monkeypox datasets with aggregate case data from the World Health Organization, U.S. Centers for Disease Control and Prevention, and the European Centre for Disease Control and Prevention. Global.health monkeypox line-list data, last updated 2022-09-22, will remain accessible via download through GitHub. We thank our user community for their many helpful contributions and for identifying Global.health as a trusted source of information.​
 
 #### Data changes
+* **2022-09-22**: End of line list data. 
 * **2022-07-07**: Only confirmed cases for Brazil are reported
 * **2022-07-11**: From this date data files (`latest.csv`, `timeseries-*.csv`) have cases from the current outbreak, and from countries where MPXV is endemic. The lists are distinguished by the first letter of the ID, which is a string: **N** denoting cases from the current outbreak (equivalent to the current list), and **E** for cases from endemic countries.
 * **2022-07-22**: Endemic data has been updated to accurately reflect confirmed/suspected/total cases from source reporting.
