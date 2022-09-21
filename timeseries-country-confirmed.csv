@@ -957,8 +957,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-17,7,145,Bolivia
 2022-09-18,0,145,Bolivia
 2022-09-19,4,149,Bolivia
-2022-09-20,0,149,Bolivia
-2022-09-21,0,149,Bolivia
+2022-09-20,6,155,Bolivia
+2022-09-21,0,155,Bolivia
 2022-07-13,1,1,Bosnia And Herzegovina
 2022-07-14,0,1,Bosnia And Herzegovina
 2022-07-15,0,1,Bosnia And Herzegovina
@@ -1133,9 +1133,9 @@ Date,Cases,Cumulative_cases,Country
 2022-09-16,157,6806,Brazil
 2022-09-17,61,6867,Brazil
 2022-09-18,0,6867,Brazil
-2022-09-19,0,6867,Brazil
-2022-09-20,152,7019,Brazil
-2022-09-21,0,7019,Brazil
+2022-09-19,151,7018,Brazil
+2022-09-20,97,7115,Brazil
+2022-09-21,0,7115,Brazil
 2022-06-23,2,2,Bulgaria
 2022-06-24,0,2,Bulgaria
 2022-06-25,0,2,Bulgaria
@@ -3371,7 +3371,7 @@ Date,Cases,Cumulative_cases,Country
 2022-09-18,0,3556,Germany
 2022-09-19,7,3563,Germany
 2022-09-20,7,3570,Germany
-2022-09-21,0,3570,Germany
+2022-09-21,15,3585,Germany
 2022-06-08,5,5,Ghana
 2022-06-09,0,5,Ghana
 2022-06-10,0,5,Ghana
