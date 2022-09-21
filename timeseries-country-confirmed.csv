@@ -2190,8 +2190,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-17,0,1,Curaçao
 2022-09-18,0,1,Curaçao
 2022-09-19,0,1,Curaçao
-2022-09-20,0,1,Curaçao
-2022-09-21,0,1,Curaçao
+2022-09-20,1,2,Curaçao
+2022-09-21,0,2,Curaçao
 2022-08-02,1,1,Cyprus
 2022-08-03,0,1,Cyprus
 2022-08-04,0,1,Cyprus
@@ -2777,8 +2777,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-17,0,68,Ecuador
 2022-09-18,0,68,Ecuador
 2022-09-19,0,68,Ecuador
-2022-09-20,0,68,Ecuador
-2022-09-21,0,68,Ecuador
+2022-09-20,25,93,Ecuador
+2022-09-21,0,93,Ecuador
 2022-09-07,1,1,Egypt
 2022-09-08,0,1,Egypt
 2022-09-09,0,1,Egypt
@@ -9230,9 +9230,9 @@ Date,Cases,Cumulative_cases,Country
 2022-09-16,0,5,Uruguay
 2022-09-17,0,5,Uruguay
 2022-09-18,0,5,Uruguay
-2022-09-19,0,5,Uruguay
-2022-09-20,0,5,Uruguay
-2022-09-21,0,5,Uruguay
+2022-09-19,1,6,Uruguay
+2022-09-20,0,6,Uruguay
+2022-09-21,0,6,Uruguay
 2022-06-12,1,1,Venezuela
 2022-06-13,0,1,Venezuela
 2022-06-14,0,1,Venezuela
