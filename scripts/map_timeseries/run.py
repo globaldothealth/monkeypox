@@ -19,6 +19,7 @@ import logging
 
 import boto3
 import requests
+import pymongo
 import pandas as pd
 
 WHO_URL = os.getenv(
@@ -26,6 +27,10 @@ WHO_URL = os.getenv(
 )  # https://extranet.who.int/publicemergency/api/Monkeypox/
 S3_BUCKET = os.getenv("S3_BUCKET")
 LOCALSTACK_URL = os.getenv("LOCALSTACK_URL")
+
+DB_CONNECTION = os.getenv("DB_CONNECTION")
+DATABASE_NAME = os.getenv("DATABASE_NAME")
+TIMESERIES_COLLECTION = os.getenv("TIMESERIES_COLLECTION", "who_timeseries")
 
 
 def fetch_who() -> pd.DataFrame:
@@ -49,6 +54,26 @@ def fetch_who() -> pd.DataFrame:
     } <= set(df.columns)
     df["DATEREP"] = pd.to_datetime(df.DATEREP)
     return df
+
+
+def subdict(d: dict, keys: list[str]):
+    "Returns sub-dictionary with a subset of keys"
+    assert set(keys) <= set(d)
+    return {k: d[k] for k in keys}
+
+
+def store_as_collection(df: pd.DataFrame, db_connection: str, db_name: str, collection_name: str):
+    "Store dataframe in collection"
+    date_fields = list(df.select_dtypes("datetime").columns)
+    collection = pymongo.MongoClient(db_connection)[db_name][collection_name]
+    for row in df.to_dict(orient="records"):
+        for field in date_fields:
+            row[field] = row[field].to_pydatetime()
+        try:
+            collection.replace_one(subdict(row, ["ISO3", "DATEREP"]), row, upsert=True)
+        except Exception:
+            logging.exception(f"Exception when trying to insert to {collection_name}")
+            raise
 
 
 def to_json(df: pd.DataFrame) -> str:
@@ -134,6 +159,7 @@ if __name__ == "__main__":
     if S3_BUCKET is None:
         raise ValueError("Missing required environment variable S3_BUCKET")
     who = fetch_who()
+    store_as_collection(who, DB_CONNECTION, DATABASE_NAME, TIMESERIES_COLLECTION)
     df_confirmed = by_confirmed(who)
     df_country_confirmed = by_country_confirmed(who)
 

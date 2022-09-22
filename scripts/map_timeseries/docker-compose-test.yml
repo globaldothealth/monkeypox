@@ -15,6 +15,8 @@ services:
       WHO_DATA_JSON: "who_data.json"
       AWS_ACCESS_KEY_ID: "fake"
       AWS_SECRET_ACCESS_KEY: "fake"
+      DB_CONNECTION: "mongodb://mongo:27017"
+      DATABASE_NAME: "monkeypox"
   localstack:
     image: localstack/localstack
     environment:
@@ -35,3 +37,11 @@ services:
     ports:
       - "2525:2525"  # Mountebank port
       - "4242-4244:4242-4244"  # Stub ports
+  mongo:
+    image: mongo:5.0.12
+    restart: always
+    init: true
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: "monkeypox"
