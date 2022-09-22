@@ -7,6 +7,8 @@ import sys
 
 import boto3
 from pymongo import MongoClient
+from pymongo.errors import PyMongoError
+from pymongo.operations import InsertOne, UpdateOne
 
 from case import dict_to_case, case_to_dict, Case, EMPTY_CASE_AS_DICT
 
@@ -108,6 +110,8 @@ def get_gh_world_data():
 def cdc_to_gh(cdc_data, gh_usa_data):
 	logging.info("Adjusting G.h data to match CDC counts")
 	for state, cdc_count in cdc_data.items():
+		if state == "Total":
+			continue
 		if delta := cdc_count - gh_usa_data.get(state, 0):
 			add_or_remove_cases(delta, f"{state}, United States")
 	if not_in_cdc := list(set(gh_usa_data) - set(cdc_data)):
@@ -119,12 +123,10 @@ def cdc_to_gh(cdc_data, gh_usa_data):
 def who_to_gh(who_data, gh_world_data):
 	logging.info("Adjusting G.h data to match WHO counts")
 	for country, count in who_data.items():
-		if country == "USA":
+		title = country.title()
+		if country == "USA" or title == "United States Of America" or "Region" in title:
 			continue
-		if gh_name := WHO_TO_GH.get(country.title()):
-			country = gh_name
-		else:
-			country = country.title()
+		country = WHO_TO_GH.get(title, title)
 		if delta := count - gh_world_data.get(country, 0):
 			add_or_remove_cases(delta, country)
 	if not_in_who := list(set(gh_world_data) - set(who_data)):
@@ -147,21 +149,33 @@ def add_or_remove_cases(count, location):
 def add_cases(count, location):
 	logging.info(f"Adding {count} cases for {location}")
 	collection = MongoClient(DB_CONNECTION)[DATABASE_NAME][GH_COLLECTION]
+	bulk_request = []
 	for _ in range(count):
 		case_dict = EMPTY_CASE_AS_DICT.copy()
 		case_dict["Location_information"] = location
 		case_dict["Case_status"] = "confirmed"
 		case = dict_to_case(case_dict)  # Janky way to get default values
 		case_dict = case_to_dict(case)
-		collection.insert_one(case_dict)
+		bulk_request.append(InsertOne(case_dict))
+	try:
+		collection.bulk_write(bulk_request)
+	except PyMongoError:
+		logging.exception(f"An error occurred trying to add cases for {location}")
+		raise
 
 
 def remove_cases(count, location):
 	logging.info(f"Removing {count} cases for {location}")
 	collection = MongoClient(DB_CONNECTION)[DATABASE_NAME][GH_COLLECTION]
-	for _ in range(count):
-		query_filter = {"$and": [{"Location_information": location}, {"Case_status": "confirmed"}]}
-		collection.find_one_and_update(query_filter, {"$set": {"Case_status": "discarded"}})
+	bulk_request = []
+	query = {"$and": [{"Location_information": location}, {"Case_status": "confirmed"}]}
+	for record in collection.find(query).limit(count):
+		bulk_request.append(UpdateOne({"_id": doc["_id"]}, {"$set": {"Case_status": "discarded"}}))
+	try:
+		collection.bulk_write(bulk_request)
+	except PyMongoError:
+		logging.exception(f"An error occurred trying to remove cases for {location}")
+		raise
 
 
 def gh_data_to_s3():
@@ -176,7 +190,11 @@ def gh_data_to_csv() -> str:
 	try:
 		collection = MongoClient(DB_CONNECTION)[DATABASE_NAME][GH_COLLECTION]
 		cursor = collection.find({"Case_status": "confirmed"})
-		return cases_to_csv([case for case in cursor])
+		cases_gen = (case for case in cursor)
+		cases = []
+		for case in cases_gen:
+			cases.append(case)
+		return cases_to_csv(cases)
 	except Exception:
 		logging.exception("An error occurred while converting G.h data to CSV")
 		raise
@@ -206,6 +224,6 @@ def store_file(file_name: str, data: str):
 
 if __name__ == "__main__":
 	setup_logger()
-	logging("Starting run")
+	logging.info("Starting run")
 	update_gh_data()
 	gh_data_to_s3()
