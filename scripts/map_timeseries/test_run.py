@@ -5,6 +5,7 @@ import io
 import boto3
 import pytest
 import pandas as pd
+import pymongo
 
 from pandas import Timestamp
 
@@ -14,6 +15,7 @@ from run import (
     total_counts,
     by_confirmed,
     by_country_confirmed,
+    store_as_collection,
 )
 
 
@@ -57,6 +59,18 @@ def is_valid_csv(data: str) -> bool:
 def test_fetch_who():
     df = fetch_who()
     assert df.equals(WHO_DATA)
+
+@pytest.mark.skipif(
+    not os.environ.get("DOCKERIZED", False),
+    reason="Running e2e tests outside of mock environment disabled",
+)
+def test_store_as_collection():
+    DB_CONNECTION = os.getenv("DB_CONNECTION")
+    DATABASE_NAME = os.getenv("DATABASE_NAME")
+    TIMESERIES_COLLECTION = os.getenv("TIMESERIES_COLLECTION", "who_timeseries")
+    store_as_collection(WHO_DATA, DB_CONNECTION, DATABASE_NAME, TIMESERIES_COLLECTION)
+    collection = pymongo.MongoClient(DB_CONNECTION)[DATABASE_NAME][TIMESERIES_COLLECTION]
+    assert collection.count_documents({}) == len(WHO_DATA)
 
 
 def test_country_counts():
