@@ -170,7 +170,7 @@ def remove_cases(count, location):
 	bulk_request = []
 	query = {"$and": [{"Location_information": location}, {"Case_status": "confirmed"}]}
 	for record in collection.find(query).limit(count):
-		bulk_request.append(UpdateOne({"_id": doc["_id"]}, {"$set": {"Case_status": "discarded"}}))
+		bulk_request.append(UpdateOne({"_id": record["_id"]}, {"$set": {"Case_status": "discarded"}}))
 	try:
 		collection.bulk_write(bulk_request)
 	except PyMongoError:
