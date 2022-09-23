@@ -7,7 +7,7 @@ on:
       - 'scripts/cdc_who_gh_comparison/*.py'
       - 'scripts/cdc_who_gh_comparison/pyproject.toml'
       - 'scripts/cdc_who_gh_comparison/poetry.lock'
-      - 'scripts/cdc_who_gh_comparison/Dockerfile-test'
+      - 'scripts/Dockerfile-test'
   workflow_dispatch:
 
 jobs:
