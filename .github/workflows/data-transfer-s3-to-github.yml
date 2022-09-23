@@ -1,0 +1,31 @@
+# This transfers files from S3 to Github.
+# TODO: incorporate into the script in this repo
+# blocked by https://github.com/github/rest-api-description/issues/1147
+name: Monkeypox data S3 -> Github
+
+on:
+  schedule:
+    - cron: '10 17 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Download latest.csv from S3
+      uses: keithweaver/aws-s3-github-action@v1.0.0
+      with:
+        command: cp
+        source: s3://${{ secrets.S3_BUCKET }}/latest.csv
+        destination: ./bucket/latest.csv
+        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws_region: eu-central-1
+    - name: Upload files to GitHub
+      run: |
+        sudo mv bucket/latest.csv .
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Updating data files" || echo "Nothing changed since last run."
+        git push
