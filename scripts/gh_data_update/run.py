@@ -4,6 +4,7 @@ import io
 import logging
 import os
 import sys
+from collections.abc import Iterable
 
 import boto3
 from pymongo import MongoClient
@@ -191,20 +192,19 @@ def gh_data_to_csv() -> str:
 		collection = MongoClient(DB_CONNECTION)[DATABASE_NAME][GH_COLLECTION]
 		cursor = collection.find({"Case_status": "confirmed"})
 		cases_gen = (case for case in cursor)
-		cases = []
-		for case in cases_gen:
-			cases.append(case)
-		return cases_to_csv(cases)
+		return cases_to_csv(cases_gen)
 	except Exception:
 		logging.exception("An error occurred while converting G.h data to CSV")
 		raise
 
 
-def cases_to_csv(cases: list[dict]) -> str:
+def cases_to_csv(cases: Iterable[dict]) -> str:
 	logging.info("Converting cases to CSV")
 	buf = io.StringIO()
-	writer = csv.DictWriter(buf, fieldnames=cases[0])
+	first_case = next(iter(cases))
+	writer = csv.DictWriter(buf, fieldnames=first_case)
 	writer.writeheader()
+	writer.writerow(first_case)
 	for case in cases:
 		writer.writerow(case)
 	return buf.getvalue()
