@@ -24,19 +24,21 @@ There is also a daily briefing report generated from this data at https://www.mo
 
 ## Getting the data
 
-**Line list (CSV)**: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.csv  
-**Line list (JSON)**: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.json
+### Line list with aggregated counts from WHO and CDC
+CSV: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.csv  
 
-**Timeseries**: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/timeseries-confirmed.csv  
-**Timeseries by country**: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/timeseries-country-confirmed.csv
+### Deprecated: Final line list from Global.health, as of 2022-09-22
+CSV: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest_deprecated.csv
 
-**Python** (requires `pandas`):
+Timeseries: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/timeseries-confirmed-deprecated.csv  
+Timeseries by country: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/timeseries-country-confirmed-deprecated.csv
+
+### Python
 ```python
 import pandas as pd
 df = pd.read_csv("https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.csv")
 ```
-
-**R** :
+### R
 ```r
 df <- read.csv("https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.csv")
 ```
