@@ -1,14 +1,12 @@
 # Monkeypox data
-
-[![tests](https://github.com/globaldothealth/monkeypox/actions/workflows/src_tests.yml/badge.svg)](https://github.com/globaldothealth/monkeypox/actions/workflows/src_tests.yml) [![quality-checks](https://github.com/globaldothealth/monkeypox/actions/workflows/qc.yml/badge.svg)](https://github.com/globaldothealth/monkeypox/actions/workflows/qc.yml)
-
-[![Monkeypox data GSheets -> S3 script deploy](https://github.com/globaldothealth/monkeypox/actions/workflows/data-script-deploy.yml/badge.svg)](https://github.com/globaldothealth/monkeypox/actions/workflows/data-script-deploy.yml) [![Monkeypox data S3 -> Github](https://github.com/globaldothealth/monkeypox/actions/workflows/data-transfer_S3-%3EGithub.yml/badge.svg)](https://github.com/globaldothealth/monkeypox/actions/workflows/data-transfer_S3-%3EGithub.yml)
+[![Monkeypox data S3 -> Github](https://github.com/globaldothealth/monkeypox/actions/workflows/data-transfer_S3-%3EGithub.yml/badge.svg)](https://github.com/globaldothealth/monkeypox/actions/workflows/data-transfer_S3-%3EGithub.yml)
 
 ## Contents
 
 The Global.health team completed a 100 days mission to provide decision makers, researchers, and the public with timely and accurate, openly-accessible, global line-list data for the 2022 monkeypox outbreak. Now, we are at a point of transition. On 2022-09-23, the Global.health team will shift from providing manually-curated line-list data to openly-available data resources, compiling downloadable monkeypox datasets with aggregate case data from the World Health Organization, U.S. Centers for Disease Control and Prevention, and the European Centre for Disease Control and Prevention. Global.health monkeypox line-list data, last updated 2022-09-22, will remain accessible via download through GitHub. We thank our user community for their many helpful contributions and for identifying Global.health as a trusted source of information.​
 
 #### Data changes
+* **2022-09-23**: Deprecated `latest.csv` file.
 * **2022-09-22**: End of line list data. 
 * **2022-07-07**: Only confirmed cases for Brazil are reported
 * **2022-07-11**: From this date data files (`latest.csv`, `timeseries-*.csv`) have cases from the current outbreak, and from countries where MPXV is endemic. The lists are distinguished by the first letter of the ID, which is a string: **N** denoting cases from the current outbreak (equivalent to the current list), and **E** for cases from endemic countries.
@@ -18,7 +16,7 @@ This repository contains dated records of curated Monkeypox cases from the 2022 
 
 The script is intended for use by the curation team and supporting engineers. It requires access to the relevant Google Sheet, and a Google Cloud service account.
 
-The [data dictionary](data_dictionary.yml) contains information about columns/fields in the data sets.
+The [data dictionary](data_dictionary.yml) contains information about columns/fields in the data sets. It is deprecated as of 2022-09-23.
 
 The analytics folder contains scripts that use the curated data set. This currently includes an R file that finds the risk of re-identification based on curated data.
 
