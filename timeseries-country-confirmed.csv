@@ -176,10 +176,10 @@ Date,Cases,Cumulative_cases,Country
 2022-09-17,0,265,Argentina
 2022-09-18,0,265,Argentina
 2022-09-19,0,265,Argentina
-2022-09-20,0,265,Argentina
-2022-09-21,0,265,Argentina
-2022-09-22,0,265,Argentina
-2022-09-23,0,265,Argentina
+2022-09-20,61,326,Argentina
+2022-09-21,0,326,Argentina
+2022-09-22,0,326,Argentina
+2022-09-23,0,326,Argentina
 2022-08-22,1,1,Aruba
 2022-08-23,0,1,Aruba
 2022-08-24,0,1,Aruba
@@ -1162,8 +1162,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-19,151,7018,Brazil
 2022-09-20,97,7115,Brazil
 2022-09-21,90,7205,Brazil
-2022-09-22,0,7205,Brazil
-2022-09-23,0,7205,Brazil
+2022-09-22,95,7300,Brazil
+2022-09-23,0,7300,Brazil
 2022-06-23,2,2,Bulgaria
 2022-06-24,0,2,Bulgaria
 2022-06-25,0,2,Bulgaria
@@ -7162,8 +7162,8 @@ Date,Cases,Cumulative_cases,Country
 2022-09-19,0,163,Puerto Rico
 2022-09-20,0,163,Puerto Rico
 2022-09-21,7,170,Puerto Rico
-2022-09-22,0,170,Puerto Rico
-2022-09-23,0,170,Puerto Rico
+2022-09-22,3,173,Puerto Rico
+2022-09-23,0,173,Puerto Rico
 2022-07-20,1,1,Qatar
 2022-07-21,0,1,Qatar
 2022-07-22,0,1,Qatar
