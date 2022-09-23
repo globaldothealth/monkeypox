@@ -6,7 +6,7 @@ import boto3
 import pytest
 
 from run import (update_gh_data, gh_data_to_s3, gh_data_to_csv, get_cdc_data, get_who_data,
-	get_gh_usa_data, get_gh_world_data, WHO_TO_GH, TODAY)
+	get_gh_usa_data, get_gh_world_data, cases_to_csv, WHO_TO_GH, TODAY)
 
 
 LOCALSTACK_URL = os.environ.get("LOCALSTACK_URL")
@@ -61,3 +61,9 @@ def test_run():
 			continue
 		who_counts[country.title()] = count
 	assert who_counts == gh_global_counts
+
+
+def test_cases_to_csv():
+	case_gen = (x for x in [{"A": 1, "B": 2}, {"A": 3, "B": 4}])
+	csv_data = cases_to_csv(case_gen)
+	assert csv_data == "A,B\r\n1,2\r\n3,4\r\n"
