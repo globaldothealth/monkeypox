@@ -27,5 +27,6 @@ jobs:
         sudo mv bucket/latest.csv .
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+        git add latest.csv
         git commit -m "Updating data files" || echo "Nothing changed since last run."
         git push
