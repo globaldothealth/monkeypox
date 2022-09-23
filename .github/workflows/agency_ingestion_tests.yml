@@ -1,0 +1,27 @@
+name: Test agency data ingestion script
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/agency_ingestion_tests.yml'
+      - 'scripts/agency_ingestion/*.py'
+      - 'scripts/agency_ingestion/pyproject.toml'
+      - 'scripts/agency_ingestion/poetry.lock'
+      - 'scripts/Dockerfile-test'
+  pull_request:
+    paths:
+      - '.github/workflows/agency_ingestion_tests.yml'
+      - 'scripts/agency_ingestion/*.py'
+      - 'scripts/agency_ingestion/pyproject.toml'
+      - 'scripts/agency_ingestion/poetry.lock'
+      - 'scripts/Dockerfile-test'
+
+
+jobs:
+  tests:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run tests
+        run: cd scripts/agency_ingestion && ./test_stack.sh

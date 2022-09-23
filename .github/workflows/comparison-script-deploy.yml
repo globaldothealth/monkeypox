@@ -1,15 +1,13 @@
-name: Monkeypox data GSheets -> S3 script deploy
+name: Monkeypox data comparison script deploy
 
 on:
   push:
     branches: [main]
     paths:
-    - '.github/workflows/data-script-deploy.yml'
-    - 'src/**'
-    - 'poetry.lock'
-    - 'pyproject.toml'
-    - 'data_dictionary.yml'
-    - 'Dockerfile'
+      - 'scripts/cdc_who_gh_comparison/*.py'
+      - 'scripts/cdc_who_gh_comparison/pyproject.toml'
+      - 'scripts/cdc_who_gh_comparison/poetry.lock'
+      - 'scripts/cdc_who_gh_comparison/Dockerfile-test'
   workflow_dispatch:
 
 jobs:
@@ -31,7 +29,7 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR (latest)
       env:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        REPO: monkeypox
+        REPO: monkeypox_agency_comparison
         IMAGE_TAG: ${{ github.sha }}
       run: |
         docker build -t $REGISTRY/$REPO:$IMAGE_TAG -t $REGISTRY/$REPO .

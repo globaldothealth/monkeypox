@@ -1,0 +1,27 @@
+name: Test CDC and WHO to G.h data update script
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/gh_data_update_tests.yml'
+      - 'scripts/gh_data_update/*.py'
+      - 'scripts/gh_data_update/pyproject.toml'
+      - 'scripts/gh_data_update/poetry.lock'
+      - 'scripts/Dockerfile-test'
+  pull_request:
+    paths:
+      - '.github/workflows/gh_data_update_tests.yml'
+      - 'scripts/gh_data_update/*.py'
+      - 'scripts/gh_data_update/pyproject.toml'
+      - 'scripts/gh_data_update/poetry.lock'
+      - 'scripts/Dockerfile-test'
+
+
+jobs:
+  tests:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run tests
+        run: cd scripts/gh_data_update && ./test_stack.sh
