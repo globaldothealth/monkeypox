@@ -1,7 +1,0 @@
-services:
-  test:
-    build:
-      context: ./
-      dockerfile: ./../Dockerfile-test
-      args:
-        SCRIPT_DIR: "timeseries_comparison"

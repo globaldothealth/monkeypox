@@ -1,6 +1,0 @@
-WHO_country,ISO3,WHO_REGION,Date,WHO_cumulative_confirmed_cases,WHO_cumulative_probable_cases,WHO_cumulative_confirmed_deaths,WHO_confirmed_cases,WHO_probable_cases,WHO_confirmed_deaths
-United States of America,USA,AMRO,2022-06-03,2,0,0,2,0,0
-United States of America,USA,AMRO,2022-06-04,3,0,0,1,0,0
-United States of America,USA,AMRO,2022-06-05,7,0,0,4,0,0
-The United Kingdom,GBR,AMRO,2022-06-01,1,0,0,1,0,0
-The United Kingdom,GBR,AMRO,2022-06-02,3,0,1,2,0,1
