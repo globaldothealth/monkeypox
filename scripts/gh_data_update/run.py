@@ -115,10 +115,11 @@ def cdc_to_gh(cdc_data, gh_usa_data):
 			continue
 		if delta := cdc_count - gh_usa_data.get(state, 0):
 			add_or_remove_cases(delta, f"{state}, United States")
-	if not_in_cdc := list(set(gh_usa_data) - set(cdc_data)):
-		for state in not_in_cdc:
-			delta = -gh_usa_data.get(state, 0)
-			add_or_remove_cases(delta, f"{state}, United States")
+	cdc_states = [f"{state}, United States" for state in cdc_data]
+	if not_in_cdc := list(set(gh_usa_data) - set(cdc_states)):
+		for location in not_in_cdc:
+			delta = -gh_usa_data.get(location.split(",")[0], 0)
+			add_or_remove_cases(delta, location)
 
 
 def who_to_gh(who_data, gh_world_data):
@@ -134,8 +135,8 @@ def who_to_gh(who_data, gh_world_data):
 		for country in not_in_who:
 			who_count = 0
 			if country in WHO_TO_GH.values():
-				who_name = WHO_TO_GH[list(WHO_TO_GH.values()).index(country)]
-				who_count = who_data[who_name]
+				who_name = list(WHO_TO_GH.keys())[list(WHO_TO_GH.values()).index(country)]
+				who_count = who_data[who_name.upper()]
 			delta = who_count - gh_world_data.get(country, 0)
 			add_or_remove_cases(delta, country)
 
