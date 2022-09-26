@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 from flask import url_for
 import pytest
 
-from run import app, list_bucket_contents, ARCHIVES, CASE_DEFINITIONS, ECDC, ECDC_ARCHIVES
+from run import (APP, list_bucket_contents, FOLDERS)
 
 
 LOCALSTACK_URL = os.environ.get("LOCALSTACK_URL")
@@ -15,16 +15,16 @@ S3_BUCKET = os.environ.get("S3_BUCKET")
 
 @pytest.fixture()
 def flask_app():
-	app.config.update({
+	APP.config.update({
 		"TESTING": True,
 	})
-	yield app
+	yield APP
 
 
 @pytest.fixture()
 def client(flask_app):
-	with app.app_context():
-		with app.test_client() as client:
+	with APP.app_context():
+		with APP.test_client() as client:
 			yield client
 
 @pytest.fixture()
@@ -36,19 +36,21 @@ def test_folders_displayed(client):
 	response = client.get("/")
 	assert "Line List Archives</a>" in response.text
 	assert "Case definitions</a>" in response.text
+	assert "CDC</a>" in response.text
 	assert "ECDC</a>" in response.text
+	assert "WHO</a>" in response.text
 
 
-@pytest.mark.parametrize("endpoint", [ARCHIVES, CASE_DEFINITIONS, ECDC, ECDC_ARCHIVES])
+@pytest.mark.parametrize("endpoint", FOLDERS)
 def test_folders_contain_files(client, endpoint):
 	response = client.get(f"/{endpoint}")
 	assert "csv</a>" in response.text
-	assert "json</a>" in response.text
 
 
 @pytest.mark.skipif(not (S3_BUCKET or LOCALSTACK_URL), reason="Target S3 bucket must be set")
-@pytest.mark.parametrize("folder", [ARCHIVES, CASE_DEFINITIONS, ECDC])
+@pytest.mark.parametrize("folder", FOLDERS)
 def test_files_downloadable(client, folder):
+	print(f"Folder in test: {folder}")
 	file_name = random.choice([f.split("/")[1] for f in list_bucket_contents(folder)])
 	response = client.get(f"/url/{folder}/{file_name}")
 
