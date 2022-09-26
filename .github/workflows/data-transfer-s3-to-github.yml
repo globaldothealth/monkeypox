@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Download latest.csv from S3
+    - name: Download latest CSV files from S3
       uses: keithweaver/aws-s3-github-action@v1.0.0
       with:
         command: cp
@@ -25,9 +25,9 @@ jobs:
     - name: Upload files to GitHub
       run: |
         git pull
-        sudo mv bucket/latest.csv .
+        sudo mv bucket/latest.csv cdc_latest.csv who_latest.csv .
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add latest.csv
+        git add latest.csv cdc_latest.csv who_latest.csv
         git commit -m "Updating data files" || echo "Nothing changed since last run."
         git push

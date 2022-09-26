@@ -11,29 +11,30 @@ from logger import setup_logger
 LOCALSTACK_URL = os.environ.get("LOCALSTACK_URL")
 S3_BUCKET = os.environ.get("S3_BUCKET")
 
-ARCHIVES = "archives"
+ARCHIVES = "archive"
+ARCHIVES_DEPRECATED = "archives_deprecated"
 CASE_DEFINITIONS = "case-definitions"
 CDC = "cdc"
-CDC_ARCHIVES = "cdc-archives"
 ECDC = "ecdc"
 ECDC_ARCHIVES = "ecdc-archives"
 WHO = "who"
-WHO_ARCHIVES = "who-archives"
+
+FOLDERS = [ARCHIVES, ARCHIVES_DEPRECATED,
+    CASE_DEFINITIONS, CDC, ECDC, ECDC_ARCHIVES, WHO]
 
 FLASK_HOST = os.environ.get("FLASK_HOST", "0.0.0.0")
 FLASK_PORT = os.environ.get("FLASK_PORT", 5000)
 FLASK_DEBUG = os.environ.get("FLASK_DEBUG", False)
 
-app = Flask(__name__)
-setup_logger()
+APP = Flask(__name__)
 
 
-@app.route("/")
+@APP.route("/")
 def home():
     return render_template("index.html")
 
 
-@app.route(f"/{ARCHIVES}")
+@APP.route(f"/{ARCHIVES}")
 def get_archive_files():
     try:
         files = [f.split("/")[1] for f in list_bucket_contents(ARCHIVES)]
@@ -43,53 +44,49 @@ def get_archive_files():
         return f"Exception: {exc}"
 
 
-@app.route(f"/{CASE_DEFINITIONS}")
+@APP.route(f"/{ARCHIVES_DEPRECATED}")
+def get_deprecated_archive_files():
+    try:
+        files = [f.split("/")[1] for f in list_bucket_contents(ARCHIVES)]
+        logging.debug(f"Files in {ARCHIVES} folder: {files}")
+        return render_template("folder.html", folder=ARCHIVES, files=files)
+    except Exception as exc:
+        return f"Exception: {exc}"
+
+
+@APP.route(f"/{CASE_DEFINITIONS}")
 def get_case_definition_files():
     files = [f.split("/")[1] for f in list_bucket_contents(CASE_DEFINITIONS)]
     logging.debug(f"Files in {CASE_DEFINITIONS} folder: {files}")
     return render_template("folder.html", folder=CASE_DEFINITIONS, files=files)
 
 
-@app.route(f"/{CDC}")
+@APP.route(f"/{CDC}")
 def get_cdc_files():
     files = [f.split("/")[1] for f in list_bucket_contents(CDC)]
     logging.debug(f"Files in {CDC} folder: {files}")
     return render_template("folder.html", folder=CDC, files=files)
 
 
-@app.route(f"/{CDC_ARCHIVES}")
-def get_cdc_archive_files():
-    files = [f.split("/")[1] for f in list_bucket_contents(CDC_ARCHIVES)]
-    logging.debug(f"Files in {CDC_ARCHIVES} folder: {files}")
-    return render_template("folder.html", folder=CDC_ARCHIVES, files=files)
-
-
-@app.route(f"/{ECDC}")
+@APP.route(f"/{ECDC}")
 def get_ecdc_files():
     files = [f.split("/")[1] for f in list_bucket_contents(ECDC)]
     logging.debug(f"Files in {ECDC} folder: {files}")
     return render_template("folder.html", folder=ECDC, files=files)
 
 
-@app.route(f"/{ECDC_ARCHIVES}")
+@APP.route(f"/{ECDC_ARCHIVES}")
 def get_ecdc_archive_files():
     files = [f.split("/")[1] for f in list_bucket_contents(ECDC_ARCHIVES)]
     logging.debug(f"Files in {ECDC_ARCHIVES} folder: {files}")
     return render_template("folder.html", folder=ECDC_ARCHIVES, files=files)
 
 
-@app.route(f"/{WHO}")
+@APP.route(f"/{WHO}")
 def get_who_files():
     files = [f.split("/")[1] for f in list_bucket_contents(WHO)]
     logging.debug(f"Files in {WHO} folder: {files}")
     return render_template("folder.html", folder=WHO, files=files)
-
-
-@app.route(f"/{WHO_ARCHIVES}")
-def get_who_archive_files():
-    files = [f.split("/")[1] for f in list_bucket_contents(WHO_ARCHIVES)]
-    logging.debug(f"Files in {WHO_ARCHIVES} folder: {files}")
-    return render_template("folder.html", folder=WHO_ARCHIVES, files=files)
 
 
 def list_bucket_contents(folder: str) -> list[str]:
@@ -107,7 +104,7 @@ def list_bucket_contents(folder: str) -> list[str]:
     return contents
 
 
-@app.route("/url/<folder>/<file_name>")
+@APP.route("/url/<folder>/<file_name>")
 def get_presigned_url(folder, file_name):
     logging.debug(f"Creating presigned URL for {folder}/{file_name}")
     client = create_s3_client()
@@ -124,10 +121,10 @@ def create_s3_client() -> object:
 
 
 def handler(event, context):
-    return serverless_wsgi.handle_request(app, event, context)
+    return serverless_wsgi.handle_request(APP, event, context)
 
 
 if __name__ == "__main__":
     setup_logger()
     logging.info("Starting Flask...")
-    app.run(FLASK_HOST, FLASK_PORT, debug=FLASK_DEBUG)
+    APP.run(FLASK_HOST, FLASK_PORT, debug=FLASK_DEBUG)
