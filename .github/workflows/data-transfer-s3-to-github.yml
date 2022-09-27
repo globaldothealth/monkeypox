@@ -12,13 +12,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: voxmedia/github-action-slack-notify-build@v1
-      with:
-        channel: monkeypox-bots
-        status: STARTED
-        color: good
+    - name: Notify slack success
+      if: success()
+      id: slack # IMPORTANT: reference this step ID value in future Slack steps
       env:
         SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
+      uses: voxmedia/github-action-slack-notify-build@v1
+      with:
+        channel: app-alerts
+        status: STARTING
+        color: warning
     - uses: actions/checkout@v2
     - name: Download latest.csv file from S3
       uses: keithweaver/aws-s3-github-action@v1.0.0
