@@ -22,6 +22,7 @@ import requests
 import pymongo
 import pandas as pd
 
+
 WHO_URL = os.getenv(
     "WHO_URL"
 )  # https://extranet.who.int/publicemergency/api/Monkeypox/
@@ -31,6 +32,13 @@ LOCALSTACK_URL = os.getenv("LOCALSTACK_URL")
 DB_CONNECTION = os.getenv("DB_CONNECTION")
 DATABASE_NAME = os.getenv("DATABASE_NAME")
 TIMESERIES_COLLECTION = os.getenv("TIMESERIES_COLLECTION", "who_timeseries")
+
+
+def setup_logger() -> None:
+    h = logging.StreamHandler(sys.stdout)
+    rootLogger = logging.getLogger()
+    rootLogger.addHandler(h)
+    rootLogger.setLevel(logging.INFO)
 
 
 def fetch_who() -> pd.DataFrame:
@@ -76,17 +84,7 @@ def store_as_collection(df: pd.DataFrame, db_connection: str, db_name: str, coll
             raise
 
 
-def to_json(df: pd.DataFrame) -> str:
-    return df.to_json(orient="records", date_format="iso", indent=2)
-
-
-def to_csv(df: pd.DataFrame) -> str:
-    buf = io.StringIO()
-    df.to_csv(buf, index=False)
-    return buf.getvalue()
-
-
-def country_counts(df: pd.DataFrame) -> dict[str]:
+def get_country_counts(df: pd.DataFrame) -> str:
     "Returns latest country counts of confirmed and suspected (probable) cases"
 
     data = []
@@ -98,18 +96,19 @@ def country_counts(df: pd.DataFrame) -> dict[str]:
         data.append(
             {
                 country_iso3: {
-                    "confirmed": last_row.TOTAL_CONFCASES.values[0],
-                    "suspected": last_row.TOTAL_PROBCASES.values[0],
+                    "confirmed": int(last_row.TOTAL_CONFCASES.values[0]),
+                    "suspected": int(last_row.TOTAL_PROBCASES.values[0]),
                 }
             }
         )
-    return {last_updated.date().isoformat(): data}
+    return json.dumps({last_updated.date().isoformat(): data})
 
 
-def total_counts(df: pd.DataFrame) -> dict[str]:
+def get_total_counts(df: pd.DataFrame) -> str:
     "Returns latest total counts of confirmed and suspected (probable) cases"
-    confirmed = df.NEW_CONFCASES.sum()
-    return {"total": confirmed + df.NEW_PROBCASES.sum(), "confirmed": confirmed}
+    confirmed = int(df.NEW_CONFCASES.sum())
+    suspected = int(df.NEW_PROBCASES.sum())
+    return json.dumps({"total": confirmed + suspected, "confirmed": confirmed})
 
 
 def by_confirmed(df: pd.DataFrame) -> pd.DataFrame:
@@ -156,24 +155,31 @@ def store(bucket: str, key: str, data: str):
 
 
 if __name__ == "__main__":
+    setup_logger()
     if S3_BUCKET is None:
         raise ValueError("Missing required environment variable S3_BUCKET")
     who = fetch_who()
     store_as_collection(who, DB_CONNECTION, DATABASE_NAME, TIMESERIES_COLLECTION)
-    df_confirmed = by_confirmed(who)
-    df_country_confirmed = by_country_confirmed(who)
+    confirmed = by_confirmed(who)
+    country_confirmed = by_country_confirmed(who)
+    confirmed_csv = confirmed.to_csv(index=False)
+    confirmed_json = confirmed.to_json(orient="records", date_format="iso", indent=2)
+    country_csv = country_confirmed.to_csv(index=False)
+    country_json = country_confirmed.to_json(orient="records", date_format="iso", indent=2)
+    who_total_json = get_total_counts(who)
+    who_country_json = get_country_counts(who)
 
-    store(S3_BUCKET, "total/latest.json", json.dumps(total_counts(who)))
-    store(S3_BUCKET, "country/latest.json", json.dumps(country_counts(who)))
-    store(S3_BUCKET, "timeseries/timeseries-confirmed.csv", to_csv(df_confirmed))
+    store(S3_BUCKET, "total/latest.json", who_total_json)
+    store(S3_BUCKET, "country/latest.json", who_country_json)
+    store(S3_BUCKET, "timeseries/timeseries-confirmed.csv", confirmed_csv)
     store(
         S3_BUCKET,
         "timeseries/timeseries-country-confirmed.csv",
-        to_csv(df_country_confirmed),
+        country_csv,
     )
-    store(S3_BUCKET, "timeseries/confirmed.json", to_json(df_confirmed))
+    store(S3_BUCKET, "timeseries/confirmed.json", confirmed_json)
     store(
         S3_BUCKET,
         "timeseries/country_confirmed.json",
-        to_json(df_country_confirmed),
+        country_json,
     )
