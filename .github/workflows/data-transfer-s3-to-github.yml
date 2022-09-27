@@ -12,6 +12,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: voxmedia/github-action-slack-notify-build@v1
+      with:
+        channel: monkeypox-bots
+        status: STARTED
+        color: good
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
     - uses: actions/checkout@v2
     - name: Download latest.csv file from S3
       uses: keithweaver/aws-s3-github-action@v1.0.0
@@ -67,3 +73,25 @@ jobs:
         git add who_latest.csv
         git commit -m "Updating who_latest.csv" || echo "Nothing changed since last run."
         git push
+    - name: Notify slack success
+      if: success()
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
+      uses: voxmedia/github-action-slack-notify-build@v1
+      with:
+        # Updates existing message from the first step
+        message_id: ${{ steps.slack.outputs.message_id }}
+        channel: monkeypox-bots
+        status: SUCCESS
+        color: good
+    - name: Notify slack failure
+      if: failure()
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
+      uses: voxmedia/github-action-slack-notify-build@v1
+      with:
+        # Updates existing message from the first step
+        message_id: ${{ steps.slack.outputs.message_id }}
+        channel: monkeypox-bots
+        status: FAILURE
+        color: danger
