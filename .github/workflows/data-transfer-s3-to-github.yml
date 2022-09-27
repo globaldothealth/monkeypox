@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Download latest CSV files from S3
+    - name: Download latest.csv file from S3
       uses: keithweaver/aws-s3-github-action@v1.0.0
       with:
         command: cp
@@ -25,9 +25,45 @@ jobs:
     - name: Upload files to GitHub
       run: |
         git pull
-        sudo mv bucket/latest.csv cdc_latest.csv who_latest.csv .
+        sudo mv bucket/latest.csv .
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add latest.csv cdc_latest.csv who_latest.csv
-        git commit -m "Updating data files" || echo "Nothing changed since last run."
+        git add latest.csv 
+        git commit -m "Updating latest.csv" || echo "Nothing changed since last run."
+        git push
+    - name: Download cdc_latest.csv file from S3
+      uses: keithweaver/aws-s3-github-action@v1.0.0
+      with:
+        command: cp
+        source: s3://${{ secrets.S3_BUCKET }}/cdc_latest.csv
+        destination: ./bucket/cdc_latest.csv
+        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws_region: eu-central-1
+    - name: Upload files to GitHub
+      run: |
+        git pull
+        sudo mv bucket/cdc_latest.csv .
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add cdc_latest.csv
+        git commit -m "Updating cdc_latest.csv" || echo "Nothing changed since last run."
+        git push
+    - name: Download who_latest.csv file from S3
+      uses: keithweaver/aws-s3-github-action@v1.0.0
+      with:
+        command: cp
+        source: s3://${{ secrets.S3_BUCKET }}/who_latest.csv
+        destination: ./bucket/who_latest.csv
+        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws_region: eu-central-1
+    - name: Upload files to GitHub
+      run: |
+        git pull
+        sudo mv bucket/who_latest.csv .
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add who_latest.csv
+        git commit -m "Updating who_latest.csv" || echo "Nothing changed since last run."
         git push
