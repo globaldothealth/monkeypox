@@ -1,6 +1,7 @@
 import csv
 import os
 import io
+import json
 
 import boto3
 import pytest
@@ -11,8 +12,8 @@ from pandas import Timestamp
 
 from run import (
     fetch_who,
-    country_counts,
-    total_counts,
+    get_country_counts,
+    get_total_counts,
     by_confirmed,
     by_country_confirmed,
     store_as_collection,
@@ -73,17 +74,17 @@ def test_store_as_collection():
     assert collection.count_documents({}) == len(WHO_DATA)
 
 
-def test_country_counts():
-    assert country_counts(WHO_DATA) == {
+def test_get_country_counts():
+    assert get_country_counts(WHO_DATA) == json.dumps({
         "2022-06-04": [
             {"ARG": {"confirmed": 2, "suspected": 0}},
             {"AUS": {"confirmed": 5, "suspected": 1}},
         ]
-    }
+    })
 
 
-def test_total_counts():
-    assert total_counts(WHO_DATA) == {"confirmed": 7, "total": 8}
+def test_get_total_counts():
+    assert get_total_counts(WHO_DATA) == json.dumps({"total": 8, "confirmed": 7})
 
 
 def test_by_confirmed():
