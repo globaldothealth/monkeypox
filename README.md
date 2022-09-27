@@ -1,5 +1,5 @@
 # Monkeypox data
-[![Monkeypox data S3 -> Github](https://github.com/globaldothealth/monkeypox/actions/workflows/data-transfer_S3-%3EGithub.yml/badge.svg)](https://github.com/globaldothealth/monkeypox/actions/workflows/data-transfer_S3-%3EGithub.yml)
+[![Monkeypox data S3 -> Github](https://github.com/globaldothealth/monkeypox/actions/workflows/data-transfer-s3-to-github.yml/badge.svg)](https://github.com/globaldothealth/monkeypox/actions/workflows/data-transfer-s3-to-github.yml)
 
 ## Contents
 
