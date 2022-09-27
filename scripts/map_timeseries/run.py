@@ -13,7 +13,7 @@ Outputs (in aggregates bucket):
     └── latest.json
 """
 import os
-import io
+import sys
 import json
 import logging
 
