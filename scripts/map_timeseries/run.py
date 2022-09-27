@@ -169,17 +169,17 @@ if __name__ == "__main__":
     who_total_json = get_total_counts(who)
     who_country_json = get_country_counts(who)
 
-    store(S3_BUCKET, "total/latest.json", who_total_json)
-    store(S3_BUCKET, "country/latest.json", who_country_json)
-    store(S3_BUCKET, "timeseries/timeseries-confirmed.csv", confirmed_csv)
+    store(S3_BUCKET, "total-who/latest.json", who_total_json)
+    store(S3_BUCKET, "country-who/latest.json", who_country_json)
+    store(S3_BUCKET, "timeseries-who/timeseries-confirmed.csv", confirmed_csv)
     store(
         S3_BUCKET,
-        "timeseries/timeseries-country-confirmed.csv",
+        "timeseries-who/timeseries-country-confirmed.csv",
         country_csv,
     )
-    store(S3_BUCKET, "timeseries/confirmed.json", confirmed_json)
+    store(S3_BUCKET, "timeseries-who/confirmed.json", confirmed_json)
     store(
         S3_BUCKET,
-        "timeseries/country_confirmed.json",
+        "timeseries-who/country_confirmed.json",
         country_json,
     )
