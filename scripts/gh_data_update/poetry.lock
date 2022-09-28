@@ -242,6 +242,17 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
+name = "titlecase"
+version = "2.4"
+description = "Python Port of John Gruber's titlecase.pl"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+regex = ["regex (>=2020.4.4)"]
+
+[[package]]
 name = "tomli"
 version = "2.0.1"
 description = "A lil' TOML parser"
@@ -265,7 +276,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "83a6f9ff50161e122642494eb5884e9fa02bb4f586b5802fc6d5b0c47ed02497"
+content-hash = "70109d9e1e2f1388f02bd9cb2ce806084edf9c27f3180700b5a87456243b33a6"
 
 [metadata.files]
 attrs = [
@@ -412,6 +423,9 @@ s3transfer = [
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
+]
+titlecase = [
+    {file = "titlecase-2.4.tar.gz", hash = "sha256:269293cae4b1fc12fdb21224819201a2ab4b97f3ea36b334f90804799b140902"},
 ]
 tomli = [
     {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},

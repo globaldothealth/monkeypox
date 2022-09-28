@@ -6,12 +6,14 @@ import boto3
 import pytest
 
 from run import (update_gh_data, gh_data_to_s3, gh_data_to_csv, get_cdc_data, get_who_data,
-	get_gh_usa_data, get_gh_world_data, cases_to_csv, WHO_TO_GH, TODAY)
+	get_gh_usa_data, get_gh_world_data, cases_to_csv, TODAY)
 
 
 LOCALSTACK_URL = os.environ.get("LOCALSTACK_URL")
 S3_BUCKET = os.environ.get("S3_BUCKET")
 GH_FOLDER = os.environ.get("GH_DATA_FOLDER")
+
+GH_GLOBAL_COUNTS = {}
 
 
 def get_contents(file_name: str) -> str:
@@ -50,17 +52,23 @@ def test_run():
 	for state, count in tmp.items():
 		gh_usa_counts[state.split(",")[0]] = tmp[state]
 	assert cdc_counts == gh_usa_counts
-	gh_global_counts = get_gh_world_data()
+	global GH_GLOBAL_COUNTS
+	GH_GLOBAL_COUNTS = get_gh_world_data()
 	tmp = get_who_data()
 	who_counts = {}
-	for who_name, gh_name in WHO_TO_GH.items():
-		if who_name.upper() in tmp:
-			who_counts[gh_name] = tmp.pop(who_name.upper())
 	for country, count in tmp.items():
 		if "Region" in country or country == "USA" or count == 0:
 			continue
 		who_counts[country.title()] = count
-	assert who_counts == gh_global_counts
+	assert who_counts == GH_GLOBAL_COUNTS
+
+
+def test_idempotence():
+	update_gh_data()
+	gh_data_to_s3()
+	gh_global_counts = get_gh_world_data()
+	global GH_GLOBAL_COUNTS
+	assert GH_GLOBAL_COUNTS == gh_global_counts
 
 
 def test_cases_to_csv():
