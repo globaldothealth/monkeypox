@@ -67,3 +67,13 @@ jobs:
         git add who_latest.csv
         git commit -m "Updating who_latest.csv" || echo "Nothing changed since last run."
         git push
+    - name: Notify on Slack
+      uses: ravsamhq/notify-slack-action@v2
+      if: always()
+      with:
+        status: ${{ job.status }}
+        footer: "<{run_url}|View Run> | Repository <{repo_url}|{repo}>"
+        mention_users: ${{ secrets.LOGS_NOTIFY_USERS }}
+        mention_users_when: "failure,warnings"
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.LOGS_WEBHOOK_URL }}
