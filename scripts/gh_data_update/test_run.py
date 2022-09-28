@@ -3,10 +3,12 @@ import io
 import os
 
 import boto3
+from pymongo import MongoClient
 import pytest
 
 from run import (update_gh_data, gh_data_to_s3, gh_data_to_csv, get_cdc_data, get_who_data,
-	get_gh_usa_data, get_gh_world_data, cases_to_csv, WHO_TO_GH, TODAY)
+	get_gh_usa_data, get_gh_world_data, cases_to_csv, country_name_to_titlecase,
+	DB_CONNECTION, DATABASE_NAME, GH_COLLECTION, TODAY)
 
 
 LOCALSTACK_URL = os.environ.get("LOCALSTACK_URL")
@@ -35,6 +37,7 @@ def csv_to_dict(data: str) -> list[dict]:
 
 
 def test_run():
+	MongoClient(DB_CONNECTION)[DATABASE_NAME].drop_collection(GH_COLLECTION)
 	update_gh_data()
 	gh_data_to_s3()
 	data_a = get_contents("latest.csv")
@@ -53,14 +56,22 @@ def test_run():
 	gh_global_counts = get_gh_world_data()
 	tmp = get_who_data()
 	who_counts = {}
-	for who_name, gh_name in WHO_TO_GH.items():
-		if who_name.upper() in tmp:
-			who_counts[gh_name] = tmp.pop(who_name.upper())
 	for country, count in tmp.items():
-		if "Region" in country or country == "USA" or count == 0:
+		if "Region" in country or country == "UNITED STATES OF AMERICA" or count == 0:
 			continue
-		who_counts[country.title()] = count
+		who_counts[country_name_to_titlecase(country)] = count
 	assert who_counts == gh_global_counts
+
+
+def test_idempotence():
+	MongoClient(DB_CONNECTION)[DATABASE_NAME].drop_collection(GH_COLLECTION)
+	update_gh_data()
+	gh_data_to_s3()
+	counts_before = get_gh_world_data()
+	update_gh_data()
+	gh_data_to_s3()
+	counts_after = get_gh_world_data()
+	assert counts_before == counts_after
 
 
 def test_cases_to_csv():

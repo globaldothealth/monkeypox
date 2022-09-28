@@ -25,23 +25,11 @@ LOCALSTACK_URL = os.environ.get("LOCALSTACK_URL")
 S3_BUCKET = os.environ.get("S3_BUCKET")
 GH_FOLDER = os.environ.get("GH_DATA_FOLDER")
 
-WHO_TO_GH = {
-	"Republic Of Korea": "South Korea",
-	"Venezuela (Bolivarian Republic of)": "Venezuela",
-	"Türkiye": "Turkey",
-	"T\u00fcrkiye": "Turkey",
-	"Bosnia And Herzegovina": "Bosnia And Herzegovina",
-	"Czechia": "Czech Republic",
-	"Bolivia (Plurinational State of)": "Bolivia",
-	"Russian Federation": "Russia",
-	"Saint Martin": "Saint Martin (French part)",
-	"Republic Of Moldova": "Moldova",
-	"Iran (Islamic Republic of)": "Iran"
-}
+LOWERCASE_WORDS_IN_COUNTRY_NAMES = [
+	"of", "the", "and", "part", 
+]
 
 TODAY = date.today()
-
-COUNT = 1
 
 
 def setup_logger() -> None:
@@ -65,24 +53,24 @@ def update_gh_data():
 		raise
 
 
-def get_cdc_data():
+def get_cdc_data() -> dict:
 	logging.info("Getting CDC data from the database")
 	collection = MongoClient(DB_CONNECTION)[DATABASE_NAME][CDC_COLLECTION]
 	cdc_data = collection.find({})
 	return {x["Location"]: int(x["Cases"]) for x in cdc_data}
 
 
-def get_who_data():
+def get_who_data() -> dict:
 	logging.info("Getting WHO data from the database")
 	collection = MongoClient(DB_CONNECTION)[DATABASE_NAME][WHO_COLLECTION]
 	who_data = collection.find({})
 	return {x["COUNTRY"]: int(x["CasesAll"]) for x in who_data}
 
 
-def get_gh_usa_data():
+def get_gh_usa_data() -> dict:
 	logging.info("Getting G.h USA data from the database")
 	collection = MongoClient(DB_CONNECTION)[DATABASE_NAME][GH_COLLECTION]
-	data = collection.find({"Case_status": "confirmed"})  #, cursor_type=TAILABLE_AWAIT)
+	data = collection.find({"Case_status": "confirmed"})
 	counts = {}
 	for case in data:
 		location = case["Location_information"]
@@ -93,12 +81,11 @@ def get_gh_usa_data():
 	return counts
 
 
-def get_gh_world_data():
+def get_gh_world_data() -> dict:
 	logging.info("Getting G.h global data from the database")
 	collection = MongoClient(DB_CONNECTION)[DATABASE_NAME][GH_COLLECTION]
 	data = collection.find({"Case_status": "confirmed"})
 	counts = {}
-
 	for case in data:
 		location = case["Location_information"]
 		if "United States" not in location and "Region" not in location and location not in counts:
@@ -113,7 +100,7 @@ def cdc_to_gh(cdc_data, gh_usa_data):
 	for state, cdc_count in cdc_data.items():
 		if state == "Total":
 			continue
-		if delta := cdc_count - gh_usa_data.get(state, 0):
+		if delta := cdc_count - gh_usa_data.get(f"{state}, United States", 0):
 			add_or_remove_cases(delta, f"{state}, United States")
 	cdc_states = [f"{state}, United States" for state in cdc_data]
 	if not_in_cdc := list(set(gh_usa_data) - set(cdc_states)):
@@ -125,26 +112,38 @@ def cdc_to_gh(cdc_data, gh_usa_data):
 def who_to_gh(who_data, gh_world_data):
 	logging.info("Adjusting G.h data to match WHO counts")
 	for country, count in who_data.items():
-		title = country.title()
-		if country == "USA" or title == "United States Of America" or "Region" in title:
+		if country == "UNITED STATES OF AMERICA" or "Region" in country:
 			continue
-		country = WHO_TO_GH.get(title, title)
-		if delta := count - gh_world_data.get(country, 0):
-			add_or_remove_cases(delta, country)
-	if not_in_who := list(set(gh_world_data) - set(who_data)):
+		title = country_name_to_titlecase(country)
+		if delta := count - gh_world_data.get(title, 0):
+			add_or_remove_cases(delta, title)
+	who_countries = [country_name_to_titlecase(name) for name in list(who_data.keys())]
+	if not_in_who := list(set(gh_world_data) - set(who_countries)):
 		for country in not_in_who:
-			who_count = 0
-			if country in WHO_TO_GH.values():
-				who_name = list(WHO_TO_GH.keys())[list(WHO_TO_GH.values()).index(country)]
-				who_count = who_data[who_name.upper()]
-			delta = who_count - gh_world_data.get(country, 0)
+			delta = -gh_world_data.get(country, 0)
 			add_or_remove_cases(delta, country)
+
+
+def country_name_to_titlecase(country_name):
+	if len(country_name.split(" ")) == 1:
+		return country_name.capitalize()
+	if "(" in country_name:
+		outer = country_name.split("(")[0]
+		inner = country_name[country_name.find("(")+1:country_name.find(")")]
+		return f"{country_name_to_titlecase(outer)}({country_name_to_titlecase(inner)})"
+	else:
+		return " ".join(
+			[word.lower() if word.lower() in LOWERCASE_WORDS_IN_COUNTRY_NAMES 
+			else word.capitalize() for word in country_name.split(" ")]
+		)
 
 
 def add_or_remove_cases(count, location):
 	if count > 0:
+		logging.debug(f"Adding {count} cases for {location}")
 		add_cases(count, location)
 	elif count < 0:
+		logging.debug(f"Removing {-count} cases for {location}")
 		remove_cases(-count, location)
 
 
