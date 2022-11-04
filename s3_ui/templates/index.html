@@ -15,5 +15,10 @@
     <div><a href="{{ url_for('get_ecdc_files') }}">ECDC</a></div>
     <div><a href="{{ url_for('get_ecdc_archive_files') }}">ECDC Archives</a></div>
     <div><a href="{{ url_for('get_who_files') }}">WHO</a></div>
+    {% for f in files %}
+        <div>
+            <a href="{{ url_for('get_presigned_url', folder='', file_name=f) }}">{{ f }}</a>
+        </div>
+    {% endfor %}
 </body>
 </html>
