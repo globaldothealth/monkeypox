@@ -2,7 +2,7 @@ import logging
 import os
 
 import boto3
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request
 import serverless_wsgi
 
 from logger import setup_logger
@@ -22,6 +22,8 @@ WHO = "who"
 FOLDERS = [ARCHIVES, ARCHIVES_DEPRECATED,
     CASE_DEFINITIONS, CDC, ECDC, ECDC_ARCHIVES, WHO]
 
+LATEST_FILES = ["latest.csv", "cdc_latest.csv", "who_latest.csv"]
+
 FLASK_HOST = os.environ.get("FLASK_HOST", "0.0.0.0")
 FLASK_PORT = os.environ.get("FLASK_PORT", 5000)
 FLASK_DEBUG = os.environ.get("FLASK_DEBUG", False)
@@ -31,7 +33,7 @@ APP = Flask(__name__)
 
 @APP.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("index.html", files=LATEST_FILES)
 
 
 @APP.route(f"/{ARCHIVES}")
@@ -104,11 +106,19 @@ def list_bucket_contents(folder: str) -> list[str]:
     return contents
 
 
-@APP.route("/url/<folder>/<file_name>")
-def get_presigned_url(folder, file_name):
-    logging.debug(f"Creating presigned URL for {folder}/{file_name}")
+@APP.route("/url")
+def get_presigned_url():
+    args = request.args
+    folder = args.get('folder', '')
+    file_name = args.get('file_name', '')
+    target = ""
+    if not folder:
+        target = file_name
+    else:
+        target = f"{folder}/{file_name}"
+    logging.debug(f"Creating presigned URL for {target}")
     client = create_s3_client()
-    params = {"Bucket": S3_BUCKET, "Key": f"{folder}/{file_name}"}
+    params = {"Bucket": S3_BUCKET, "Key": f"{target}"}
     return redirect(client.generate_presigned_url("get_object", Params=params, ExpiresIn=60))
 
 

@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 from flask import url_for
 import pytest
 
-from run import (APP, list_bucket_contents, FOLDERS)
+from run import (APP, list_bucket_contents, LATEST_FILES, FOLDERS)
 
 
 LOCALSTACK_URL = os.environ.get("LOCALSTACK_URL")
@@ -39,6 +39,8 @@ def test_folders_displayed(client):
 	assert "CDC</a>" in response.text
 	assert "ECDC</a>" in response.text
 	assert "WHO</a>" in response.text
+	for file_name in LATEST_FILES:
+		assert f"{file_name}</a>" in response.text
 
 
 @pytest.mark.parametrize("endpoint", FOLDERS)
@@ -52,7 +54,7 @@ def test_folders_contain_files(client, endpoint):
 def test_files_downloadable(client, folder):
 	print(f"Folder in test: {folder}")
 	file_name = random.choice([f.split("/")[1] for f in list_bucket_contents(folder)])
-	response = client.get(f"/url/{folder}/{file_name}")
+	response = client.get(f"/url?folder={folder}&file_name={file_name}")
 
 	assert response.status_code == 302
 
@@ -80,3 +82,6 @@ def test_files_downloadable(client, folder):
 		pytest.fail("The endpoint should return a presigned URL")
 
 	assert redirect == presigned, f"URLs do not match: expected {redirect}, got {presigned}"
+
+	for file_name in LATEST_FILES:
+		response = client.get(f"/url?file_name={file_name}")
