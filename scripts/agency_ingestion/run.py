@@ -180,11 +180,11 @@ class WHOIngestor(AgencyIngestor):
 		# summarise data by keeping last date
 		last_seen_date = {}
 		for row in data:
-			if row["DATE"] > last_seen_date.get(row["COUNTRY"], ""):
-				last_seen_date[row["COUNTRY"]] = row["DATE"]
+			if row.get("DATE", "") > last_seen_date.get(row.get("COUNTRY"), ""):
+				last_seen_date[row.get("COUNTRY")] = row.get("DATE")
 		self.data = [
 			row for row in data if
-			last_seen_date[row["COUNTRY"]] == row["DATE"]
+			last_seen_date.get(row.get("COUNTRY")) == row.get("DATE")
 		]
 
 
