@@ -9,7 +9,7 @@ services:
       LOCALSTACK_URL: "http://localstack:4566"
       MOUNTEBANK_URL: "http://mountebank:2525"
       S3_BUCKET: "fake"
-      WHO_URL: "https://extranet.who.int/publicemergency/api/Monkeypox/"
+      WHO_URL: "https://frontdoor-l4uikgap6gz3m.azurefd.net/MPX/V_MPX_VALIDATED_DAILY"
       AWS_ACCESS_KEY_ID: "fake"
       AWS_SECRET_ACCESS_KEY: "fake"
       DB_CONNECTION: "mongodb://mongo:27017"

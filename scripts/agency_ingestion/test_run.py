@@ -90,7 +90,7 @@ def test_ingest_who_data():
 	data_db = get_db_records(WHO_COLLECTION)
 	data_dicts = csv_to_dicts(data_today)
 	for db, csv in zip(data_db, data_dicts):  # using default dictionary ordering
-		assert int(db["CasesAll"]) == int(csv["CasesAll"])
+		assert int(db["TOTAL_CONF_CASES"]) == int(csv["TOTAL_CONF_CASES"])
 
 
 @pytest.mark.skipif(not os.environ.get("DOCKERIZED", False),
@@ -98,8 +98,10 @@ def test_ingest_who_data():
 def test_get_who_data():
 	ingestor = WHOIngestor()
 	ingestor.get_data()
-	data = get_json(WHO_DATA_JSON)
-	assert ingestor.data == data["Data"]
+	data = get_json(WHO_DATA_JSON)["value"]
+	# ingestor summarises, check if subset
+	for row in ingestor.data:
+		assert row in data
 
 
 @pytest.mark.skipif(not os.environ.get("DOCKERIZED", False),

@@ -89,7 +89,7 @@ def get_cdc_data() -> list[dict]:
 def get_who_data() -> list[dict]:
 	logging.info("Getting JSON from {WHO_DATA_JSON}")
 	with open(WHO_DATA_JSON) as fh:
-		return json.load(fh)
+		return json.load(fh)["value"]
 
 
 def insert_data(collection: str, data: list[dict]):
