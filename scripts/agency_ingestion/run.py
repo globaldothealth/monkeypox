@@ -184,7 +184,7 @@ class WHOIngestor(AgencyIngestor):
 				last_seen_date[row.get("COUNTRY")] = row.get("DATE")
 		self.data = [
 			row for row in data if
-			last_seen_date.get(row.get("COUNTRY")) == row.get("DATE")
+			last_seen_date.get(row.get("COUNTRY"), "") == row.get("DATE")
 		]
 
 
