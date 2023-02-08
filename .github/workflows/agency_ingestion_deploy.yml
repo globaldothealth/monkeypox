@@ -32,5 +32,5 @@ jobs:
         REPO: monkeypox_agency_ingestion
         IMAGE_TAG: ${{ github.sha }}
       run: |
-        cd scripts/gh_data_update && docker build -f ./../Dockerfile -t $REGISTRY/$REPO:latest .
+        cd scripts/agency_ingestion && docker build -f ./../Dockerfile -t $REGISTRY/$REPO:latest .
         docker push $REGISTRY/$REPO:latest
