@@ -7,7 +7,7 @@
       "predicates": [
         {
           "equals": {
-            "method": "POST",
+            "method": "GET",
             "path": "/"
           }
         }

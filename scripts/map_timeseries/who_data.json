@@ -1,1 +1,65 @@
-{"Success":true,"Message":null,"SystemMessage":null,"Errors":null,"Data":[{"COUNTRY":"Argentina","ISO3":"ARG","WHO_REGION":"AMRO","DATEREP":"03 Jun 2022","TOTAL_CONFCASES":2,"TOTAL_PROBCASES":0,"TOTAL_ConfDeaths":0,"NEW_CONFCASES":2,"NEW_PROBCASES":0,"NEW_CONFDEATHS":0},{"COUNTRY":"Australia","ISO3":"AUS","WHO_REGION":"WPRO","DATEREP":"20 May 2022","TOTAL_CONFCASES":2,"TOTAL_PROBCASES":0,"TOTAL_ConfDeaths":0,"NEW_CONFCASES":2,"NEW_PROBCASES":0,"NEW_CONFDEATHS":0},{"COUNTRY":"Australia","ISO3":"AUS","WHO_REGION":"WPRO","DATEREP":"02 Jun 2022","TOTAL_CONFCASES":3,"TOTAL_PROBCASES":0,"TOTAL_ConfDeaths":0,"NEW_CONFCASES":1,"NEW_PROBCASES":0,"NEW_CONFDEATHS":0},{"COUNTRY":"Australia","ISO3":"AUS","WHO_REGION":"WPRO","DATEREP":"03 Jun 2022","TOTAL_CONFCASES":5,"TOTAL_PROBCASES":0,"TOTAL_ConfDeaths":0,"NEW_CONFCASES":2,"NEW_PROBCASES":0,"NEW_CONFDEATHS":0},{"COUNTRY":"Australia","ISO3":"AUS","WHO_REGION":"WPRO","DATEREP":"04 Jun 2022","TOTAL_CONFCASES":5,"TOTAL_PROBCASES":1,"TOTAL_ConfDeaths":1,"NEW_CONFCASES":0,"NEW_PROBCASES":1,"NEW_CONFDEATHS":1}],"DataTotalCount":1}
+{
+  "@odata.context": "https://frontdoor-l4uikgap6gz3m.azurefd.net/MPX/$metadata#V_MPX_VALIDATED_DAILY",
+  "value": [
+    {
+      "COUNTRY": "Argentina",
+      "ISO3": "ARG",
+      "WHO_REGION": "AMRO",
+      "DATE": "2022-06-03",
+      "TOTAL_CONF_CASES": 2,
+      "TOTAL_PROB_CASES": 0,
+      "TOTAL_CONF_DEATHS": 0,
+      "NEW_CONF_CASES": 2,
+      "NEW_PROB_CASES": 0,
+      "NEW_CONF_DEATHS": 0
+    },
+    {
+      "COUNTRY": "Australia",
+      "ISO3": "AUS",
+      "WHO_REGION": "WPRO",
+      "DATE": "2022-05-20",
+      "TOTAL_CONF_CASES": 2,
+      "TOTAL_PROB_CASES": 0,
+      "TOTAL_CONF_DEATHS": 0,
+      "NEW_CONF_CASES": 2,
+      "NEW_PROB_CASES": 0,
+      "NEW_CONF_DEATHS": 0
+    },
+    {
+      "COUNTRY": "Australia",
+      "ISO3": "AUS",
+      "WHO_REGION": "WPRO",
+      "DATE": "2022-06-02",
+      "TOTAL_CONF_CASES": 3,
+      "TOTAL_PROB_CASES": 0,
+      "TOTAL_CONF_DEATHS": 0,
+      "NEW_CONF_CASES": 1,
+      "NEW_PROB_CASES": 0,
+      "NEW_CONF_DEATHS": 0
+    },
+    {
+      "COUNTRY": "Australia",
+      "ISO3": "AUS",
+      "WHO_REGION": "WPRO",
+      "DATE": "2022-06-03",
+      "TOTAL_CONF_CASES": 5,
+      "TOTAL_PROB_CASES": 0,
+      "TOTAL_CONF_DEATHS": 0,
+      "NEW_CONF_CASES": 2,
+      "NEW_PROB_CASES": 0,
+      "NEW_CONF_DEATHS": 0
+    },
+    {
+      "COUNTRY": "Australia",
+      "ISO3": "AUS",
+      "WHO_REGION": "WPRO",
+      "DATE": "2022-06-04",
+      "TOTAL_CONF_CASES": 5,
+      "TOTAL_PROB_CASES": 1,
+      "TOTAL_CONF_DEATHS": 1,
+      "NEW_CONF_CASES": 0,
+      "NEW_PROB_CASES": 1,
+      "NEW_CONF_DEATHS": 1
+    }
+  ]
+}

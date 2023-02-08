@@ -172,10 +172,21 @@ class WHOIngestor(AgencyIngestor):
 	def get_data(self):
 		logging.info(f"Getting {self.name} data")
 		try:
-			self.data = requests.post(WHO_URL, json={}).json().get("Data")
+			data = requests.get(WHO_URL).json().get("value")
 		except Exception:
 			logging.exception(f"Something went wrong when trying to retrieve {self.name} data")
 			raise
+
+		# summarise data by keeping last date
+		last_seen_date = {}
+		for row in data:
+			if row.get("DATE", "") > last_seen_date.get(row.get("COUNTRY"), ""):
+				last_seen_date[row.get("COUNTRY")] = row.get("DATE")
+		self.data = [
+			row for row in data if
+			last_seen_date.get(row.get("COUNTRY"), "") == row.get("DATE")
+		]
+
 
 	def store_data(self):
 		self.data_to_s3()

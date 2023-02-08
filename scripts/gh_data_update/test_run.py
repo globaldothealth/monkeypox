@@ -57,7 +57,7 @@ def test_run():
 	tmp = get_who_data()
 	who_counts = {}
 	for country, count in tmp.items():
-		if "Region" in country or country == "UNITED STATES OF AMERICA" or count == 0:
+		if "Region" in country or country.upper() == "UNITED STATES OF AMERICA" or count == 0:
 			continue
 		who_counts[country_name_to_titlecase(country)] = count
 	assert who_counts == gh_global_counts

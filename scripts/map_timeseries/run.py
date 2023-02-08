@@ -25,13 +25,23 @@ import pandas as pd
 
 WHO_URL = os.getenv(
     "WHO_URL"
-)  # https://extranet.who.int/publicemergency/api/Monkeypox/
+)  # https://frontdoor-l4uikgap6gz3m.azurefd.net/MPX/V_MPX_VALIDATED_DAILY
 S3_BUCKET = os.getenv("S3_BUCKET")
 LOCALSTACK_URL = os.getenv("LOCALSTACK_URL")
 
 DB_CONNECTION = os.getenv("DB_CONNECTION")
 DATABASE_NAME = os.getenv("DATABASE_NAME")
 TIMESERIES_COLLECTION = os.getenv("TIMESERIES_COLLECTION", "who_timeseries")
+
+WHO_COLUMN_MAPPING = {
+    "DATE": "DATEREP",
+    "NEW_CONF_CASES": "NEW_CONFCASES",
+    "NEW_CONF_DEATHS": "NEW_CONFDEATHS",
+    "NEW_PROB_CASES": "NEW_PROBCASES",
+    "TOTAL_PROB_CASES": "TOTAL_PROBCASES",
+    "TOTAL_CONF_CASES": "TOTAL_CONFCASES",
+    "TOTAL_CONF_DEATHS": "TOTAL_ConfDeaths"
+}
 
 
 def setup_logger() -> None:
@@ -45,21 +55,15 @@ def fetch_who() -> pd.DataFrame:
     if WHO_URL is None:
         raise ValueError("Missing required environment variable WHO_URL")
     try:
-        res = requests.post(url=WHO_URL, json={})
+        res = requests.get(WHO_URL)
     except ConnectionError:
         logging.error(f"Failed to fetch data from {WHO_URL}")
     if res.status_code != 200:
         logging.error(f"HTTP request failed with code {res.status_code}")
     data = res.json()
-    df = pd.DataFrame(data["Data"])
-    assert {
-        "DATEREP",
-        "NEW_CONFCASES",
-        "NEW_CONFDEATHS",
-        "NEW_PROBCASES",
-        "TOTAL_CONFCASES",
-        "TOTAL_PROBCASES",
-    } <= set(df.columns)
+    df = pd.DataFrame(data["value"])
+    assert set(WHO_COLUMN_MAPPING.keys()) <= set(df.columns)
+    df = df.rename(columns=WHO_COLUMN_MAPPING)
     df["DATEREP"] = pd.to_datetime(df.DATEREP)
     return df
 

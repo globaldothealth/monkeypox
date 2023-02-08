@@ -11,7 +11,7 @@ services:
       S3_BUCKET: "fake"
       CDC_URL: "https://www.cdc.gov/wcms/vizdata/poxvirus/monkeypox/data/USmap_counts.csv"
       ECDC_URL: "https://monkeypoxreport.ecdc.europa.eu"
-      WHO_URL: "https://extranet.who.int/publicemergency/api/Monkeypox/CaseSummary"
+      WHO_URL: "https://frontdoor-l4uikgap6gz3m.azurefd.net/MPX/V_MPX_VALIDATED_DAILY"
       CDC_FOLDER: "cdc"
       ECDC_FOLDER: "ecdc"
       WHO_FOLDER: "who"

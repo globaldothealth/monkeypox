@@ -64,7 +64,7 @@ def get_who_data() -> dict:
 	logging.info("Getting WHO data from the database")
 	collection = MongoClient(DB_CONNECTION)[DATABASE_NAME][WHO_COLLECTION]
 	who_data = collection.find({})
-	return {x["COUNTRY"]: int(x["CasesAll"]) for x in who_data}
+	return {x["COUNTRY"]: int(x["TOTAL_CONF_CASES"]) for x in who_data}
 
 
 def get_gh_usa_data() -> dict:
@@ -112,7 +112,7 @@ def cdc_to_gh(cdc_data, gh_usa_data):
 def who_to_gh(who_data, gh_world_data):
 	logging.info("Adjusting G.h data to match WHO counts")
 	for country, count in who_data.items():
-		if country == "UNITED STATES OF AMERICA" or "Region" in country:
+		if country.upper() == "UNITED STATES OF AMERICA" or "Region" in country:
 			continue
 		title = country_name_to_titlecase(country)
 		if delta := count - gh_world_data.get(title, 0):
