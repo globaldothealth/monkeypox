@@ -1,8 +1,8 @@
-# Monkeypox data
+# Mpox data
 
 ## Contents
 
-The Global.health team completed a 100 days mission to provide decision makers, researchers, and the public with timely and accurate, openly-accessible, global line-list data for the 2022 monkeypox outbreak. Now, we are at a point of transition. On 2022-09-23, the Global.health team will shift from providing manually-curated line-list data to openly-available data resources, compiling downloadable monkeypox datasets with aggregate case data from the World Health Organization, U.S. Centers for Disease Control and Prevention, and the European Centre for Disease Control and Prevention. Global.health monkeypox line-list data, last updated 2022-09-22, will remain accessible via download through GitHub. We thank our user community for their many helpful contributions and for identifying Global.health as a trusted source of information.​
+The Global.health team completed a 100 days mission to provide decision makers, researchers, and the public with timely and accurate, openly-accessible, global line-list data for the 2022 Mpox outbreak. Now, we are at a point of transition. On 2022-09-23, the Global.health team will shift from providing manually-curated line-list data to openly-available data resources, compiling downloadable Mpox datasets with aggregate case data from the World Health Organization, U.S. Centers for Disease Control and Prevention, and the European Centre for Disease Control and Prevention. Global.health Mpox line-list data, last updated 2022-09-22, will remain accessible via download through GitHub. We thank our user community for their many helpful contributions and for identifying Global.health as a trusted source of information.​
 
 Users can access the latest data set, and archived line list, case definition, and ECDC files [here](https://7rydd2v2ra.execute-api.eu-central-1.amazonaws.com/web/). 
 The archives folder contains timestamped JSON and CSV files.
@@ -14,7 +14,7 @@ The archives folder contains timestamped JSON and CSV files.
 * **2022-07-11**: From this date data files (`latest.csv`, `timeseries-*.csv`) have cases from the current outbreak, and from countries where MPXV is endemic. The lists are distinguished by the first letter of the ID, which is a string: **N** denoting cases from the current outbreak (equivalent to the current list), and **E** for cases from endemic countries.
 * **2022-07-22**: Endemic data has been updated to accurately reflect confirmed/suspected/total cases from source reporting.
 
-This repository contains dated records of curated Monkeypox cases from the 2022 outbreak (April - ), a [data dictionary](data_dictionary.yml), and a script used to pull contents from a spreadsheet into JSON and CSV files.
+This repository contains dated records of curated Mpox cases from the 2022 outbreak (April - ), a [data dictionary](data_dictionary.yml), and a script used to pull contents from a spreadsheet into JSON and CSV files.
 
 The script is intended for use by the curation team and supporting engineers. It requires access to the relevant Google Sheet, and a Google Cloud service account.
 
@@ -65,12 +65,12 @@ or email data to info@global.health. Remove any Personally Identifiable Informat
 
 This repository and data exports are published under the CC BY 4.0 license.
 
-Please cite as: "Global.health Monkeypox (accessed on YYYY-MM-DD)" 
+Please cite as: "Global.health Mpox (accessed on YYYY-MM-DD)" 
 
 &
 
-Kraemer, Tegally, Pigott, Dasgupta, Sheldon, Wilkinson, Schultheiss, et al. Tracking the 2022 Monkeypox Outbreak with Epidemiological Data in Real-Time. The Lancet Infectious Diseases. https://doi.org/10.1016/S1473-3099(22)00359-0.
+Kraemer, Tegally, Pigott, Dasgupta, Sheldon, Wilkinson, Schultheiss, et al. Tracking the 2022 Mpox Outbreak with Epidemiological Data in Real-Time. The Lancet Infectious Diseases. https://doi.org/10.1016/S1473-3099(22)00359-0.
 
 For ECDC files, please cite (files are licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)):
 
-European Centre for Disease Prevention and Control/WHO Regional Office for Europe. Monkeypox, Joint Epidemiological overview, {day} {month}, 2022
+European Centre for Disease Prevention and Control/WHO Regional Office for Europe. Mpox, Joint Epidemiological overview, {day} {month}, 2022
