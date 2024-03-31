@@ -27,22 +27,21 @@ There is also a daily briefing report generated from this data at https://www.mo
 ## Getting the data
 
 ### Line list with aggregated counts from WHO and CDC
-CSV: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.csv  
+[CSV](https://7rydd2v2ra.execute-api.eu-central-1.amazonaws.com/web/url?folder=&file_name=latest.csv)  
 
 ### Deprecated: Final line list from Global.health, as of 2022-09-22
-CSV: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest_deprecated.csv
-
-Timeseries: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/timeseries-confirmed-deprecated.csv  
-Timeseries by country: https://raw.githubusercontent.com/globaldothealth/monkeypox/main/timeseries-country-confirmed-deprecated.csv
+[CSV](https://raw.githubusercontent.com/globaldothealth/monkeypox/946edb545947af7f5195459ce52bb71d098e240c/latest_deprecated.csv)
+[Timeseries](https://raw.githubusercontent.com/globaldothealth/monkeypox/946edb545947af7f5195459ce52bb71d098e240c/timeseries-confirmed-deprecated.csv)
+[Timeseries by country](https://raw.githubusercontent.com/globaldothealth/monkeypox/946edb545947af7f5195459ce52bb71d098e240c/timeseries-country-confirmed-deprecated.csv)
 
 ### Python
 ```python
 import pandas as pd
-df = pd.read_csv("https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.csv")
+df = pd.read_csv("https://7rydd2v2ra.execute-api.eu-central-1.amazonaws.com/web/url?folder=&file_name=latest.csv")
 ```
 ### R
 ```r
-df <- read.csv("https://raw.githubusercontent.com/globaldothealth/monkeypox/main/latest.csv")
+df <- read.csv("https://7rydd2v2ra.execute-api.eu-central-1.amazonaws.com/web/url?folder=&file_name=latest.csv")
 ```
 
 ## Contributing
@@ -52,8 +51,7 @@ If requesting a fix please include steps to reproduce undesirable behaviors.
 
 If you would like to contribute, assign an issue to yourself and/or reach out to a contributor and we will happily help you help us.
 
-If you want to send data to us, you can use our template at [monkeypox-template.csv](monkeypox-template.csv) which makes
-it easier for us to add to our list. Just open an issue and attach a CSV / XLSX file in this repository,
+If you want to send data to us, just open an issue and attach a CSV / XLSX file in this repository,
 or email data to info@global.health. Remove any Personally Identifiable Information.
 
 ## Visualizations
