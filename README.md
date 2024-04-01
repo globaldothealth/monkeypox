@@ -4,8 +4,10 @@
 
 The Global.health team completed a 100 days mission to provide decision makers, researchers, and the public with timely and accurate, openly-accessible, global line-list data for the 2022 Mpox outbreak. Now, we are at a point of transition. On 2022-09-23, the Global.health team will shift from providing manually-curated line-list data to openly-available data resources, compiling downloadable Mpox datasets with aggregate case data from the World Health Organization, U.S. Centers for Disease Control and Prevention, and the European Centre for Disease Control and Prevention. Global.health Mpox line-list data, last updated 2022-09-22, will remain accessible via download through GitHub. We thank our user community for their many helpful contributions and for identifying Global.health as a trusted source of information.​
 
-Users can access the latest data set, and archived line list, case definition, and ECDC files [here](https://7rydd2v2ra.execute-api.eu-central-1.amazonaws.com/web/). 
+Users can access the latest data set, case definition, and ECDC data [here](https://7rydd2v2ra.execute-api.eu-central-1.amazonaws.com/web/). 
 The archives folder contains timestamped JSON and CSV files.
+
+The latest line list which was updated last on 2022-09-22 is available from [here](https://raw.githubusercontent.com/globaldothealth/monkeypox/946edb545947af7f5195459ce52bb71d098e240c/latest_deprecated.csv).
 
 #### Data changes
 * **2022-09-23**: Deprecated `latest.csv` file.
